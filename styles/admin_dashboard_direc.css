@@ -1,0 +1,43 @@
+.directory_section{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.directory_section .directory_container{
+  background-color: #D9D9D9;
+  padding: 2vw;
+  border: #1F1F1F solid .2rem;
+  border-radius: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 2rem;
+}
+.directory_section .directory_container button{
+  padding: 0 2vw;
+  width: 28vw;
+  height: 6vw;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.5vw;
+  font-weight: 700;
+  color: #FAFBF5;
+  align-items: center;
+  cursor: pointer;
+}
+.directory_container button span {
+  font-size: 2.3vw;
+}
+.directory_container .fitness_content_management_directory{
+  background-color: #D35B50;
+}
+.directory_container .diet_content_management_directory{
+  background-color: #A1C14B;
+}
+.directory_container .user_management_directory{
+  background-color: #1F1F1F;
+}
+.directory_container .view_user_feedback_directory{
+  background-color: #8998AD;
+}

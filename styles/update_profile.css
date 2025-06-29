@@ -1,0 +1,255 @@
+/* UPDATE PROFILE */
+.update_container {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(31, 31, 31, 0.5);
+  backdrop-filter: blur(5px);
+}
+#update_profile {
+  background-color: #FAFBF5;
+  width: 70vw;
+  height: fit-content;
+}
+#update_profile .update_profile_directory {
+  display: flex;
+  align-items: center;
+  font-size: 1vw;
+  font-weight: 800;
+  gap: 2vw;
+  color: #FAFBF5;
+  background-color: #1F1F1F;
+  padding: 1.5vw 4vw;
+}
+.update_profile_directory .icon {
+  font-size: 1.5vw;
+  border: #FAFBF5 .4vw solid;
+  width: 3.2vw;
+  height: 3.2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#update_profile .update_content {
+  padding: .5vw 3vw 3vw;
+}
+.edit_profile {
+  display: flex;
+  flex-direction: column;
+  gap: .5vw;
+}
+.edit_profile h2 {
+  text-decoration: underline;
+  font-size: 1.5vw;
+}
+.edit_profile .picture_selection {
+  background-color: #1F1F1F;
+  display: flex;
+  justify-content: space-between;
+  padding: 1vw 5vw;
+}
+.edit_profile .picture_selection .profile_pic_option{
+  width: 7vw;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.edit_profile .picture_selection .profile_pic_option.selected{
+  box-shadow: 0 0 0 .3vw #1AFF00;
+}
+.picture_selection .profile_pic_option img {
+  width: 100%;
+  object-fit: cover;
+}
+.edit_details #update_profile_form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  font-size: 1vw;
+}
+#update_profile_form label input {
+  font-size: 1vw;
+}
+#update_profile_form label {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+#update_profile_form .edit_username {
+  width: 100%;
+  padding: 1vw;
+}
+#update_profile_form input {
+  border-radius: .8vw;
+  box-shadow: 0 .3vw .8vw 0 #1F1F1F;
+  padding: .5vw 2vw;
+}
+#update_profile_form .edit_username input {
+  width: 100%;
+}
+
+#update_profile_form .edit_container {
+  display: flex;
+  width: 100%;
+}
+
+.edit_container .edit_sub_container1 {
+  width: 100%;
+  padding: 1.5vw 0 1.5vw 5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+}
+.edit_sub_container1 input {
+  width: 20vw;
+}
+.edit_container .edit_sub_container2 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 1vw 2VW;
+  gap: 1vw;
+}
+.edit_sub_container2 button {
+  background-color: #D35B50;
+  padding: 1vw 2vw;
+  color: #FAFBF5;
+  font-size: 1.2vw;
+  font-weight: 700;
+  border: none;
+  border-radius: 1vw;
+  cursor: pointer;
+} 
+.edit_sub_container2 .edit_gender {
+  display: flex;
+  justify-content: space-around;
+}
+#update_profile_form .edit_gender label {
+  flex-direction: column;
+  gap: .2vw;
+  cursor: pointer;
+}
+.edit_sub_container2 .edit_gender input {
+  display: none;
+}
+.edit_gender .gender{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.5vw;
+  width: 6.5vw;
+  height: 6vw;
+  border: 3px solid #1F1F1F;
+  border-radius: 20%;
+}
+.edit_gender .male_select {
+  color: #0066FF;
+}
+.edit_gender .female_select {
+  color: #FF0AE2;
+}
+.edit_gender .gender .check{
+  position: absolute;
+  top: .3vw;
+  right: .3vw;
+  font-size: 1.5vw;
+  color: #1F1F1F;
+  display: none;
+}
+.edit_gender .gender.selected{
+  background-color: #E6E6E4;
+}
+.edit_gender .gender.gender.selected .check {
+  display: flex;
+}
+
+.edit_details #change{
+  display: flex;
+  width: 100%;
+  padding: 0 4.5vw;
+  align-items: center;
+  justify-content: end;
+  gap: 3vw;
+}
+.edit_details #change .message_area{
+  color: #1F1F1F;
+  font-size: 1.5vw;
+}
+.edit_details #change button{
+  padding: 1vw 1vw;
+  font-size: 1.5vw;
+  font-weight: 700;
+  background-color: #A1C14B;
+  color: #FAFBF5;
+  border-radius: 1vw;
+  border: none;
+  cursor: pointer;
+}
+@media (max-width: 1200px) {
+#update_profile {
+  width: 80vw;
+  height: fit-content;
+}
+#update_profile .update_profile_directory {
+  font-size: 2vw;
+  font-weight: 800;
+}
+.update_profile_directory .icon {
+  font-size: 1.5vw;
+  border: #FAFBF5 .5vw solid;
+  width: 3.2vw;
+  height: 3.2vw;
+}
+.edit_profile h2 {
+  font-size: 3vw;
+}
+.edit_profile .picture_selection .profile_pic_option{
+  width: 10vw;
+}
+.edit_details #update_profile_form {
+  font-size: 2vw;
+}
+#update_profile_form label input {
+  font-size: 2vw;
+}
+#update_profile_form label {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 1vw;
+}
+.edit_container .edit_sub_container2 {
+  gap: 3vw;
+}
+#update_profile_form .edit_gender label {
+  align-items: center;
+}
+.edit_gender .gender{
+  width: 8vw;
+  height: 8vw;
+  border: 3px solid #1F1F1F;
+  border-radius: 20%;
+}
+.edit_sub_container2 button {
+  padding: 1vw 2vw;
+  font-size: 2vw;
+  font-weight: 700;
+} 
+.edit_details #change .message_area{
+  font-size: 2vw;
+}
+.edit_details #change button{
+  font-size: 2vw;
+}
+}

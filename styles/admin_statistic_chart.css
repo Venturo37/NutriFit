@@ -1,0 +1,95 @@
+.statistics{
+  display: flex;
+  flex-direction: row;
+  gap: 3vw;
+  justify-content: center;
+  margin: 2vw;
+}
+.statistics .user_fitness_statistic h2, .user_nutrition_statistic h2{
+  font-size: 1.5vw;
+  display: flex;
+  flex-direction: column;
+  color: #9291A5;
+  border-bottom: #9291A5 solid 2px;
+  padding-bottom: 1vw;
+}
+.statistics .user_fitness_statistic span, .user_nutrition_statistic span{
+  font-size: 2vw;
+  color: #1F1F1F;
+}
+.user_fitness_statistic, .user_nutrition_statistic{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 1vw;
+  background-color: white;
+  border: #1F1F1F solid 3px;
+  border-radius: 3vw;
+  padding: 2vw;
+}
+
+.statistic_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vw;
+}
+.statistic_container .chart_container canvas{
+  flex: 1 1;
+  width: 25vw;
+}
+.statistic_details {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.statistic_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.statistic_sub_item{
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+.statistic_dot {
+  width: 1vw;
+  height: 1vw;
+  border-radius: 50%;
+}
+.statistic_name {
+  font-size: 2vw;
+  font-weight: 500;
+}
+.statistic_count {
+  font-size: 2vw;
+  color: #9291A5;
+}
+
+@media (max-width: 1200px) {
+  .statistics {
+    flex-direction: column;
+  }
+  .user_fitness_statistic, .user_nutrition_statistic {
+    width: 100%;
+    border-radius: 5vw;
+    padding: 2.5vw;
+
+  }
+  .statistic_container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 5vw;
+  }
+  .statistic_container .chart_container canvas {
+    width: 130%;
+  }
+  .statistic_details {
+    width: fit-content  ;
+  }
+  .statistic_item {
+    width: 30vw;
+  }
+}
