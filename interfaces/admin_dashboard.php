@@ -201,16 +201,16 @@ $profile_src = getProfilePic ($connection, $user['pic_id']);
         </div>
         <div class="directory_section">
             <div class="directory_container">
-                <button class="fitness_content_management_directory">
+                <button class="fitness_content_management_directory" onclick="window.location.href='#'">
                     Fitness Content Management <span><i class="fa-solid fa-chevron-right"></i></span>
                 </button>
-                <button class="diet_content_management_directory">
+                <button class="diet_content_management_directory" onclick="window.location.href='#'">
                     Diet Content Management <span><i class="fa-solid fa-chevron-right"></i></span>
                 </button>
-                <button class="user_management_directory">
+                <button class="user_management_directory" onclick="window.location.href='../interfaces/admin_user_management.php'">
                     User Management <span><i class="fa-solid fa-chevron-right"></i></span>
                 </button>
-                <button class="view_user_feedback_directory">
+                <button class="view_user_feedback_directory" onclick="window.location.href='../interfaces/feedback.php'">
                     View User Feedback <span><i class="fa-solid fa-chevron-right"></i></span>
                 </button>
             </div>

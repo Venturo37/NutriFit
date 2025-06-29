@@ -1,13 +1,10 @@
 <?php
 
-// session_start();
+include(__DIR__ . '/../features/connection.php');
 
-include('../features/connection.php');
+include(__DIR__ . '/../features/restriction.php');
 
-
-include('../features/restriction.php');
-
-include('../features/embed.php');
+include(__DIR__ . '/../features/embed.php');
 
 $sql = "SELECT f.fdbk_timestamp, f.fdbk_rating, f.fdbk_response, u.usr_name, u.usr_email 
         FROM feedback_t f
@@ -15,20 +12,24 @@ $sql = "SELECT f.fdbk_timestamp, f.fdbk_rating, f.fdbk_response, u.usr_name, u.u
 
 $result = mysqli_query($connection, $sql);
 
+if (!$result) {
+    die("Query failed: " . mysqli_error($connection));
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Feedbacks</title>
 </head>
 <body>
     <div class="overlay"></div>
 
-    <?php include('header.php') ?>
-    <div class="content">
+    <?php include('../features/header.php') ?>
+    <div id="content">
         <div id="feedback_title">
             <h1>User Feedback</h1>
         </div>
@@ -50,7 +51,7 @@ $result = mysqli_query($connection, $sql);
                         <td><?php echo $row['usr_email']?></td>
                         <td><?php echo $row['fdbk_rating']?></td>
                         <td><img 
-                            src="images/feedback-info.png"
+                            src="../images/feedback-info.png"
                             onclick="showPopup(
                                 '<?php echo $row['fdbk_timestamp']; ?>',
                                 '<?php echo $row['usr_name']; ?>',
@@ -67,7 +68,7 @@ $result = mysqli_query($connection, $sql);
 
     <div id="feedback_popup" style="display: none">
         <div id="feedback_popup_title">
-            <button id="exit_button" onclick="hidePopup();"><img src="images/feedback-exit.jpg" alt=""></button>
+            <button id="exit_button" onclick="hidePopup();"><img src="../images/feedback-exit.jpg" alt=""></button>
             <h1>User Feedback</h1>
         </div>
 
@@ -88,6 +89,6 @@ $result = mysqli_query($connection, $sql);
         </div>
     </div>
 
-    <?php include('footer.php') ?>
+    <?php include('../features/footer.php') ?>
 </body>
 </html>

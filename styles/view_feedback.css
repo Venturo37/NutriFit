@@ -1,0 +1,261 @@
+/* ========== FEEDBACK TITLE ========== */
+#feedback_title h1 {
+  text-align: center;
+  color: black;
+  font-size: 3rem;
+}
+
+/* ========== FEEDBACK TABLE ========== */
+#feedback_table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 75%;
+  padding: 20px;
+  margin: 20px auto;
+
+  gap: 10px;
+
+  border-radius: 20px;
+  border: 2px solid black;
+
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#feedback_table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+  text-align: center;
+}
+
+#feedback_table th,
+#feedback_table td {
+  padding: 14px 16px;
+  color: #FAFBF5;
+  font-weight: bold;
+}
+
+#feedback_table th {
+  background-color: #FAFBF5;
+  color: #1F1F1F80;
+  font-size: 20px;
+}
+
+#feedback_table td {
+  font-size: 15px;
+}
+
+#feedback_table tr:nth-child(even) {
+  background-color: #A1C14B;
+}
+
+#feedback_table tr:nth-child(odd) {
+  background-color: #F3CE6E;
+}
+
+#feedback_table td:last-child img {
+  height: 20px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ========== FEEDBACK POPUP ========== */
+.blur {
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.overlay {
+  display: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+#feedback_popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 100;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: white;
+  border-radius: 16px;
+  padding: 45px;
+
+  width: 85%;
+  height: 85%;
+}
+
+#feedback_popup_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#feedback_popup_title #exit_button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  background: none;
+  left: 60px;
+}
+
+#close_button img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+#feedback_popup_title h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+}
+
+#feedback_popup_info {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 27px;
+  padding-left: 10px;
+
+  height: 35%;
+}
+
+#feedback_popup_info #left_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  width: 50%;
+  height: 100%;
+}
+
+#feedback_popup_info #right_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 50%;
+  height: 100%;
+}
+
+#feedback_popup_response {
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 10px;
+  font-size: 27px;
+
+  height: 60%;
+  width: 100%;
+
+  gap: 10px;
+}
+
+#feedback_popup_response #popup_response {
+  display: block;
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+
+  padding: 5px;
+}
+
+@media (max-width: 768px) {
+  /* FEEDBACK TITLE */
+  #feedback_title h1 {
+    font-size: 2rem;
+  }
+
+  /* FEEDBACK TABLE */
+  #feedback_table {
+    max-width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  #feedback_table th,
+  #feedback_table td {
+    padding: 10px 10px;
+    font-size: 10px;
+  }
+
+  #feedback_table th {
+    font-size: 12px;
+  }
+
+  #feedback_table td:last-child img {
+    height: 18px;
+  }
+
+  /* FEEDBACK POPUP */
+  #feedback_popup {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+  }
+
+  #feedback_popup_title h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  #feedback_popup_title #exit_button {
+    left: 20px;
+  }
+
+  #close_button img {
+    width: 20px;
+    height: 20px;
+  }
+
+  #feedback_popup_info {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 18px;
+    height: auto;
+    padding-top: 20px;
+  }
+
+  #feedback_popup_info #left_section,
+  #feedback_popup_info #right_section {
+    width: 100%;
+    height: auto;
+  }
+
+  #feedback_popup_response {
+    font-size: 18px;
+    height: auto;
+  }
+
+  #feedback_popup_response #popup_response {
+    height: 600px;
+  }
+}

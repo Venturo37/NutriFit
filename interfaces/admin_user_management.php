@@ -18,6 +18,16 @@ if (!isset($_SESSION['adm_id'])) {
 
 $logged_in_adm_id = $_SESSION['adm_id'];
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management</title>
+</head>
+<body>
+
 <div id="content">
   <div class="usermanage_header">
     <h2>User Management</h2>
@@ -522,3 +532,6 @@ document.querySelector('.profile_btn.red').addEventListener('click', () => {
 });
 
 </script>
+  
+</body>
+</html>

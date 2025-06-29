@@ -19,7 +19,7 @@ if (isset($_GET['token'])) {
     $token = $_GET['token'];
     $token_hash = hash("sha256", $token);
 
-    $mysqli = require __DIR__ . "/connection.php";
+    $mysqli = require __DIR__ . '../features/connection.php';
 
     $stmt = $mysqli->prepare("SELECT usr_id, rst_pass_log_expires FROM reset_password_log_t WHERE rst_pass_log_token = ?");
     $stmt->bind_param("s", $token_hash);
@@ -79,27 +79,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
         }
     }
 
+    // CHANGES, YOU CAN CHANGE THE LOCATION TO WHATEVER
     if ($action == 'login') {
         $email = $_POST['login_email_input'];
         $password = $_POST['login_password_input'];
 
-        $query = "SELECT * FROM user_t WHERE usr_email='$email' AND usr_password='$password'";
-        $result = mysqli_query($connection, $query);
+        // Check user_t
+        $query_user = "SELECT * FROM user_t WHERE usr_email='$email' AND usr_password='$password'";
+        $result_user = mysqli_query($connection, $query_user);
 
-        if (mysqli_num_rows($result) == 1) {
-            $row = mysqli_fetch_assoc($result);
+        if (mysqli_num_rows($result_user) == 1) {
+            $row = mysqli_fetch_assoc($result_user);
             $_SESSION['usr_id'] = $row['usr_id'];
 
             header("Location: about_us.php");
             exit();
-        } else {
-            echo "<script>
-                    alert('Login failed! Please try again.');
-                    window.location.href = 'authentication.php';
-                </script>";
+        }
+
+        // Check admin_t
+        $query_admin = "SELECT * FROM admin_t WHERE adm_email='$email' AND adm_password='$password'";
+        $result_admin = mysqli_query($connection, $query_admin);
+
+        if (mysqli_num_rows($result_admin) == 1) {
+            $row = mysqli_fetch_assoc($result_admin);
+            $_SESSION['adm_id'] = $row['adm_id'];
+
+            header("Location: admin_dashboard.php");
             exit();
         }
+
+        // If neither matched
+        echo "<script>
+                alert('Login failed! Please try again.');
+                window.location.href = 'authentication.php';
+            </script>";
+        exit();
     }
+
 
     // RESET PASSWORD PHP //
 
@@ -110,7 +126,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
         $token_hash = hash("sha256", $token);
         $expiry = date("Y-m-d H:i:s", time() + 60 * 30);
 
-        $mysqli = require __DIR__ . "/connection.php";
+        // CHANGES
+        $mysqli = require __DIR__ . '/../features/connection.php';
 
         $get_user_sql = "SELECT usr_id FROM user_t WHERE usr_email = ?";
         $get_user_stmt = $mysqli->prepare($get_user_sql);
@@ -441,7 +458,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
 <!-- Users are presented with login page first -->
 <script>
     const mediaQueryWidth = window.matchMedia("(max-width: 1200px)");
-    const mediaQueryHeight = window.matchMedia("(max-height: 1060px)");
+    const mediaQueryHeight = window.matchMedia("(max-height: 800px)");
 
     mediaQueryWidth.addEventListener("change", handleResponsiveImage);
     mediaQueryHeight.addEventListener("change", handleResponsiveImage);

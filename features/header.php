@@ -17,11 +17,11 @@
     } 
         
     if (!isset($_SESSION['usr_id']) && !isset($_SESSION['adm_id'])) {
-        $logo_link = 'authentication.php';
+        $logo_link = '../interfaces/authentication.php';
     } elseif (isset($_SESSION['usr_id'])) {
-        $logo_link = '';
+        $logo_link = '../interfaces/fitness_page.php';
     } elseif (isset($_SESSION['adm_id'])) {
-        $logo_link = 'admin_dashboard.php';
+        $logo_link = '../interfaces/admin_dashboard.php';
     } 
 
     include('../features/embed.php'); 
@@ -39,7 +39,7 @@
             <?php if (!isset($_SESSION['usr_id']) && !isset($_SESSION['adm_id'])) { ?>
                 
             <?php } elseif (isset($_SESSION['usr_id'])) {?>
-                <li><a href="#">Fitness</a></li>
+                <li><a href="../interfaces/fitness_page.php">Fitness</a></li>
                 <li><a href="#">Diet</a></li>
                 <li><a href="../interfaces/about_us.php">About Us</a></li>
                 <li><a href="../interfaces/user_profile.php">Profile</a></li>
@@ -48,7 +48,7 @@
                 <li><a href="../interfaces/admin_user_management.php">Users</a></li>
                 <li><a href="#">Fitness</a></li>
                 <li><a href="#">Diet Us</a></li>
-                <li><a href="#">Feedback</a></li>
+                <li><a href="../interfaces/feedback.php">Feedback</a></li>
                 <li><a href="../interfaces/authentication.php">Log Out</a></li>
             <?php } ?>
         </ul>

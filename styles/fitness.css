@@ -1,0 +1,787 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --red: #D35B50;
+  --green: #a6d44d;
+  --light-gray: #E6E6E4;
+  --play-yellow: #E0912F;
+  --gray-bg: #f3f3f3;
+  --text-black: #000;
+  --text-shadow: #a6d44d;
+    --lime: #c5e663;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fdfefa;
+}
+
+/* ---------- LAYOUT WRAPPER ---------- */
+.shape-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+/* ---------- Gray Box ---------- */
+.gray-bg-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48%;
+  height: 72%;
+  background-color: #E6E6E4;
+  border-radius: 25px;
+  padding: 30px 40px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  z-index: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: right;
+  pointer-events: none;
+  margin-left: 70px;
+  top: 220px;
+}
+
+.slogan-text {
+  font-weight: 900;
+  font-size: 3.0vw;
+  line-height: 1.4;
+  color: black;
+  text-shadow: 4px 4px 0 #a6d44d;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+/* ---------- Main Red Shape Content Wrapper ---------- */
+.svg-wrapper {
+  position: relative;
+  width: 1200px;
+  max-width: 100%;
+  margin: 60px auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  z-index: 2;
+}
+
+/* ---------- RED SHAPE ---------- */
+.svg-container {
+  position: relative;
+  flex-shrink: 0;
+  width: 515px;
+  height: 420px;
+}
+
+.red-shape {
+  width: 120%;
+  height: auto;
+  display: block;
+  z-index: 1;
+  margin-left: -30px;
+}
+
+/* ---------- CONTENT ON SHAPE ---------- */
+.svg-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.2vw;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  display: block;
+  margin-left: 5px;
+}
+
+.svg-content h3 {
+  margin-top: 30px;
+  margin-left: 25px;
+}
+
+.btn-section {
+  position: absolute;
+  bottom: -20px;
+  left: 54%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+.label-green {
+  background-color: var(--green);
+  border: none;
+  border-radius: 10px;
+  padding: 16px 30px;
+  font-weight: bold;
+  color: white;
+  font-size: 1.3vw;
+  height: 80px;
+  width: 250px;
+}
+
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+}
+
+.category-dropdown {
+  font-size: 1.3vw;
+  padding: 16px 30px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  width: 250px;
+  height: 80px;
+  appearance: none; /* remove default arrow */
+  position: relative;
+}
+
+.dropdown-wrapper .custom-arrow {
+  position: absolute;
+  top: 55%;
+  right: 30px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #333; 
+  font-size: 1.2vw;
+}
+
+/* ---------- BMI BOX BESIDE SHAPE ---------- */
+.bmi-box {
+  position: absolute;
+  top: 40px;
+  left: 320px;
+  background-color: #c9ef6b;
+  padding: 30px 35px;
+  border-radius: 12px;
+  color: #222;
+  font-weight: bold;
+  font-size: 1.3vw;
+  min-width: 220px;
+  z-index: 3;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bmi-circle {
+  position: absolute;
+  top: 68px;
+  right: -30px;
+  background-color: var(--green);
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid #E6E6E4;
+  text-align: center;
+  line-height: 65px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1vw;
+}
+
+
+/* ---------- RIGHT SECTION ---------- */
+.right-section {
+  margin-left: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.search-box {
+  position: relative;
+  width: 320px;
+}
+
+.search-icon i {
+  color: #333;
+  font-size: 1.5vw;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 35px 10px 12px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  font-size: 1.2vw;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.kcal-box p {
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5vw;
+}
+
+.kcal-circle {
+  margin-top: 30px;
+  border: 8px solid var(--red);
+  padding: 20px;
+  border-radius: 50%;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.8vw;
+  color: var(--red);
+}
+
+.kcal-circle i {
+  font-size: 4vw;
+  padding: 10px;
+}
+
+.btn-meal {
+  margin-top: 20px;
+  background-color: var(--green);
+  border: none;
+  border-radius: 10px;
+  padding: 20px 35px;
+  font-weight: bold;
+  color: white;
+  font-size: 1.3vw;
+  cursor: pointer;
+  width: 220px;
+}
+
+.btn-meal:hover {
+  background-color: #8fc034;
+}
+
+/* ---------- WORKOUT CARDS ---------- */
+.fitness-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin: 120px;
+  justify-content: center;
+}
+
+.card {
+  width: 380px;
+  height: 320px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  background-color: #fff3cd;
+}
+
+.card-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background: #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-img {
+  width: 120%;
+  max-height: 220px;
+  object-fit: contain;
+}
+
+.card-play {
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+  background-color: var(--play-yellow);
+  border: none;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2vw;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card-play i{
+  font-size: 1.5vw;
+}
+
+.card-body {
+  padding: 10px 15px;
+  font-size: 1.2vw;
+  text-align: left;
+}
+
+.card-body h4 {
+  font-size: 1.5vw;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.card-category {
+  background-color: #f1c40f;
+  color: #333;
+  font-size: 1vw;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 8px;
+  float: right;
+}
+
+.card-kcal {
+  font-size: 1vw;
+  color: #c44;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+
+/* ---------- FITNESS SESSION ---------- */
+.shape-wrapper {
+  position: relative;
+  width: fit-content; /* or 100% if you want full width */
+  height: fit-content;
+}
+
+.gray-background {
+  position: absolute;
+  top: 320px; /* adjust position as needed */
+  left: 350px;
+  width: 800px;
+  height: 720px;
+  background-color: #D9D9D9;
+  border-radius: 40px;
+  z-index: 0;
+}
+
+.shape2 {
+  position: relative;
+  width: 1112px;
+  height: 982px;
+  margin: 60px auto;
+  background-color: var(--red);
+  clip-path: path("M 0,28 A 28,28 0,0,1 28,0 L 457.82,0 A 28,28 0,0,1 485.82,28 L 485.82,425 A 28,28 0,0,0 513.82,453 L 1084,453 A 28,28 0,0,1 1112,481 L 1112,954 A 28,28 0,0,1 1084,982 L 480.96,982 A 28,28 0,0,1 452.96,954 L 452.96,588 A 28,28 0,0,0 424.96,560 L 28,560 A 28,28 0,0,1 0,532 Z");
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.session-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+}
+
+.left-section {
+  flex: 1;
+  padding: 10px 30px;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  margin-bottom: 420px;
+  margin-right: 150px;
+}
+
+.left-section h1 {
+  font-size: 3vw;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  background: white;
+  color: black;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  width: 260px;
+  margin: 0 auto 20px auto;
+}
+
+.stat-row i {
+  margin-right: 10px;
+}
+
+.left-section p strong {
+  display: block;
+  text-align: center;
+  font-size: 1.5vw;
+  margin-bottom: 10px;
+}
+
+.category-btn {
+  display: block;
+  background-color: white;
+  color: black;
+  padding: 10px 16px;
+  font-weight: bold;
+  font-size: 1.1vw;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  width: 150px;
+  margin: 10px auto 20px auto;
+}
+
+.description {
+  font-size: 1vw;
+  line-height: 1.5;
+  text-align: justify;
+  color: #f1f1f1;
+  max-width: 320px;
+  margin-left: 10px;
+}
+
+.right-section2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 470px;
+  margin-right: 80px;
+}
+
+.timer-circle {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+.timer-circle svg {
+  transform: rotate(-90deg);
+}
+
+#time-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: white;
+  font-weight: bold;
+}
+
+#progress-ring-circle {
+  stroke-dasharray: 1130.97;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear;
+  transform: rotate(0deg);
+  transform-origin: center;
+}
+
+.button-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 450px;
+  height: 80px; 
+  margin-top: -100px;
+  position: relative;
+  transform: translateX(174%);
+  margin-bottom: 80px;
+  z-index: 3;
+}
+
+#start-wrapper,
+#control-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.action-btn {
+  padding: 15px 30px;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s;
+  width: 200px;
+  height: 60px;
+}
+
+.action-btn.green {
+  background-color: #C8E043;
+  color: white;
+}
+
+.action-btn.green:hover {
+  background-color: #b2cb3a;
+  transform: scale(1.02);
+}
+
+.action-btn.white {
+  background-color: white;
+  color: black;
+}
+
+.action-btn.white:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.02);
+}
+
+.motivation-wrapper {
+  position: absolute;
+  top: 240px;
+  left: 750px;
+  z-index: 2;
+}
+
+.slogan-text2 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  font-weight: bold;
+  text-align: left;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+.bold-shadow {
+  text-shadow: 2px 2px 0 #ffe799;
+}
+
+.slogan-text2 .red {
+  color: #d94b3d;
+}
+
+.level-select {
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.level-select label {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.level-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px; /* space between buttons */
+  flex-wrap: wrap; /* optional for small screen responsiveness */
+  margin-top: 20px;
+}
+
+.level-btn {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  width: 170px;
+  height: 60px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease;
+  border: 3px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.level-btn.active,
+.level-btn:hover {
+  background-color: #c8e043;
+  color: white;
+}
+
+
+/* ---------- FITNESS RESULT ---------- */
+.resultBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.result-container {
+  position: relative;
+  z-index: 2;
+  padding: 40px 60px;
+  min-height: 100vh;
+  margin-bottom: 50px;
+}
+
+.result-left {
+  margin-bottom: 40px;
+}
+
+.workout-name {
+  font-size: 3.5vw;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.intensity {
+  color: #c5e630;
+  font-weight: bold;
+  font-size: 1.8vw;
+  margin-bottom: 20px;
+}
+
+.status {
+  font-weight: bold;
+  font-size: 1.8vw;
+}
+
+.banner-container {
+  position: relative;
+  margin-top: 40px;
+  height: 220px;
+  overflow: visible;
+}
+
+.banner-text {
+  top: 30%;
+  left: 8%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 8vw;
+  font-weight: 900;
+  color: white;
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  filter: drop-shadow(2px 4px 1px rgba(0, 0, 0, 0.3));
+}
+
+.result-banner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.athlete-img {
+  position: absolute;
+  right: 380px;
+  bottom: 40px;
+  width: 26%;
+  object-fit: contain;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.burned-info {
+  text-align: center;
+  margin-top: 60px;
+  margin-left: 250px;
+}
+
+.burned-title {
+  color: #d15347;
+  font-weight: 900;
+  font-size: 3.5vw;
+  font-style: italic;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.burned-title .fire-icon {
+  margin-left: 5px;
+}
+
+.burned-kcal {
+  color: #d15347;
+  font-size: 2.8vw;
+  font-weight: bold;
+}
+
+.return-btn {
+  display: block;
+  margin-left: 1050px;
+  padding: 12px 24px;
+  font-size: 1.5vw;
+  width: 250px;
+  height: 60px;
+  margin-top: -65px;
+  font-weight: bold;
+  border: none;
+  background-color: #c5e630;
+  color: rgb(255, 255, 255);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.return-btn:hover {
+  background-color: #b8d629;
+}

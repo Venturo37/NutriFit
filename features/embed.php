@@ -22,8 +22,10 @@
 <link rel="stylesheet" href="../styles/user_profile_charts.css">
 <link rel="stylesheet" href="../styles/authentication.css">
 <link rel="stylesheet" href="../styles/about_us.css">
+<link rel="stylesheet" href="../styles/view_feedback.css">
 <link rel="stylesheet" href="../styles/activity_history.css">
 <link rel="stylesheet" href="../styles/admin_user_management.css">
+<link rel="stylesheet" href="../styles/fitness.css">
 
 
 <!-- <link rel="stylesheet" href="../styles/YanPingstyle.css"> -->

@@ -5,12 +5,12 @@
 }
 .directory_section .directory_container{
   background-color: #D9D9D9;
-  padding: 2vw;
+  padding: 1.5vw;
   border: #1F1F1F solid .3vw;
   border-radius: 2vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3vw 3vw;
+  gap: 2vw 3vw;
 }
 .directory_section .directory_container button{
   padding: 2.5vw 2vw;
