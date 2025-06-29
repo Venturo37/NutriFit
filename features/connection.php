@@ -9,7 +9,7 @@
         die("Connection failed: " . mysqli_connect_error());
     } 
 
-    if (session_start() === PHP_SESSION_NONE) {
+    if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
     
