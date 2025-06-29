@@ -1,0 +1,44 @@
+.sys_activity_table {
+  width: 100%;
+  height: 45vw;
+  background-color: #B6E0FF;
+  border: #1F1F1F .5vw solid;
+  border-radius: 1.5vw;
+  margin-bottom: 1vw;
+}
+.sys_activity_table h2 {
+  font-size: 2vw;
+  font-weight: 700;
+  padding: 1vw 2vw;
+}
+.sys_activity_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+}
+.sys_activity_wrapper table{
+  width: 100%;
+  border-spacing: 0;
+  text-align: center;
+  font-size: 1.5vw;
+}
+.sys_activity_wrapper table th {
+  background-color: #FAFBF5;
+  color: #777;
+}
+.sys_activity_wrapper table, .sys_activity_wrapper table th, .sys_activity_wrapper table td {
+  border: none;
+  padding: 1vw 0;
+}
+.system_activity_pagination {
+  padding: 1vw 2vw;
+  display: flex;
+  gap: 1vw;
+}
+.system_activity_pagination .activity_page_btn{
+  width: 3vw;
+  height: 3vw;
+  border-radius: .5vw;
+  font-size: 2vw;
+}
