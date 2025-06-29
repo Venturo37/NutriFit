@@ -1,0 +1,632 @@
+/* DECLARES ALL FONT STYLE */
+*{
+  font-family: "Exo 2", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* DECLARES BACKGROUND COLOR */
+body {
+    background-color: #FAFBF5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.no-scroll {
+  overflow: hidden;
+}
+
+/* FOOTER */
+footer {
+  width: 100%;
+  padding-top: 1.5vw;
+  padding-left: 8%;
+  padding-bottom:  1.5vw;
+  background-color: #1F1F1F;
+  font-size: 1.3vw;
+  font-weight: 700;
+  font-style: italic;
+  color: #FAFBF5;
+}
+
+/* HEADER */
+header {
+  width: 100%;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  padding-left: 7vw;
+  padding-right: 7vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header_transparent{
+  background-color: transparent;
+  /* background-color: #e6f1ae; */
+  color: #1F1F1F;
+}
+.header_red{
+  background-color: #D35B50;
+  color: #FAFBF5;
+
+}
+.header_green{
+  background-color: #A1C14B;
+  color: #FAFBF5;
+
+}
+header .logo{
+  width: fit-content;
+  font-style: italic;
+  font-weight: 700;
+  text-align: center;
+}
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+header .logo h1{
+  font-size: 4vw;
+  font-weight: 800;
+}
+header .logo p{
+  font-size: 1.2vw;
+  transform: translateY(-.5vw);
+}
+header nav ul{
+  display: flex;
+  list-style-type: none;
+  font-size: 2vw;
+  font-weight: 700;
+  gap: 5vw;
+}
+
+/* CONTENT */
+#content {
+  flex-grow: 1;
+  /* background-color: rgb(211, 255, 240); */
+  margin: 0 4vw;
+}
+
+/* PROFILE */
+.account {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vw 4vw;
+}
+.account .user_profile {
+  display: flex;
+  gap: 3vw;
+  align-items: center;
+}
+.account .profile_pic {
+  width: 13vw;
+  height: 13vw;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.account .profile_pic img {
+  width: 100%;
+  object-fit: cover;
+}
+.account .name h1{
+  font-size: 4vw;
+}
+.account .name p{
+  font-size: 1.5vw;
+  transform: translateY(-.5vw);
+}
+.account .update_profile_btn {
+  background-color: #D35B50;
+  color: #FAFBF5;
+  font-size: 2.5vw;
+  font-weight: 700;
+  padding: 2vw;
+  border: none;
+  border-radius: 1.5vw;
+  cursor: pointer;
+}
+
+.weight_section , .kcal_section, .meal_intake_section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2vw 3vw;
+  padding: 2vw 5vw;
+  border-radius: 3vw;
+  border: #1F1F1F solid 0.2vw;
+  gap: 3vw;
+}
+
+.kcal_section .title, .meal_intake_section .title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kcal_section button, .meal_intake_section button {
+  padding: 2vw 2vw;
+  font-size: 2vw;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  border-radius: 2vw;
+  border: none;
+  color: #FAFBF5;
+  cursor: pointer;
+}
+.kcal_section button {
+  background-color: #D35B50;
+}
+.meal_intake_section button {
+  background-color: #A1C14B;
+}
+
+.weight_section h2 , .kcal_section h2, .meal_intake_section h2{
+  font-size: 3vw;
+  font-weight: 700;
+}
+/* .weight_section .weight_chart_filter {
+  width: 100%;
+  display: flex;
+  justify-content:end;
+  align-items: center;
+  gap: .5vw;
+  font-size: 1.5vw;
+  font-weight: 500;
+}
+.weight_section #weight_chart_filter {
+  font-size: 1.5vw;
+} */
+.weight_section .weight_chart, .kcal_section .kcal_chart, .meal_intake_section .meal_intake_chart{
+  width: 100%;
+  height: 400px;
+}
+
+/* UPDATE PROFILE */
+.update_container {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(31, 31, 31, 0.5);
+  backdrop-filter: blur(5px);
+}
+#update_profile {
+  background-color: #FAFBF5;
+  width: 70vw;
+  height: fit-content;
+}
+#update_profile .update_profile_directory {
+  display: flex;
+  align-items: center;
+  font-size: 1vw;
+  font-weight: 800;
+  gap: 2vw;
+  color: #FAFBF5;
+  background-color: #1F1F1F;
+  padding: 1.5vw 4vw;
+}
+.update_profile_directory .icon {
+  font-size: 1.5vw;
+  border: #FAFBF5 .4vw solid;
+  width: 3.2vw;
+  height: 3.2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#update_profile .update_content {
+  padding: .5vw 3vw 3vw;
+}
+.edit_profile {
+  display: flex;
+  flex-direction: column;
+  gap: .5vw;
+}
+.edit_profile h2 {
+  text-decoration: underline;
+  font-size: 1.5vw;
+}
+.edit_profile .picture_selection {
+  background-color: #1F1F1F;
+  display: flex;
+  justify-content: space-between;
+  padding: 1vw 5vw;
+}
+.edit_profile .picture_selection .profile_pic_option{
+  width: 7vw;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.edit_profile .picture_selection .profile_pic_option.selected{
+  box-shadow: 0 0 0 .3vw #1AFF00;
+}
+.picture_selection .profile_pic_option img {
+  width: 100%;
+  object-fit: cover;
+}
+.edit_details #update_profile_form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  font-size: 1vw;
+}
+#update_profile_form label input {
+  font-size: 1vw;
+}
+#update_profile_form label {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+#update_profile_form .edit_username {
+  width: 100%;
+  padding: 1vw;
+}
+#update_profile_form input {
+  border-radius: .8vw;
+  box-shadow: 0 .3vw .8vw 0 #1F1F1F;
+  padding: .5vw 2vw;
+}
+#update_profile_form .edit_username input {
+  width: 100%;
+}
+
+#update_profile_form .edit_container {
+  display: flex;
+  width: 100%;
+}
+
+.edit_container .edit_sub_container1 {
+  width: 100%;
+  padding: 1.5vw 0 1.5vw 5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+}
+.edit_sub_container1 input {
+  width: 20vw;
+}
+.edit_container .edit_sub_container2 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 1vw 2VW;
+  gap: 1vw;
+}
+.edit_sub_container2 button {
+  background-color: #D35B50;
+  padding: 1vw 2vw;
+  color: #FAFBF5;
+  font-size: 1.2vw;
+  font-weight: 700;
+  border: none;
+  border-radius: 1vw;
+  cursor: pointer;
+} 
+.edit_sub_container2 .edit_gender {
+  display: flex;
+  justify-content: space-around;
+}
+#update_profile_form .edit_gender label {
+  flex-direction: column;
+  gap: .2vw;
+  cursor: pointer;
+}
+.edit_sub_container2 .edit_gender input {
+  display: none;
+}
+.edit_gender .gender{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.5vw;
+  width: 6.5vw;
+  height: 6vw;
+  border: 3px solid #1F1F1F;
+  border-radius: 20%;
+}
+.edit_gender .male_select {
+  color: #0066FF;
+}
+.edit_gender .female_select {
+  color: #FF0AE2;
+}
+.edit_gender .gender .check{
+  position: absolute;
+  top: .3vw;
+  right: .3vw;
+  font-size: 1.5vw;
+  color: #1F1F1F;
+  display: none;
+}
+.edit_gender .gender.selected{
+  background-color: #E6E6E4;
+}
+.edit_gender .gender.gender.selected .check {
+  display: flex;
+}
+
+.edit_details #change{
+  display: flex;
+  width: 100%;
+  padding: 0 4.5vw;
+  align-items: center;
+  justify-content: end;
+  gap: 3vw;
+}
+.edit_details #change .message_area{
+  color: #1F1F1F;
+  font-size: 1.5vw;
+}
+.edit_details #change button{
+  padding: 1vw 1vw;
+  font-size: 1.5vw;
+  font-weight: 700;
+  background-color: #A1C14B;
+  color: #FAFBF5;
+  border-radius: 1vw;
+  border: none;
+  cursor: pointer;
+}
+@media (max-width: 1200px) {
+#update_profile {
+  width: 80vw;
+  height: fit-content;
+}
+#update_profile .update_profile_directory {
+  font-size: 2vw;
+  font-weight: 800;
+}
+.update_profile_directory .icon {
+  font-size: 1.5vw;
+  border: #FAFBF5 .5vw solid;
+  width: 3.2vw;
+  height: 3.2vw;
+}
+.edit_profile h2 {
+  font-size: 3vw;
+}
+.edit_profile .picture_selection .profile_pic_option{
+  width: 10vw;
+}
+.edit_details #update_profile_form {
+  font-size: 2vw;
+}
+#update_profile_form label input {
+  font-size: 2vw;
+}
+#update_profile_form label {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 1vw;
+}
+.edit_container .edit_sub_container2 {
+  gap: 3vw;
+}
+#update_profile_form .edit_gender label {
+  align-items: center;
+}
+.edit_gender .gender{
+  width: 8vw;
+  height: 8vw;
+  border: 3px solid #1F1F1F;
+  border-radius: 20%;
+}
+.edit_sub_container2 button {
+  padding: 1vw 2vw;
+  font-size: 2vw;
+  font-weight: 700;
+} 
+.edit_details #change .message_area{
+  font-size: 2vw;
+}
+.edit_details #change button{
+  font-size: 2vw;
+}
+}
+
+
+
+/* ADMIN DASHBOARD */
+.directory_section{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.directory_section .directory_container{
+  background-color: #D9D9D9;
+  padding: 2vw;
+  border: #1F1F1F solid .2rem;
+  border-radius: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 2rem;
+}
+.directory_section .directory_container button{
+  padding: 0 2vw;
+  width: 28vw;
+  height: 6vw;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.5vw;
+  font-weight: 700;
+  color: #FAFBF5;
+  align-items: center;
+  cursor: pointer;
+}
+.directory_container button span {
+  font-size: 2.3vw;
+}
+.directory_container .fitness_content_management_directory{
+  background-color: #D35B50;
+}
+.directory_container .diet_content_management_directory{
+  background-color: #A1C14B;
+}
+.directory_container .user_management_directory{
+  background-color: #1F1F1F;
+}
+.directory_container .view_user_feedback_directory{
+  background-color: #8998AD;
+}
+
+.statistics{
+  display: flex;
+  flex-direction: row;
+  gap: 3vw;
+  justify-content: center;
+  margin: 2vw;
+}
+.statistics .user_fitness_statistic h2, .user_nutrition_statistic h2{
+  font-size: 1.5vw;
+  display: flex;
+  flex-direction: column;
+  color: #9291A5;
+  border-bottom: #9291A5 solid 2px;
+  padding-bottom: 1vw;
+}
+.statistics .user_fitness_statistic span, .user_nutrition_statistic span{
+  font-size: 2vw;
+  color: #1F1F1F;
+}
+.user_fitness_statistic, .user_nutrition_statistic{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 1vw;
+  background-color: white;
+  border: #1F1F1F solid 3px;
+  border-radius: 3vw;
+  padding: 2vw;
+}
+
+.statistic_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vw;
+}
+.statistic_container .chart_container canvas{
+  flex: 1 1;
+  width: 25vw;
+}
+.statistic_details {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.statistic_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.statistic_sub_item{
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+.statistic_dot {
+  width: 1vw;
+  height: 1vw;
+  border-radius: 50%;
+}
+.statistic_name {
+  font-size: 2vw;
+  font-weight: 500;
+}
+.statistic_count {
+  font-size: 2vw;
+  color: #9291A5;
+}
+
+@media (max-width: 1200px) {
+  .statistics {
+    flex-direction: column;
+  }
+  .user_fitness_statistic, .user_nutrition_statistic {
+    width: 100%;
+    border-radius: 5vw;
+    padding: 2.5vw;
+
+  }
+  .statistic_container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 5vw;
+  }
+  .statistic_container .chart_container canvas {
+    width: 130%;
+  }
+  .statistic_details {
+    width: fit-content  ;
+  }
+  .statistic_item {
+    width: 30vw;
+  }
+}
+
+.sys_activity_table {
+  width: 100%;
+  height: 45vw;
+  background-color: #B6E0FF;
+  border: #1F1F1F .5vw solid;
+  border-radius: 1.5vw;
+  margin-bottom: 1vw;
+}
+.sys_activity_table h2 {
+  font-size: 2vw;
+  font-weight: 700;
+  padding: 1vw 2vw;
+}
+.sys_activity_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+}
+.sys_activity_wrapper table{
+  width: 100%;
+  border-spacing: 0;
+  text-align: center;
+  font-size: 1.5vw;
+}
+.sys_activity_wrapper table th {
+  background-color: #FAFBF5;
+  color: #777;
+}
+.sys_activity_wrapper table, .sys_activity_wrapper table th, .sys_activity_wrapper table td {
+  border: none;
+  padding: 1vw 0;
+}
+.system_activity_pagination {
+  padding: 1vw 2vw;
+  display: flex;
+  gap: 1vw;
+}
+.system_activity_pagination .activity_page_btn{
+  width: 3vw;
+  height: 3vw;
+  border-radius: .5vw;
+  font-size: 2vw;
+}
