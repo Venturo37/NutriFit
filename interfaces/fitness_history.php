@@ -1,5 +1,6 @@
 <?php
-session_start();
+// session_start();
+include('../features/connection.php');
 
 if (!isset($_SESSION['usr_id'])) {
 // User is not logged in, redirect to login page
@@ -8,8 +9,7 @@ if (!isset($_SESSION['usr_id'])) {
 }
 $usr_id = $_SESSION['usr_id'];
 
-include('connection.php');
-include('header.php');
+include('../features/header.php');
 
 // Pagination setup
 $limit = 5;
@@ -45,7 +45,7 @@ $result = mysqli_query($connection, $query);
 </div>
 
 <div id="content">
-    <div class="record_table_wrapper">
+    <div class="record_table_wrapper fitness_history">
         <table class="record_table">
             <thead>
                 <tr>
@@ -94,4 +94,4 @@ $result = mysqli_query($connection, $query);
     }
 </script>
 
-<?php include('footer.php'); ?>
+<?php include('../features/footer.php'); ?>

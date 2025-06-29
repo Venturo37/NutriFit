@@ -1,12 +1,13 @@
 <?php
 
-session_start();
+// session_start();
 
-include('connection.php');
+include('../features/connection.php');
+
 
 include('../features/restriction.php');
 
-include('embed.php');
+include('../features/embed.php');
 
 $sql = "SELECT f.fdbk_timestamp, f.fdbk_rating, f.fdbk_response, u.usr_name, u.usr_email 
         FROM feedback_t f

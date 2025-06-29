@@ -24,7 +24,7 @@
         $logo_link = 'admin_dashboard.php';
     } 
 
-    include('embed.php'); 
+    include('../features/embed.php'); 
 ?>
 
 <header class="<?php echo $header_class ?>">
@@ -45,7 +45,7 @@
                 <li><a href="../interfaces/user_profile.php">Profile</a></li>
                 <li><a href="../interfaces/authentication.php">Log Out</a></li>
             <?php } elseif (isset($_SESSION['adm_id'])) {?>
-                <li><a href="#">Users</a></li>
+                <li><a href="../interfaces/admin_user_management.php">Users</a></li>
                 <li><a href="#">Fitness</a></li>
                 <li><a href="#">Diet Us</a></li>
                 <li><a href="#">Feedback</a></li>

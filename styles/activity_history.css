@@ -1,0 +1,112 @@
+.record_header {
+  width: 100vw;
+  background-color: #1F1F1F;
+  padding: 2vw 4vw;
+  color: white;
+  font-size: 1.7vw;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  margin-bottom: 1.5vw;
+}
+
+.record_header h2, .record_header h3 {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+.record_header i {
+  font-size: 1.8vw;
+  color: white;
+}
+
+/* TABLE CONTAINER */
+.record_table_wrapper {
+  margin: 2vw 4vw;
+  border: 2px solid black;
+  border-radius: 1vw;
+  background-color: white;
+  padding: 1.2vw 0.9vw;
+}
+
+/* TABLE STRUCTURE */
+.record_table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.3vw;
+}
+
+.record_table thead tr:first-child th {
+  padding-top: 1vw;
+  padding-bottom: 0.5vw;
+  color: #777;
+  font-weight: 500;
+  font-size: 1.2vw;
+  text-align: center;
+}
+
+.record_table td {
+  font-size: 0.95vw;
+  padding: 0.8vw;
+  font-weight: 600;
+  text-align: center;
+}
+
+.record_table tbody tr:nth-child(odd) {
+  background-color: var(--odd-bg);
+}
+.record_table tbody tr:nth-child(odd) td {
+  color: var(--odd-text);
+}
+
+.record_table tbody tr:nth-child(even) {
+  background-color: var(--even-bg);
+}
+.record_table tbody tr:nth-child(even) td {
+  color: var(--even-text);
+}
+
+.record_pagination {
+  margin: 1.5vw 4vw 4vw auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1vw;
+}
+
+.admin_record_pagination {
+  margin: 1.5vw 4vw 0.1vw auto;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 0vw;
+  gap: 1vw;
+}
+
+.arrow_btn {
+  border: 1px solid #1F1F1F;
+  background-color: white;
+  font-size: 1.5vw;
+  padding: 0.5vw 1.2vw;
+  border-radius: 0.4vw;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.arrow_btn:hover {
+  background-color: #f0f0f0;
+}
+
+.fitness_history {
+  --odd-bg: #E3655B;
+  --odd-text: white;
+  --even-bg: #F6CB52;
+  --even-text: black;
+}
+
+.nutrition_history {
+  --odd-bg: #A1C14B;
+  --odd-text: white;
+  --even-bg: #BCD454;
+  --even-text: white;
+}

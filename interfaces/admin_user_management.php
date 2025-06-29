@@ -1,7 +1,11 @@
 <?php
+include('../features/connection.php');
+
+
+
 include('../features/header.php');
 
-session_start();
+// session_start();
 
 // TEST RUN 
 // $_SESSION['adm_id'] = 1;
@@ -14,23 +18,23 @@ if (!isset($_SESSION['adm_id'])) {
 
 $logged_in_adm_id = $_SESSION['adm_id'];
 ?>
+<div id="content">
+  <div class="usermanage_header">
+    <h2>User Management</h2>
+  </div>
 
-<div class="usermanage_header">
-  <h2>User Management</h2>
+  <div class="usermanage_buttons">
+    <button class="green_btn">Update Profile Picture</button>
+  </div>
+
+  <div class="record_table_wrapper admin_user_management" id="admin_table_container">
+    <!-- Admin Table loaded via AJAX -->
+  </div>
+
+  <div class="record_table_wrapper admin_user_management" id="user_table_container">
+    <!-- User Table loaded via AJAX -->
+  </div>
 </div>
-
-<div class="usermanage_buttons">
-  <button class="green_btn">Update Profile Picture</button>
-</div>
-
-<div class="record_table_wrapper" id="admin_table_container">
-  <!-- Admin Table loaded via AJAX -->
-</div>
-
-<div class="record_table_wrapper" id="user_table_container">
-  <!-- User Table loaded via AJAX -->
-</div>
-
 <?php include('../features/footer.php'); ?>
 
 <script>

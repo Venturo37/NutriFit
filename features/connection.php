@@ -14,5 +14,5 @@
     }
     
     // $_SESSION['usr_id'] = 1; // For testing purposes, set a user ID
-    // $_SESSION['adm_id'] = 1; // For testing purposes, set a user ID
-?>
+    $_SESSION['adm_id'] = 1; // For testing purposes, set a user ID
+    ?>

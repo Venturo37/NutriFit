@@ -9,7 +9,7 @@ include('../features/restriction.php');
 
 if (!isset($_SESSION['adm_id'])) {
 // User is not logged in, redirect to login page
-    header('Location: login.php');
+    header('Location: authentication.php');
     exit();
 }
 $adm_id = $_SESSION['adm_id'];

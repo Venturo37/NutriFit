@@ -527,7 +527,8 @@ for ($day = 1; $day <= $init_num_day_display; $day++) {
                     <img src="<?php echo $profile_src ?>" alt="Profile Picture">
                 </div>
                 <div class="name">
-                    <h1><?php echo $user['usr_name'] ?></h1>
+                    <h1>
+                        <?php echo $user['usr_name'] ?></h1>
                     <p>PROFILE</p>
                 </div>
             </div>
@@ -575,7 +576,7 @@ for ($day = 1; $day <= $init_num_day_display; $day++) {
         <div class="kcal_section">
             <div class="kcal title">
                 <h2>Calories Burned</h2>
-                <button class="view_activity_history">View Activity History
+                <button class="view_activity_history" onclick="window.location.href='../interfaces/fitness_history.php'">View Activity History
                     <i class="fa-solid fa-chevron-right"></i>
                 </button>
             </div>
@@ -610,7 +611,7 @@ for ($day = 1; $day <= $init_num_day_display; $day++) {
         <div class="meal_intake_section">
             <div class="meal_intake title">
                 <h2>Meal Intake (Kcal)</h2>
-                <button class="view_nutrition_intake_history">View Nutrition Intake History
+                <button class="view_nutrition_intake_history" onclick="window.location.href='../interfaces/nutrition_history.php'">View Nutrition Intake History
                     <i class="fa-solid fa-chevron-right"></i>
                 </button>
             </div>

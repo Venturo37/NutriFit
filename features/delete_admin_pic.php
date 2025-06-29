@@ -1,6 +1,7 @@
 <?php
 include 'connection.php';
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $adm_id = $_POST['adm_id'] ?? '';
     $default_pic_id = 2; 
