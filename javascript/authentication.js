@@ -48,7 +48,8 @@ function showForm(formType) {
 function handleResponsiveImage() {
     const formType = window.currentFormType;
     const imageToShow = document.querySelector(`.image-${formType}`);
-    const isShortScreen = window.matchMedia("(max-height: 1060px)").matches;
+    // CHANGES
+    const isShortScreen = window.matchMedia("(max-height: 800px)").matches;
     const isNarrowScreen = window.matchMedia("(max-width: 1200px)").matches;
 
     // Hide all bottom images first

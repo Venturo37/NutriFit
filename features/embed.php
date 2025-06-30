@@ -20,9 +20,11 @@
 <link rel="stylesheet" href="../styles/update_profile.css">
 <link rel="stylesheet" href="../styles/user_profile_acc.css">
 <link rel="stylesheet" href="../styles/user_profile_charts.css">
+
 <link rel="stylesheet" href="../styles/authentication.css">
 <link rel="stylesheet" href="../styles/about_us.css">
-<link rel="stylesheet" href="../styles/view_feedback.css">
+<link rel="stylesheet" href="../styles/feedback.css">
+
 <link rel="stylesheet" href="../styles/activity_history.css">
 <link rel="stylesheet" href="../styles/admin_user_management.css">
 <link rel="stylesheet" href="../styles/fitness.css">

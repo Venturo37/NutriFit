@@ -2,8 +2,8 @@
 // =================== EDITABLE CONFIG ===================
 $newSMTP = "smtp.gmail.com";
 $newPort = "587";
-$newEmail = ""; // I RECOMMEND USE YOUR OWN EMAIL FOR NOW
-$newPassword = ""; // INSERT YOUR OWN APP PASSWORD LIKE IN JOGET
+$newEmail = "venturo.yhungyie@gmail.com"; // I RECOMMEND USE YOUR OWN EMAIL FOR NOW
+$newPassword = "pfzbjfbvhggaialo"; // INSERT YOUR OWN APP PASSWORD LIKE IN JOGET
 $newSSL = "tls";
 
 // =================== PATHS ===================
@@ -39,5 +39,5 @@ file_put_contents($sendmailIniPath, $sendmailIni);
 
 // =================== DONE ===================
 echo "✅ Configuration updated successfully.<br>";
-echo "🔁 Please restart Apache via XAMPP Control Panel to apply changes.";
+echo "🔁 Please restart Apache via XAMPP Control Panel to apply changes.";
 ?>

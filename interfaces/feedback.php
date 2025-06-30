@@ -1,10 +1,15 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// CHANGES
 
 include(__DIR__ . '/../features/connection.php');
 
-include(__DIR__ . '/../features/restriction.php');
-
 include(__DIR__ . '/../features/embed.php');
+
+include(__DIR__ . '/../features/restriction.php');
 
 $sql = "SELECT f.fdbk_timestamp, f.fdbk_rating, f.fdbk_response, u.usr_name, u.usr_email 
         FROM feedback_t f
@@ -23,13 +28,13 @@ if (!$result) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Feedbacks</title>
+    <title>Document</title>
 </head>
 <body>
     <div class="overlay"></div>
 
     <?php include('../features/header.php') ?>
-    <div id="content">
+    <div class="content" id="content">
         <div id="feedback_title">
             <h1>User Feedback</h1>
         </div>

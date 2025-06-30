@@ -19,5 +19,5 @@ body {
 #content {
   flex-grow: 1;
   /* background-color: rgb(211, 255, 240); */
-  margin: 0 4vw;
+  /* margin: 0 4vw;   */
 }

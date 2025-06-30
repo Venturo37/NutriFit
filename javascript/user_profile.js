@@ -34,7 +34,7 @@ function renderWeightChart(labels, weights, yAxisMax) {
             scales: {
                 y: {
                     // beginAtZero: true,
-                    min: (yAxisMax * .5) , // Set minimum y-axis value
+                    min: (yAxisMax * .3) , // Set minimum y-axis value
                     max: yAxisMax, // Set max y-axis value
                     ticks: {
                         stepSize: 5 // Set step size for y-axis ticks

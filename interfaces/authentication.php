@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
         } else {
             echo "<script>
                     alert('❌ Failed to send email.');
-                    window.location.href = 'authentication.php';
+                    
                 </script>";
         }
     }
@@ -232,13 +232,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
 <body>
 
 <!-- Top left title card -->
-<div class="content">
+<div class="content" id="content">
     <div class="authentication_container">
         <?php include("../features/header.php") ?>
 
-
         <div class="background-shape shape1"></div>
-        <div class="background-shape shape2"></div>
+        <div class="background-shape shape3"></div>
         <img src="../images/auth-login-mobile.png" class="bottom-image image-login">
         <img src="../images/auth-signup.png" class="bottom-image image-signup">
         <img src="../images/auth-reset-mobile.png" class="bottom-image image-verify">
@@ -449,8 +448,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
             </div>
         </div>
 
-        <?php include("../features/footer.php") ?>
+        
     </div>
+    <?php include("../features/footer.php") ?>
     
 </div>
 
