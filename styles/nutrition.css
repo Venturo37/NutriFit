@@ -28,8 +28,11 @@
 }
 
 .dp_section_3{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr); */
+  justify-content: center;
   min-height: 35vh; /* Adjust as needed (60% of viewport height) */
   height: auto;
   place-items: center; /* Center single items */
@@ -1091,12 +1094,14 @@ Open Styles(In JS)
 }
 
 .ingredients_list {
-    padding: 1.2vw;
-    border-radius: 10px;
-    max-height: 380px;
-    box-sizing: border-box;
-    width: 100%;
-    z-index: 2;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1.2vw;
+  border-radius: 10px;
+  max-height: 380px;
+  box-sizing: border-box;
+  width: 100%;
+  z-index: 2;
 }
 
 .ingredients_list h3 {
