@@ -7,152 +7,151 @@
 
     $sub_query = "SELECT 
         a.adm_id AS user_id, 
-        ad.adm_name AS user_name, 
+        'Admin' AS role, 
         'Updated Profile' AS action, 
         acc_mana_timestamp AS timestamp
-    FROM account_management_t a LEFT JOIN admin_t ad ON a.adm_id = ad.adm_id
+    FROM account_management_t a
     WHERE a.adm_id IS NOT NULL
 
     UNION ALL 
 
     SELECT 
         a.usr_id AS user_id, 
-        u.usr_name AS user_name, 
+        'User' AS role, 
         'Updated Profile' AS action, 
         acc_mana_timestamp AS timestamp
-    FROM account_management_t a LEFT JOIN user_t u ON a.usr_id = u.usr_id
+    FROM account_management_t a
     WHERE a.usr_id IS NOT NULL
     
     UNION ALL
 
     SELECT
         a.adm_id, 
-        ad.adm_name, 
+        'Admin' AS role, 
         CONCAT(a.adm_mana_action, ' Admin ', a.managed_adm_id),
         a.adm_mana_timestamp
-    FROM admin_management_t a JOIN admin_t ad ON a.adm_id = ad.adm_id
+    FROM admin_management_t a
 
     UNION ALL
 
     SELECT 
         c.adm_id, 
-        ad.adm_name, 
+        'Admin' AS role, 
         CONCAT(c.cate_mana_action, ' Category ', c.cate_id),
         c.cate_mana_timestamp
-    FROM category_management_t c JOIN admin_t ad ON c.adm_id = ad.adm_id
+    FROM category_management_t c
 
     UNION ALL
 
     SELECT 
         f.usr_id, 
-        u.usr_name, 
+        'User' AS role,
         'Sent Feedback', 
         f.fdbk_timestamp
-    FROM feedback_t f JOIN user_t u ON f.usr_id = u.usr_id
+    FROM feedback_t f
 
     UNION ALL
 
     SELECT 
         mm.adm_id, 
-        ad.adm_name, 
+        'Admin' AS role,  
         CONCAT(mm.meal_mana_action, ' Meal ', mm.meal_id),
         mm.meal_mana_timestamp
-    FROM meal_management_t mm JOIN admin_t ad ON mm.adm_id = ad.adm_id
+    FROM meal_management_t mm
 
     UNION ALL
 
     SELECT
         mt.adm_id, 
-        ad.adm_name, 
+        'Admin' AS role,  
         CONCAT(mt.mltm_mana_action, ' Meal Time ', mt.mltm_id),
         mt.mltm_mana_timestamp
-    FROM meal_time_management_t mt JOIN admin_t ad ON mt.adm_id = ad.adm_id
+    FROM meal_time_management_t mt
 
     UNION ALL 
 
     SELECT
         pm.adm_id, 
-        ad.adm_name, 
+        'Admin' AS role,  
         CONCAT(pm.pic_mana_action, ' Profile Pic ', pm.pic_id),
         pm.pic_mana_timestamp
-    FROM picture_management_t pm JOIN admin_t ad ON pm.adm_id = ad.adm_id
+    FROM picture_management_t pm
 
     UNION ALL
 
     SELECT
         rp.usr_id,
-        u.usr_name, 
+        'User' AS role,
         'Reset Password', 
         rp.rst_pass_log_created
-    FROM reset_password_log_t rp JOIN user_t u ON rp.usr_id = u.usr_id
+    FROM reset_password_log_t rp
     WHERE rp.usr_id IS NOT NULL
 
     UNION ALL
 
     SELECT
         rp.adm_id,
-        ad.adm_name, 
+        'Admin' AS role,  
         'Reset Password', 
         rp.rst_pass_log_created
-    FROM reset_password_log_t rp JOIN admin_t ad ON rp.adm_id = ad.adm_id
+    FROM reset_password_log_t rp
     WHERE rp.adm_id IS NOT NULL
 
     UNION ALL
 
     SELECT
         um.adm_id, 
-        ad.adm_id, 
-        CONCAT('Deleted User', um.usr_id),
+        'Admin' AS role,  
+        CONCAT(um.usr_mana_action, ' User ', um.usr_id),
         um.usr_mana_timestamp
-    FROM user_management_t um JOIN admin_t ad ON um.adm_id = ad.adm_id
+    FROM user_management_t um
 
     UNION ALL
 
     SELECT
         umi.usr_id, 
-        u.usr_name,
+        'User' AS role,        
         'Ate a Meal', 
         umi.mlog_timestamp
-    FROM user_meal_intake_t umi JOIN user_t u ON (umi.usr_id IS NOT NULL AND umi.usr_id = u.usr_id)
+    FROM user_meal_intake_t umi
     WHERE umi.usr_id IS NOT NULL
 
     UNION ALL
 
     SELECT
         mi.usr_id, 
-        u.usr_name,
+        'User' AS role,        
         'Ate a Meal', 
         umi.mlog_timestamp
     FROM user_meal_intake_t umi JOIN manual_input_t mi ON umi.manual_id = mi.manual_id
-    JOIN user_t u ON mi.usr_id = u.usr_id
     WHERE umi.manual_id IS NOT NULL
 
     UNION ALL
 
     SELECT
         uw.usr_id, 
-        u.usr_name,
+        'User' AS role,        
         'Updated Weight', 
         uw.weight_log_date
-    FROM user_weight_log_t uw JOIN user_t u ON uw.usr_id = u.usr_id
+    FROM user_weight_log_t uw
 
     UNION ALL
 
     SELECT 
         uws.usr_id, 
-        u.usr_name, 
+        'User' AS role,
         'Started Session', 
         uws.wlog_timestamp
-    FROM user_workout_session_t uws JOIN user_t u ON uws.usr_id = u.usr_id
+    FROM user_workout_session_t uws
 
     UNION ALL
 
     SELECT
         wm.adm_id, 
-        ad.adm_id, 
+        'Admin' AS role, 
         CONCAT(wm.work_mana_action, ' Workout ', wm.work_id),
         wm.work_mana_timestamp
-    FROM workout_management_t wm JOIN admin_t ad ON wm.adm_id = ad.adm_id
+    FROM workout_management_t wm
     ";
 
     $activity_log_query = "SELECT * FROM (
@@ -180,14 +179,14 @@
     ";
     echo "
         <tr>
-            <th>User (ID, Name)</th>
+            <th>User (Role, ID)</th>
             <th>Action</th>
             <th>Timestamp</th>
         </tr>
     ";
     while ($row = $activity_log_result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . htmlspecialchars($row['user_id']) .  ", " . htmlspecialchars($row['user_name']) ."</td>";
+        echo "<td>" . htmlspecialchars($row['role']) .  ", " . htmlspecialchars($row['user_id']) ."</td>";
         echo "<td>" . htmlspecialchars($row['action']) . "</td>";
         echo "<td>" . htmlspecialchars($row['timestamp']) . "</td>";
         echo "</tr>";

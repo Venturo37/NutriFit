@@ -1,0 +1,196 @@
+
+/* Main Content Area */
+main {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+main h2 {
+  text-align: center;
+  margin: 2rem 0 1rem;
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+/* Actions Section */
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+
+.actions-right {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn.manage, .btn.add {
+  background: #D35B50;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1.4rem;
+  padding: 18px 36px;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+/* Cards Section */
+.cards {
+  display: grid;
+  /* THIS IS THE CORRECTED LINE: It now creates exactly 3 columns. */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  background: #D35B50;
+  border-radius: 24px;
+  padding: 40px;
+  margin: 2vw;
+  justify-items: center;
+}
+
+/* .card {
+  background: #E6E6E4;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  padding: 1.5rem;
+  width: 100%;
+  position: relative;
+  transition: transform 0.2s ease;
+  text-align: center;
+} */
+.card {
+  width: 320px;
+  min-height: 420px;
+  background-color: #E6E6E4;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 1.5rem;
+  position: relative;
+  transition: transform 0.2s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 1.2rem;
+}
+
+.card h3 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0;
+}
+
+/* CSS for the edit icon - Re-added */
+.edit-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #FFE082;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  text-decoration: none;
+  border: 3px solid #F5F5F5;
+  z-index: 2;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.edit-icon i {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.edit-icon:hover {
+  background: #FFD54F;
+  transform: scale(1.1);
+}
+
+
+/* Responsive Design */
+
+/* Tablets (up to 1024px) */
+@media screen and (max-width: 1024px) {
+  main h2 {
+    font-size: 3rem;
+  }
+
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 30px;
+  }
+
+  .btn.manage, .btn.add {
+    font-size: 1.2rem;
+    padding: 14px 28px;
+  }
+}
+
+/* Mobile (up to 768px) */
+@media screen and (max-width: 768px) {
+  /* header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  } */
+
+  .actions {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .actions-right {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .card img {
+    height: 200px;
+  }
+
+  .card h3 {
+    font-size: 1.6rem;
+  }
+
+  .btn.manage, .btn.add {
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    text-align: center;
+  }
+
+
+  main h2 {
+    font-size: 2rem;
+  }
+}

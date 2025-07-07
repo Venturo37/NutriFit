@@ -6,19 +6,21 @@
     // $message_status_code = null;
     $response = ['success' => false, 'message' => ''];
 
+    // Start output buffering to catch accidental output
+    ob_start();
+    // Turn off display of PHP errors to the browser
+    error_reporting(E_ALL);
+    ini_set('display_errors', 0);
+    ini_set('log_errors', 1);
+
+    $is_user = isset($_SESSION['usr_id']);
+    $is_admin = isset($_SESSION['adm_id']) && !$is_user;
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profile'])) {
         header('Content-Type: application/json');
-
-        if (!isset($_SESSION['usr_id']) && !isset($_SESSION['adm_id'])) {
-            $response['message'] = 'User not logged in.';
-            echo json_encode($response);
-            exit();
-        }
         
-        $is_user = isset($_SESSION['usr_id']);
-        $is_admin = isset($_SESSION['adm_id']) && !$is_user;
-        
-        $selected_pic_id = $_POST['selected_pic_id'] ?? null;
+        // $selected_pic_id = $_POST['selected_pic_id'] ?? null;
+        $selected_pic_id = isset($_POST['selected_pic_id']) ? intval($_POST['selected_pic_id']) : null;
 
         $new_username = trim($_POST['new_username'] ?? '');
         if (empty($new_username)) {
@@ -31,178 +33,143 @@
         // ' becomes &#039;
         // " becomes &quot;
 
-        // 'UTF-8'
-        // This sets the character encoding for the conversion. Using 'UTF-8' is critical for:
-        // Correctly handling multi-byte characters (like emojis or foreign characters)
-        // Preventing encoding-based XSS vulnerabilities
+        if (empty($new_username)) {
+            $response['message'] = 'Username cannot be empty.';
+            echo json_encode($response);
+            exit();
+        }
 
         if ($is_user) {
             $usr_id = $_SESSION['usr_id'];
-            $new_birthdate = $_POST['new_birthdate'] ?? null;
+            $new_birthdate = trim($_POST['new_birthdate']) ?? null;
             $new_gender = $_POST['new_gender'] ?? null;
             $new_weight = $_POST['new_weight'] ?? null;
             $new_height = $_POST['new_height'] ?? null;
 
-            $birthdate = new DateTime($new_birthdate);
-            $today = new DateTime();
-            if ($birthdate > $today) {
+            if (empty($new_birthdate) || !strtotime($new_birthdate)) {
+                $response['message'] = 'Invalid or empty birthdate.';
+                echo json_encode($response);
+                exit();
+            }
+            if ($new_birthdate > date('Y-m-d')) {
                 $response['message'] = 'Birthdate cannot be in the future.';
                 echo json_encode($response);
                 exit();
             }
-            if (empty($new_birthdate)) {
-                $response['message'] = 'Birthdate cannot be empty.';
-                echo json_encode($response);
-                exit();
-            }
-            if (!strtotime($new_birthdate)) {
-                $response['message'] = 'Invalid birthdate format.';
+
+            if ($new_gender !== 'M' && $new_gender !== 'F') {
+                $response['message'] = 'Gender must be either "M" or "F".';
                 echo json_encode($response);
                 exit();
             }
             
-            if ((float)$new_weight <= 0 || !is_numeric($new_weight)) {
+            if ($new_weight <= 0 || !is_numeric($new_weight)) {
                 $response['message'] = 'Weight must be a positive number.';
                 echo json_encode($response);
                 exit();
             }
-            $new_weight_float = (float)$new_weight;
             
-            if ((float)$new_height <= 0 || !is_numeric($new_height )) {
+            if ($new_height <= 0 || !is_numeric($new_height)) {
                 $response['message'] = 'Height must be a positive number.';
                 echo json_encode($response);
                 exit();
             }
-            $new_height_float = (float)$new_height;
+
+            $new_height = (float)$new_height; // Ensure height is a float for database storage
+            $new_weight = (float)$new_weight; // Ensure weight is a float for database storage
             
-            $stmt_user_update = $connection->prepare(
-                "UPDATE user_t SET usr_name = ?, usr_birthdate = ?, usr_gender = ?, usr_height = ?, pic_id = ?
-                WHERE usr_id = ?");
-            $stmt_user_update->bind_param("sssdii", $new_username, $new_birthdate, $new_gender, $new_height_float, $selected_pic_id, $usr_id);
-            
-            if ($stmt_user_update->execute()) {
+            $stmt = $connection->prepare("UPDATE user_t SET usr_name = ?, usr_birthdate = ?, usr_gender = ?, usr_height = ?, pic_id = ? WHERE usr_id = ?");
+            $stmt->bind_param("sssdii", $new_username, $new_birthdate, $new_gender, $new_height, $selected_pic_id, $usr_id);
+            if ($stmt->execute()) {
+                $logStmt = $connection->prepare(
+                    "INSERT INTO account_management_t (usr_id, acc_mana_action, acc_mana_timestamp) VALUES (?, 'Updated', NOW())");
+                $logStmt->bind_param("i", $usr_id);
+                $logStmt->execute();
+                $logStmt->close();
+
                 $last_logged_weight = null;
-                $stmt_get_last_weight = $connection->prepare(
-                    "SELECT weight_log_weight FROM user_weight_log_t WHERE usr_id = ? 
+                $stmtLastWeight = $connection->prepare("SELECT weight_log_weight FROM user_weight_log_t WHERE usr_id = ? 
                     ORDER BY weight_log_date DESC LIMIT 1");
-                $stmt_get_last_weight->bind_param("i", $usr_id);
-                $stmt_get_last_weight->execute();
-                $result_last_weight = $stmt_get_last_weight->get_result();
-
+                $stmtLastWeight->bind_param("i", $usr_id);
+                $stmtLastWeight->execute();
+                $result_last_weight = $stmtLastWeight->get_result();
                 if ($result_last_weight->num_rows > 0) {
-                    $last_logged_weight = (float)$result_last_weight->fetch_assoc()['weight_log_weight'];
+                    $last_logged_weight = (float) $result_last_weight->fetch_assoc()['weight_log_weight'];
                 }
-                $stmt_get_last_weight->close();
+                $stmtLastWeight->close();
 
-                if ($new_weight != $last_logged_weight) {
-                    $stmt_insert_weight_log = $connection->prepare(
-                        "INSERT INTO user_weight_log_t (usr_id, weight_log_weight, weight_log_date)
+                if ($last_logged_weight === null || abs($last_logged_weight - (float)$new_weight) > 0.0001) {
+                    $stmt_insert_weight_log = $connection->prepare("INSERT INTO user_weight_log_t (usr_id, weight_log_weight, weight_log_date)
                         VALUES (?, ?, NOW())");
                     $stmt_insert_weight_log->bind_param("id",$usr_id, $new_weight);
-                    if (!$stmt_insert_weight_log->execute()) {
-                        error_log("Failed to insert new weight log for user $usr_id: ". $stmt_insert_weight_log->error);
-                        $response['message'] = 'Profile updated, but failed to log new weight: '.$stmt_insert_weight_log->error;
-                    }
+                    $stmt_insert_weight_log->execute();
                     $stmt_insert_weight_log->close();
-                } else {
-                    if ($response['message'] === '') {
-                        $response['message'] = 'Profile updated. Weight unchanged.';
-                    }
-                }
+                } 
 
-                if ($response['message'] === '') {
-                    $response['message'] = 'Profile updated successfully!';
-                }
                 $response['success'] = true;
+                $response['message'] = 'Profile updated!';                
                 $response['new_username'] = $new_username;
-
-                $new_profile_src = '';
-                $stmt_new_pic_src = $connection->prepare(
-                    "SELECT pic_picture 
-                    FROM profile_picture_t 
-                    WHERE pic_id = ?"
-                );
-                $stmt_new_pic_src->bind_param("i", $selected_pic_id);
-                $stmt_new_pic_src->execute();
-                $result_new_pic_src = $stmt_new_pic_src->get_result();
-                if ($result_new_pic_src->num_rows > 0) {
-                    $pic_blob = $result_new_pic_src->fetch_assoc()['pic_picture'];
-                    $finfo = new finfo(FILEINFO_MIME_TYPE);
-                    $mime_type = !empty($pic_blob) ? $finfo->buffer($pic_blob) : 'image/jpeg'; // Default to jpeg if blob empty
-                    $response['new_profile_pic_src'] = 'data:' . $mime_type . ';base64,' . base64_encode($pic_blob);
-                } else {
-                    $response['new_profile_pic_src'] = ''; // Or a default placeholder image
-                }
-                $stmt_new_pic_src->close();
             } else {
-                $response['message'] = 'Error updating user profile: '. $stmt_user_update->error;
+                $response['message'] = 'Update failed: '. $stmt->error;
             }
-            $stmt_user_update->close();
+            $stmt->close();
         } elseif ($is_admin) {
             $adm_id = $_SESSION['adm_id'];
 
-            $stmt_admin_update = $connection->prepare(
-                "UPDATE admin_t SET adm_name = ?, pic_id = ?
+            $stmt = $connection->prepare("UPDATE admin_t SET adm_name = ?, pic_id = ?
                 WHERE adm_id = ?");
-            $stmt_admin_update->bind_param("sii",$new_username, $selected_pic_id, $adm_id);
+            $stmt->bind_param("sii",$new_username, $selected_pic_id, $adm_id);
 
-            if ($stmt_admin_update->execute()) {
+            if ($stmt->execute()) {
+                $logStmt = $connection->prepare("INSERT INTO account_management_t (adm_id, acc_mana_action, acc_mana_timestamp) 
+                    VALUES (?, 'Updated', NOW())");
+                $logStmt->bind_param("i", $adm_id);
+                $logStmt->execute();
+                $logStmt->close();
+
                 $response["success"] = true;
                 $response["message"] = "Admin profile updated succesfully!";
-
                 $response['new_username'] = $new_username;
-
-                $new_profile_src = '';
-                $stmt_new_pic_src = $connection->prepare(
-                    "SELECT pic_picture 
-                    FROM profile_picture_t 
-                    WHERE pic_id = ?"
-                );
-                $stmt_new_pic_src->bind_param("i", $selected_pic_id);
-                $stmt_new_pic_src->execute();
-                $result_new_pic_src = $stmt_new_pic_src->get_result();
-                if ($result_new_pic_src->num_rows > 0) {
-                    $pic_blob = $result_new_pic_src->fetch_assoc()['pic_picture'];
-                    $finfo = new finfo(FILEINFO_MIME_TYPE);
-                    $mime_type = !empty($pic_blob) ? $finfo->buffer($pic_blob) : 'image/jpeg'; // Default to jpeg if blob empty
-                    $response['new_profile_pic_src'] = 'data:' . $mime_type . ';base64,' . base64_encode($pic_blob);
-                } else {
-                    $response['new_profile_pic_src'] = ''; // Or a default placeholder image
-                }
-                $stmt_new_pic_src->close();
             } else {
-                $response["message"] = "Error updating admin profile". $stmt_admin_update->error;
+                $response["message"] = "Admin update failed: ". $stmt->error;
             }
-            $stmt_admin_update->close();
+            $stmt->close();
         }
+
+        if ($selected_pic_id) {
+            $stmtPic = $connection->prepare("SELECT pic_picture FROM profile_picture_t WHERE pic_id = ?");
+            $stmtPic->bind_param("i", $selected_pic_id);
+            $stmtPic->execute();
+            $resultPic = $stmtPic->get_result();
+            if ($resultPic->num_rows > 0) {
+                $pic_blob = $resultPic->fetch_assoc()['pic_picture'];
+                $finfo = new finfo(FILEINFO_MIME_TYPE);
+                $mime_type = $finfo->buffer($pic_blob) ?: 'image/jpeg'; // Default to jpeg if blob empty
+                $response['new_profile_pic_src'] = 'data:' . $mime_type . ';base64,' . base64_encode($pic_blob);
+            } 
+            $stmtPic->close();
+        }
+        
+        ob_clean();
         echo json_encode($response);
         exit();
-
     }
 
-    if (!isset($_SESSION['usr_id']) && !isset($_SESSION['adm_id'])) {
-        header('Location: login.php');
-        exit();
-    }
-
-    $is_user = isset($_SESSION['usr_id']);
-    $is_admin = isset($_SESSION['adm_id']) && !$is_user;
-    
+// if not POST, render the actual HTML profile form as fallback
+  
     $current_user_data = [];
     $current_pic_id = null;
     $profile_pictures = [];
 
     $finfo = new finfo(FILEINFO_MIME_TYPE);// Identify the Multipurpose Internet Mail Extensions(MIME) type of the workout image
 
-    $stmt_pics = $connection->prepare(
-        "SELECT pic_id, pic_picture FROM profile_picture_t ");
+    $stmt_pics = $connection->prepare("SELECT pic_id, pic_picture FROM profile_picture_t ");
     $stmt_pics->execute();
     $result_pics = $stmt_pics->get_result();
 
     while ($row = $result_pics->fetch_assoc()) {
         $pic_id = $row["pic_id"];
         $pic_blob = $row["pic_picture"];
-
         $mime_type = $finfo->buffer($pic_blob);
         $base64 = base64_encode($pic_blob);
         $img_src = 'data:' . $mime_type . ';base64,' . $base64;
@@ -216,8 +183,7 @@
     
     if ($is_user) {
         $usr_id = $_SESSION['usr_id'];
-        $stmt_user = $connection->prepare(
-            "SELECT usr_name, usr_birthdate, usr_gender, usr_height, pic_id
+        $stmt_user = $connection->prepare("SELECT usr_name, usr_birthdate, usr_gender, usr_height, pic_id
             FROM user_t WHERE usr_id = ?");
         $stmt_user->bind_param("i", $usr_id);
         $stmt_user->execute();
@@ -228,11 +194,8 @@
         }
         $stmt_user->close();
 
-        $stmt_weight = $connection->prepare(
-            "SELECT weight_log_weight FROM user_weight_log_t
-            WHERE usr_id = ?
-            ORDER BY weight_log_date DESC LIMIT 1"
-        );
+        $stmt_weight = $connection->prepare("SELECT weight_log_weight FROM user_weight_log_t WHERE usr_id = ?
+            ORDER BY weight_log_date DESC LIMIT 1");
         $stmt_weight->bind_param("i", $usr_id);
         $stmt_weight->execute();
         $result_weight = $stmt_weight->get_result();
@@ -316,7 +279,7 @@
                         <?php } ?>
                     </div>
                     <div class="edit_sub_container2">
-                        <button type="button" onclick="location.href='#'">
+                        <button type="button" onclick="location.href='authentication.php#verify'">
                             Change Password
                         </button>
                         <?php if ($is_user) {?>

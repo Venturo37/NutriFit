@@ -1,0 +1,508 @@
+/* --- BASE STYLES --- */
+/* body {
+    background: #f9faf2;
+    font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+
+    Add these for sticky footer
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; Ensures body tak es full viewport height
+} */
+
+
+/* --- THIS HEADER SECTION IS NOW CORRECTED TO MATCH THE ARROW UI --- */
+.header-bar {
+    width: 100%;
+    box-sizing: border-box;
+    background: #d06054; /* Keeping your red theme */
+    color: #fff;
+    padding: 1rem 1.5rem; /* Standardized padding */
+    font-size: 1.4em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Creates space between arrow and text */
+}
+
+/* This is the key part: it styles the link tag into a transparent circle */
+.header-back-link {
+    color: #fff;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    border-radius: 50%; /* Makes it a circle */
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* We don't need extra styles on the icon itself anymore */
+.back-arrow {
+    font-size: 1em; /* Adjusted to fit nicely inside the circle */
+    /* margin-right is no longer needed because of the 'gap' on .header-bar */
+}
+
+.header-title {
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+}
+/* --- END OF HEADER CORRECTIONS --- */
+
+
+main {
+    padding: 30px 40px;
+    flex-grow: 1; /* This is the key: makes main take up all available vertical space */
+}
+
+.workout-title {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.category-box {
+    max-width: 1100px; /* Corrected from 450px to fit min-width */
+    margin-left: auto;
+    margin-right: auto;
+    background: #d06054;
+    border-radius: 16px;
+    padding: 30px 20px 40px 20px;
+    margin-bottom: 30px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.category-list {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    background: #f6f6f6;
+    border: none;
+    border-radius: 14px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+
+.category-btn.selected {
+    background: #eaf7c2;
+    border: 2px solid #d06054; /* Retained your existing green border */
+    font-size: 1em;
+}
+
+.category-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.action-btn {
+    background: #d06054;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 28px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    transition: background 0.2s;
+}
+
+.action-btn:hover {
+    background: #b94c3a;
+}
+
+.save-btn {
+    background: #A1C14B; /* Main save button, from your original file */
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: bold;
+    border: none;
+    border-radius: 14px;
+    padding: 14px 40px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.save-btn:hover {
+    background: #a3c76d;
+}
+
+.category-actions-centered {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin: 24px 0 10px 0;
+}
+
+.add-save-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px auto 0 auto;
+    max-width: 1100px;
+}
+
+.add-category-left {
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+.add-category-left label {
+    font-weight: bold;
+}
+
+.add-category-left input[type="text"] {
+    margin-left: 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #888;
+    font-size: 1em;
+    width: 250px;
+}
+
+.save-btn-right {
+    display: flex;
+    align-items: center;
+}
+
+/* --- MODAL OVERLAY (COMMON) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(40, 40, 40, 0.75);
+    display: none; /* Hidden by default, JavaScript controls display */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* General modal content styles - these apply to all modals UNLESS overridden by a more specific selector */
+.modal-content {
+    background: #fff;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Default box-shadow; specific modals can override */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    /* Removed general size and border-top from here; they are now specific to #renameModal .modal-content */
+}
+
+/* Common modal close button style */
+.close-modal {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #fff;
+    border: 2px solid #222;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #222;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+/* Common modal title style */
+.modal-title {
+    font-size: 1.5em;
+    text-decoration: underline;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    color: #000;
+}
+
+/* Styles for rows within a modal form (general for all modals) */
+.modal-row {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.modal-row label {
+    font-weight: bold;
+    min-width: 160px;
+    text-align: right;
+    margin-right: 0;
+}
+
+/* Add the separator style */
+.separator {
+    color: #aaa;
+    font-style: italic;
+    margin: 0;
+}
+
+
+/* --- RENAME MODAL SPECIFIC STYLES (NOW MATCHING MEALCATEGORY2.CSS EXACTLY) --- */
+#renameModal .modal-content {
+    /* These specific properties define its size and appearance, overriding general .modal-content */
+    padding: 30px 40px 40px 40px; /* Matched mealcategory2.css padding */
+    width: 550px; /* Matched mealcategory2.css width */
+    max-width: 90vw;
+    border-top: 8px solid #3a5108; /* Specific green top border, from mealcategory2.css */
+    /* min-height removed to allow content to dictate height, consistent with mealcategory2.css */
+}
+
+#renameModal form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+#renameModal input[type="text"],
+#renameModal select {
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 1em;
+    width: 240px;
+    box-sizing: border-box;
+}
+
+#renameModal input[type="text"] {
+    border: 1px solid #000;
+    background: #fff;
+}
+
+#renameModal select {
+    background: #d06054; /* Matched mealcategory2.css background */
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    -webkit-appearance: none; -moz-appearance: none; appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    padding-right: 2.5rem;
+    box-shadow: none;
+}
+
+#renameModal .save-btn { /* Target the specific save-btn inside renameModal */
+    margin-top: 15px;
+    background: #a1c14b; /* Matched mealcategory2.css background */
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 12px 30px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+
+/* --- DELETE MODAL STYLES (MATCH MEALCATEGORY2.CSS) --- */
+#deleteModal .modal-content.delete-modal-content {
+    background: #f9faf2;
+    border-radius: 16px;
+    padding: 32px 48px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    min-width: unset;
+    max-width: 95vw;
+    min-height: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#deleteModal .delete-modal-message {
+    font-family: Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 24px 0;
+    background: none;
+    width: auto;
+    padding: 0;
+    border-radius: 0;
+}
+#deleteModal .delete-modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+}
+#deleteModal .delete-no-btn, #deleteModal .delete-yes-btn {
+    padding: 12px 40px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+#deleteModal .delete-no-btn {
+    background-color: #d15b5b;
+}
+#deleteModal .delete-yes-btn {
+    background-color: #a1c14b; /* Matched mealcategory2.css background */
+}
+
+    .message-container {
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            max-width: 800px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    .message-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+    .message-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+/* ======= RESPONSIVE: Media Queries for Smaller Screens ======= */
+@media screen and (max-width: 768px) {
+    .header-bar {
+        font-size: 1.1em;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        padding: 0.8rem 1rem;
+    }
+
+    .header-back-link {
+        width: 28px;
+        height: 28px;
+        font-size: 0.9em;
+    }
+
+    main {
+        padding: 20px 16px;
+    }
+
+    .workout-title {
+        font-size: 1.2em;
+    }
+
+    .category-box {
+        padding: 20px 14px 30px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .category-list {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .category-btn {
+        font-size: 0.95em;
+        padding: 8px 14px;
+    }
+
+    .category-actions-centered {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .action-btn {
+        width: 100%;
+        /* max-width: 240px; */
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    /* Consolidated add category inputs for responsiveness */
+    .add-category-left {
+        flex-direction: column;
+        align-items: center;
+        font-size: 1em;
+    }
+
+    .add-category-left input[type="text"] {
+        margin: 10px 0 0 0;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Consolidated save buttons for responsiveness */
+    .save-btn,
+    .save-btn-right {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 0;
+    }
+
+    .add-save-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 0 10px;
+    }
+
+    /* Modal content for both rename and delete on smaller screens */
+    #renameModal .modal-content,
+    #deleteModal .modal-content.delete-modal-content {
+        padding: 30px 20px;
+        min-width: unset;
+        width: 90%;
+    }
+
+    .modal-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .modal-row label {
+        text-align: left;
+        margin: 0 0 8px 0;
+    }
+
+    .modal-row select,
+    .modal-row input[type="text"] {
+        width: 100%;
+    }
+
+    .delete-modal-actions {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .delete-no-btn,
+    .delete-yes-btn {
+        width: 100%;
+        font-size: 1em;
+        padding: 12px;
+    }
+}

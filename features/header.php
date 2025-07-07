@@ -7,9 +7,9 @@
     $header_class = 'header_transparent';
 
     // if ($current_page === 'fitness_page' || $current_page === "fitness_session" || $current_page === "fitness_result") {
-    if (in_array($current_page, ['fitness_page', 'fitness_page', 'fitness_page', 'about_us'])) {
+    if (in_array($current_page, ['fitness_page', 'fitness_session', 'fitness_result', 'about_us'])) {
         $header_class = 'header_red';
-    } elseif ($current_page === 'diet_page_name') {
+    } elseif (in_array($current_page, ['diet_page_name', 'selected_meal'])) {
         $header_class = 'header_green';
     // } elseif ($current_page === 'user_acc_page_name' || (isset($_SESSION['account_type']) && $_SESSION['account_type'] === 'admin')) {
     } else {
@@ -40,17 +40,67 @@
                 
             <?php } elseif (isset($_SESSION['usr_id'])) {?>
                 <li><a href="../interfaces/fitness_page.php">Fitness</a></li>
-                <li><a href="#">Diet</a></li>
+                <li><a href="../interfaces/diet_page_name.php">Diet</a></li>
                 <li><a href="../interfaces/about_us.php">About Us</a></li>
                 <li><a href="../interfaces/user_profile.php">Profile</a></li>
                 <li><a href="../interfaces/authentication.php">Log Out</a></li>
             <?php } elseif (isset($_SESSION['adm_id'])) {?>
                 <li><a href="../interfaces/admin_user_management.php">Users</a></li>
-                <li><a href="#">Fitness</a></li>
-                <li><a href="#">Diet Us</a></li>
+                <li><a href="../interfaces/adminfitnesstable.php">Fitness</a></li>
+                <li><a href="../interfaces/adminmealtable.php">Diet</a></li>
                 <li><a href="../interfaces/feedback.php">Feedback</a></li>
                 <li><a href="../interfaces/authentication.php">Log Out</a></li>
             <?php } ?>
         </ul>
     </nav>
+    <?php if (isset($_SESSION['usr_id']) ||isset($_SESSION['adm_id'])) { ?>
+        <div class="hamburger" id="hamburger-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>   
+    <?php } ?>             
 </header>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="close-btn" id="close-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <ul>
+            <?php if (!isset($_SESSION['usr_id']) && !isset($_SESSION['adm_id'])) { ?>
+
+            <?php } elseif (isset($_SESSION['usr_id'])) { ?>
+                <li><a href="../interfaces/fitness_page.php">Fitness</a></li>
+                <li><a href="../interfaces/diet_page_name.php">Diet</a></li>
+                <li><a href="../interfaces/about_us.php">About Us</a></li>
+                <li><a href="../interfaces/user_profile.php">Profile</a></li>
+                <li><a href="../interfaces/authentication.php">Log Out</a></li>
+            <?php } elseif (isset($_SESSION['adm_id'])) { ?>
+                <li><a href="../interfaces/admin_user_management.php">Users</a></li>
+                <li><a href="../interfaces/adminfitnesstable.php">Fitness</a></li>
+                <li><a href="../interfaces/adminmealtable.php">Diet</a></li>
+                <li><a href="../interfaces/feedback.php">Feedback</a></li>
+                <li><a href="../interfaces/authentication.php">Log Out</a></li>
+            <?php } ?>
+        </ul>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const hamburger = document.getElementById('hamburger-btn');
+        const sidebar = document.getElementById('sidebar');
+        const closeBtn = document.getElementById('close-btn');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        if (hamburger && sidebar && closeBtn && sidebarOverlay) {
+            hamburger.addEventListener('click', () => {
+                sidebar.classList.add('active');
+                sidebarOverlay.classList.add('active');
+            });
+            closeBtn.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+            });
+            sidebarOverlay.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+            });
+        }
+    });
+</script>

@@ -1,10 +1,6 @@
 <?php
-include '../features/connection.php';
-
-// $_SESSION['account_type'] = 'user';
-include '../features/header.php';
-
-include '../features/embed.php'; 
+include ('../features/connection.php');
+include ('../features/embed.php'); 
 
 // Handle AJAX to log workout
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'log_workout') {
@@ -27,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'log_workout')
     exit;
 }
 
-$work_id = isset($_GET['work_id']) ? (int)$_GET['work_id'] : 1;
+$work_id = isset($_SESSION['work_id']) ? (int)$_SESSION['work_id'] : 1;
 
 $query = "SELECT w.work_name, w.work_description, w.work_MET, w.work_image, 
                  w.work_beginner, w.work_intermediate, w.work_intense,
@@ -65,66 +61,109 @@ $ageFactor = ($age < 40) ? 1.0 : (($age < 50) ? 0.97 : (($age < 60) ? 0.94 : 0.9
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Workout Training</title>
+  <title>Fitness Session</title>
+<link rel="stylesheet" href="../styles/fitness.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+<?php include ('../features/header.php'); ?>
+<!-- Mobile Header -->
+<!-- <div class="mobile-header">
+  <div class="logo">NutriFit</div>
+  <button class="hamburger" id="menuToggle">&#9776;</button>
+</div> -->
 
-<div class="motivation-wrapper">
-  <h2 class="slogan-text2">
-    <span class="bold-shadow">REMEM<span class="red">BE</span>R <span class="red">Who</span><br>
-    <span class="red">You Want</span>ed <span class="red">To Be</span>
-    </span>
-  </h2>
-  <div class="level-select">
-    <label>Level</label>
-    <div class="level-buttons">
-      <button class="level-btn active" data-level="beginner">Beginner</button>
-      <button class="level-btn" data-level="intermediate">Intermediate</button>
-      <button class="level-btn" data-level="intense">Intense</button>
-    </div>
-  </div>
-</div>
+<!-- Slide-out Mobile Menu -->
+<!-- <div class="side-menu" id="sideMenu">
+  <button class="close-btn" id="closeMenu">&times;</button>
+  <a href="fitness_page.php">Fitness</a>
+  <a href="#">Diet</a>
+  <a href="#">About Us</a>
+  <a href="#">Profile</a>
+  <a href="#">Log Out</a>
+</div> -->
 
-<div class="shape-wrapper2">
-  <div class="gray-background"></div>
-  <div class="shape2">
+<div class="fitness-session-container">
+
+  <!-- Red Shape Background (SVG behind everything) -->
+  <div class="shape-wrapper2">
+    
+    <div class="gray-background-box"></div>
+
+    <!-- Desktop Red Shape SVG -->
+    <svg class="shape2 red-desktop-session" viewBox="0 0 560 540" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 253 334 C 253 334 254 307 226 309 H 37 C 0 306 0 270 0 270 V 28 C 0 0 35 0 35 0 H 232 A 35 35 0 0 1 265 32 v 167 A 35 35 0 0 0 300 228 H 508 A 35 35 0 0 1 541 267 V 478 C 540 516 510 516 508 516 H 294 C 294 516 258 519 253 473 Z" fill="#d35b50"/>
+    </svg>
+
+    <!-- Mobile Red Shape SVG -->
+    <svg class="shape2 red-mobile-session" viewBox="0 0 320 800" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 123 451 C 124 417 105 420 83 419 H 34 C 0 417 0 383 0 383 V 28 C 0 0 35 0 35 0 H 139 A 35 35 0 0 1 177 37 v 256 A 35 35 0 0 0 199 328 H 278 A 35 35 0 0 1 306 351 V 821 C 306 820 306 855 276 859 H 156 C 126 858 124 823 124 823 Z" fill="#d35b50"/>
+    </svg>
+
+    <!-- All main content inside the red shape -->
     <div class="session-wrapper">
 
-      <div class="left-section">
-        <h1><?php echo htmlspecialchars($name); ?></h1>
-        <div class="stat-row">
-          <span><i class="fa-solid fa-fire"></i> <span id="kcal">0</span> kcal</span>
-          <span><i class="fa-solid fa-clock"></i> <span id="duration">0</span> min</span>
+      <!-- Top content row -->
+      <div class="top-section">
+        <!-- Section 1: Workout Info -->
+        <div class="section workout-info">
+          <h1><?php echo htmlspecialchars($name); ?></h1>
+          <div class="stat-row">
+            <span><i class="fa-solid fa-fire"></i> <span id="kcal">0</span> kcal</span>
+            <span><i class="fa-solid fa-clock"></i> <span id="duration">0</span> min</span>
+          </div>
+          <p><strong>Category</strong></p>
+          <button class="category-btn"><?php echo htmlspecialchars($category); ?></button>
+          <p class="description"><?php echo htmlspecialchars($description); ?></p>
         </div>
-        <p><strong>Category</strong></p>
-        <button class="category-btn"><?php echo htmlspecialchars($category); ?></button>
-        <p class="description"><?php echo htmlspecialchars($description); ?></p>
+
+        <!-- Section 2: Motivation + Level -->
+        <div class="section motivation-wrapper">
+          <h2 class="slogan-text2">
+            <span class="bold-shadow">REMEM<span class="red">BE</span>R <span class="red">Who</span><br>
+            <span class="red">You Want</span>ed <span class="red">To Be</span>
+          </h2>
+          <div class="level-select">
+            <label>Level</label>
+            <div class="level-buttons">
+              <button class="level-btn active" data-level="beginner">Beginner</button>
+              <button class="level-btn" data-level="intermediate">Intermediate</button>
+              <button class="level-btn" data-level="intense">Intense</button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="right-section2">
-        <div class="timer-circle">
-        <svg id="progress-ring" width="400" height="400">
-          <circle id="progress-background" cx="200" cy="200" r="180" stroke="#eee" stroke-width="15" fill="none" />
-          <circle id="progress-ring-circle" cx="200" cy="200" r="180" stroke="#BCD454" stroke-width="15" fill="none" stroke-linecap="round" />
-        </svg>
-          <div id="time-display">5:00</div>
+      <!-- Bottom section for timer -->
+      <div class="bottom-section">
+        <div class="section timer-section">
+          <div class="timer-circle">
+            <svg id="progress-ring" viewBox="0 0 400 400">
+              <circle id="progress-background" cx="200" cy="200" r="180" stroke="#eee" stroke-width="15" fill="none" />
+              <circle id="progress-ring-circle" cx="200" cy="200" r="180" stroke="#BCD454" stroke-width="15" fill="none" stroke-linecap="round" />
+            </svg>
+            <div id="time-display">0:00</div>
+          </div>
+
+          <div class="button-area">
+            <div id="start-wrapper">
+              <button id="start-btn" class="action-btn green">Start Training</button>
+            </div>
+            <div id="control-wrapper" style="display: none;">
+              <button id="pause-btn" class="action-btn white">⏸ Stop</button>
+              <button id="end-btn" class="action-btn green">End Training</button>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
-  </div>
 
-<div class="button-area">
-  <div id="start-wrapper">
-    <button id="start-btn" class="action-btn green">Start Training</button>
-  </div>
-  <div id="control-wrapper" style="display: none;">
-    <button id="pause-btn" class="action-btn white">⏸ Stop</button>
-    <button id="end-btn" class="action-btn green">End Training</button>
   </div>
 </div>
 
 
+<?php include('../features/footer.php'); ?>
 <script>
 const MET = <?php echo $met; ?>;
 const weight = <?php echo $weight; ?>;
@@ -278,9 +317,20 @@ $('#pause-btn').click(function () {
   });
 });
 
+  const toggleBtn = document.getElementById("menuToggle");
+  const sideMenu = document.getElementById("sideMenu");
+  const closeBtn = document.getElementById("closeMenu");
+
+  toggleBtn.addEventListener("click", () => {
+    sideMenu.classList.toggle("active");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    sideMenu.classList.remove("active");
+  });
+
 
 </script>
 </body>
 </html>
 
-<?php include '../features/footer.php' ?>

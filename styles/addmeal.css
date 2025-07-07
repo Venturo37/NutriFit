@@ -1,0 +1,453 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #FAFBF5;
+  color: #333;
+} */
+
+.page-header {
+  width: 100%;
+  background: #A1C14B;
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1.25em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0;
+  justify-content: flex-start;
+}
+
+.page-header a {
+  color: white;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Enlarged Form Container */
+.form-container {
+  min-width: 900px;
+  margin: 2rem auto;
+  background: #fdfdf8;
+  padding: 2rem 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.form {
+  width: 100%;
+}
+
+.image-preview {
+  width: 180px;
+  height: 180px;
+  background: #e6e6e6;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #555;
+  margin: 0 auto 2.5rem auto;
+  overflow: hidden; /* Ensure image fits */
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* or 'cover' depending on desired crop */
+}
+
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group-inline {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  /* Added for file input alignment */
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.form-group-inline label {
+  margin-bottom: 0;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  flex-shrink: 0;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 1rem;
+}
+
+textarea {
+  border-radius: 12px;
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Custom styles for the file input button (using a label element) */
+.file-input-button {
+  background-color: #f0f0f0; /* Match #meal-time or a light gray */
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: normal;
+  display: inline-block; /* Essential for it to behave like a button */
+  line-height: normal; /* Ensure text aligns in center vertically */
+  transition: background-color 0.2s ease;
+}
+
+.file-input-button:hover {
+  background-color: #e6e6e6; /* Slight hover effect */
+}
+
+
+#meal-time {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  /* Ensure select looks good on all browsers */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 0.8em;
+  padding-right: 2.5rem; /* Make space for the arrow */
+}
+
+
+.macros-section {
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.macros-title {
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.macros-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-right: 1rem;
+}
+
+.macro-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.macro-field label {
+  font-weight: normal;
+  color: #555;
+}
+
+.macros-row input[type="number"] {
+  width: 80px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.total-kcal {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end; /* Default to right-aligned for "Add" page if only one button */
+  gap: 1rem;
+  margin-top: 2rem;
+  /* Added max-width and auto margins for centering if only one button, or controlling gap if two */
+  max-width: 420px; /* Example, adjust as needed */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.save-btn {
+  background-color: #A1C14B;
+  color: white;
+  padding: 0.7rem 1.8rem;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 200px; /* Standard width for consistency */
+}
+
+.save-btn:hover {
+  background-color: #8aa83e;
+}
+
+/* If you introduce a 'cancel' or 'back' button on the Add Meal page,
+   you might want to adjust .form-actions to justify-content: space-between;
+   and add styles for the new button here (similar to .delete-btn from edit_meal.css)
+   For now, assuming just a Save button here.
+*/
+.cancel-btn { /* Example for a potential cancel button */
+    background-color: #d15b5b; /* Red color for cancel */
+    color: white;
+    padding: 0.7rem 1.8rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 200px;
+}
+.cancel-btn:hover {
+    background-color: #c14646;
+}
+
+
+/* Responsive Design for Tablets */
+@media screen and (max-width: 1024px) {
+  .form-container {
+    min-width: auto;
+    width: 90%; /* Use percentage width for flexibility */
+    padding: 1.5rem;
+    margin: 1.5rem auto; /* Adjust margin */
+  }
+
+  /* Header adjustments for clarity on tablets */
+  .page-header {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1em;
+  }
+  .page-header a {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9em;
+  }
+
+  .form-group-inline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem; /* Slightly reduced gap */
+    flex-wrap: nowrap; /* Prevent wrapping in this range if not desired */
+  }
+
+  .form-group-inline label {
+    margin-bottom: 0.2rem; /* Keep labels closer to inputs */
+    font-size: 0.85rem; /* Smaller font for labels */
+  }
+
+  /* Ensure inputs take full width when stacked */
+  input[type="text"],
+  textarea,
+  #meal-time {
+    width: 100%;
+    max-width: unset; /* Remove any max-width that might constrain them */
+  }
+
+  .macros-title {
+    font-size: 1.05rem; /* Slightly smaller */
+  }
+
+  .macros-row {
+    flex-direction: column; /* Stack macros vertically */
+    align-items: flex-start; /* Align to the left */
+    gap: 0.8rem; /* Smaller gap when stacked */
+    padding-right: 0; /* Remove padding-right for full width */
+  }
+
+  .macro-field {
+    width: 100%; /* Make macro fields take full width */
+    justify-content: space-between; /* Distribute label and input */
+    align-items: center; /* Vertically align within macro-field */
+  }
+
+  .macro-field label {
+    font-size: 0.85rem;
+    margin-bottom: 0; /* No margin when inline */
+  }
+
+  .macros-row input[type="number"] {
+    width: 100px; /* Keep a defined width for number inputs */
+    text-align: center;
+  }
+
+  .total-kcal {
+    font-size: 1rem; /* Smaller font */
+  }
+
+  .form-actions {
+    /* If you only have one button, flex-end is fine and it will center itself
+       due to max-width and auto margins.
+       If you add a cancel button and want space-between:
+       justify-content: space-between;
+       max-width: 420px;
+    */
+    justify-content: flex-end; /* Keeps save button to the right, or centers if only one */
+    max-width: 300px; /* Adjust max-width for tablet button container */
+    margin: 2rem auto 0 auto; /* Recenter on tablet if only one button */
+  }
+
+  .save-btn,
+  .cancel-btn { /* Apply to both save and potential cancel */
+    width: 100%; /* Take full width of parent max-width */
+    max-width: 200px; /* Limit individual button width */
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* File input button specific adjustments for tablets */
+  .form-group-inline .file-input-button {
+      flex-grow: 1; /* Allow it to grow to fill space */
+      max-width: 180px; /* Limit its max width */
+      text-align: center;
+  }
+}
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 600px) {
+  .form-container {
+    width: 95%; /* Make it slightly wider for smaller screens */
+    padding: 1rem;
+    margin: 1rem auto; /* Closer to top */
+  }
+
+  .page-header {
+    font-size: 0.95rem; /* Smaller font for header */
+    padding: 0.6rem 0.8rem; /* Smaller padding */
+    gap: 0.5rem;
+  }
+
+  .page-header a {
+    width: 26px; /* Even smaller circle */
+    height: 26px;
+    font-size: 0.8em;
+  }
+
+  .image-preview {
+    width: 120px; /* Smaller image preview */
+    height: 120px;
+    margin-bottom: 1.5rem; /* Adjust margin */
+  }
+
+  .form-group,
+  .form-group-inline {
+    margin-bottom: 1rem; /* Tighter spacing */
+  }
+
+  label {
+    font-size: 0.8rem; /* Smaller labels */
+    margin-bottom: 0.2rem;
+  }
+
+  input[type="text"],
+  textarea,
+  #meal-time {
+    padding: 0.5rem 0.8rem; /* Smaller padding for inputs */
+    font-size: 0.85rem; /* Smaller font size */
+  }
+
+  .file-input-button {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .macros-section {
+    padding-top: 1rem; /* Adjust padding */
+    margin-top: 1.5rem; /* Adjust margin */
+  }
+
+  .macros-title {
+    font-size: 0.95rem; /* Smaller font */
+    margin-bottom: 0.8rem;
+  }
+
+  .macros-row {
+    flex-direction: column; /* Ensure stacking */
+    gap: 0.6rem;
+  }
+
+  .macro-field {
+    flex-direction: column; /* Stack label and input within macro-field */
+    align-items: flex-start; /* Align to the left */
+    gap: 0.2rem;
+  }
+
+  .macro-field label {
+    font-size: 0.8rem;
+  }
+
+  .macros-row input[type="number"] {
+    width: 100%; /* Take full width */
+    max-width: 120px; /* Limit max width */
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .total-kcal {
+    font-size: 0.95rem;
+  }
+
+  .form-actions {
+    flex-direction: row; /* Keep them in a row */
+    justify-content: space-between; /* Left for delete (if any), right for save */
+    gap: 10px; /* Gap between buttons */
+    margin-top: 1.5rem;
+    width: 100%; /* Take full width of parent */
+    max-width: 300px; /* Constrain max width for mobile */
+    padding: 0 5px; /* Small padding from edges */
+  }
+
+  .save-btn,
+  .cancel-btn { /* Apply to both save and potential cancel */
+    width: 48%; /* Each button takes roughly half the width */
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+    max-width: unset; /* Remove specific max-width to allow 48% to work */
+  }
+
+  /* File input button specific adjustments for mobile */
+  .form-group-inline .file-input-button {
+      flex-grow: 1; /* Allow it to grow to fill space */
+      max-width: 150px; /* Limit its max width */
+      text-align: center;
+  }
+}

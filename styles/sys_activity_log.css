@@ -1,15 +1,19 @@
 .sys_activity_table {
-  width: 100%;
+  /* width: 100%; */
   height: 45vw;
   background-color: #B6E0FF;
   border: #1F1F1F .5vw solid;
   border-radius: 1.5vw;
-  margin-bottom: 1vw;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  margin: 5vw;
 }
 .sys_activity_table h2 {
   font-size: 2vw;
   font-weight: 700;
   padding: 1vw 2vw;
+  height: fit-content;
 }
 .sys_activity_wrapper {
   display: flex;

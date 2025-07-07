@@ -1,5 +1,8 @@
 <?php
 include('connection.php');
+include('restriction.php');
+
+$acting_adm_id = $_SESSION['adm_id'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['action']) && $_POST['action'] === 'check_email' && isset($_POST['email'])) {
@@ -49,6 +52,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sssi", $name, $email, $password, $pic_id);
 
     if ($stmt->execute()) {
+        $new_adm_id = $connection->insert_id;
+        $logStmt = $connection->prepare("INSERT INTO admin_management_t (adm_id, managed_adm_id, adm_mana_action, adm_mana_timestamp) VALUES (?, ?, 'Added', NOW())");
+        $logStmt->bind_param("ii", $acting_adm_id, $new_adm_id);
+        $logStmt->execute();
         echo "success";
     } else {
         echo "error";

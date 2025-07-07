@@ -23,7 +23,7 @@ $totalPages = ceil($total / $limit);
 
 // Table
 echo '<h3 class="table_title">User Table</h3>
-<table class="record_table">
+<table class="record_table usermanage_theme">
     <thead>
         <tr>
             <th>User ID</th>

@@ -177,6 +177,7 @@ $profile_src = getProfilePic ($connection, $user['pic_id']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <?php include('../features/embed.php'); ?>
+    <script src="../javascript/update_profile.js" defer></script>
 
 </head>
 <body>
@@ -201,10 +202,10 @@ $profile_src = getProfilePic ($connection, $user['pic_id']);
         </div>
         <div class="directory_section">
             <div class="directory_container">
-                <button class="fitness_content_management_directory" onclick="window.location.href='#'">
+                <button class="fitness_content_management_directory" onclick="window.location.href='adminfitnesstable.php'">
                     Fitness Content Management <span><i class="fa-solid fa-chevron-right"></i></span>
                 </button>
-                <button class="diet_content_management_directory" onclick="window.location.href='#'">
+                <button class="diet_content_management_directory" onclick="window.location.href='adminmealtable.php'">
                     Diet Content Management <span><i class="fa-solid fa-chevron-right"></i></span>
                 </button>
                 <button class="user_management_directory" onclick="window.location.href='../interfaces/admin_user_management.php'">

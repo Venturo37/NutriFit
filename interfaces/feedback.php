@@ -95,5 +95,6 @@ if (!$result) {
     </div>
 
     <?php include('../features/footer.php') ?>
+    
 </body>
 </html>

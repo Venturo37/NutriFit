@@ -1,0 +1,230 @@
+/* General Reset */
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #fafbf5;
+  color: #222;
+} */
+
+/* Header Banner (Red theme, title aligned left) */
+.new-fitness-banner {
+  background: #e15b5b;
+  color: #fff;
+  padding: 16px 40px;
+  font-size: 1.3em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: flex-start; /* Title aligned to left */
+}
+
+/* Arrow styling */
+.new-fitness-banner a {
+  color: #fff;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Main Form Container */
+.form-container {
+  max-width: 900px;
+  margin: 32px auto 0 auto;
+  background: #fdfdf8;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 40px 48px;
+}
+
+/* Image Preview */
+.image-preview {
+  width: 180px;
+  height: 180px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px auto;
+  overflow: hidden;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Form Styling */
+form label {
+  display: block;
+  margin-top: 1.2rem;
+  font-weight: bold;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.4rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border-color: #A1C14B;
+  outline: none;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+input[type="file"] {
+  all: revert;
+  margin-top: 0.4rem;
+  font-size: 1rem;
+}
+
+/* Fitness-Specific Layout */
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-top: 2rem;
+  align-items: flex-start;
+}
+
+.category-select {
+  width: 180px;
+  margin-top: 1.2rem;
+}
+
+.category-select select {
+  background: #e15b5b;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 8px;
+}
+
+.category-select option {
+  background: #fff;
+  color: #222;
+}
+
+.times {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.times label {
+  font-weight: normal;
+  margin-top: 0;
+}
+
+/* Form Buttons */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.save-btn,
+.delete-btn {
+  color: white;
+  padding: 0.8rem 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 200px;
+}
+
+.save-btn {
+  background-color: #a9cc5b;
+}
+
+.save-btn:hover {
+  background-color: #91b348;
+}
+
+.delete-btn {
+  background-color: #e15b5b;
+}
+
+.delete-btn:hover {
+  background-color: #c14646;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: #fafbf5;
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  min-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
+}
+
+.modal-box p {
+  font-weight: bold;
+  font-size: 1.35em;
+  margin-bottom: 2.2rem;
+}
+
+.modal-box .modal-btn-row {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.modal-box .delete-btn,
+.modal-box .save-btn {
+  width: 180px;
+}
+
+/* Footer */
+/* footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 40px;
+} */

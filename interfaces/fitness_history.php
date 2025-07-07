@@ -2,11 +2,7 @@
 // session_start();
 include('../features/connection.php');
 
-if (!isset($_SESSION['usr_id'])) {
-// User is not logged in, redirect to login page
-    header('Location: login.php');
-    exit();
-}
+include('../features/restriction.php');
 $usr_id = $_SESSION['usr_id'];
 
 include('../features/header.php');

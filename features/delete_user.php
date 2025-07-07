@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $connection->begin_transaction();
+    
 
     try {
         if ($type === 'user') {
@@ -53,10 +54,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $del_workout->bind_param("i", $id);
             $del_workout->execute();
 
+            $del_feedback = $connection->prepare("DELETE FROM feedback_t WHERE usr_id = ?");
+            if (!$del_feedback) throw new Exception("Prepare failed: " . $connection->error);
+            $del_feedback->bind_param("i", $id);
+            $del_feedback->execute();
+            $del_feedback->close();
+
             // Step 4: Finally delete from user_t
             $stmt = $connection->prepare("DELETE FROM user_t WHERE usr_id = ?");
             if (!$stmt) throw new Exception("Prepare failed: " . $connection->error);
         } elseif ($type === 'admin') {
+
             $stmt = $connection->prepare("DELETE FROM admin_t WHERE adm_id = ?");
             if (!$stmt) throw new Exception("Prepare failed: " . $connection->error);
         } else {
@@ -65,7 +73,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         $stmt->bind_param("i", $id);
-        $stmt->execute();
+
+
+        if ($stmt->execute()) {
+            if ($type === 'user') {
+                // Log user deletion
+                $logStmt = $connection->prepare("INSERT INTO user_management_t (adm_id, usr_id, usr_mana_action, usr_mana_timestamp) 
+                    VALUES (?, ?, 'Deleted', NOW())");
+                if (!$logStmt) throw new Exception("Prepare failed: " . $connection->error);
+                $logStmt->bind_param("ii", $_SESSION['adm_id'], $id);
+                
+                $logStmt->execute();
+                $logStmt->close();
+            } elseif ($type === 'admin') {
+                // Log admin deletion
+                $logStmt = $connection->prepare("INSERT INTO admin_management_t (adm_id, managed_adm_id, adm_mana_action, adm_mana_timestamp) 
+                    VALUES (?, ?, 'Deleted', NOW())");
+                if (!$logStmt) throw new Exception("Prepare failed: " . $connection->error);
+                $logStmt->bind_param("ii", $_SESSION['adm_id'], $id);
+                
+                $logStmt->execute();
+                $logStmt->close();
+            }
+        }
         $stmt->close();
 
         $connection->commit();

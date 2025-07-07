@@ -20,6 +20,7 @@
 .record_header i {
   font-size: 1.8vw;
   color: white;
+  cursor: pointer;
 }
 
 /* TABLE CONTAINER */

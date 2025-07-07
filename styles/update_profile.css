@@ -54,11 +54,15 @@
 .edit_profile .picture_selection {
   background-color: #1F1F1F;
   display: flex;
-  justify-content: space-between;
+  gap: 5vw;
   padding: 1vw 5vw;
+  overflow-x: auto;
+  flex-wrap: nowrap;
 }
-.edit_profile .picture_selection .profile_pic_option{
+.update_content .edit_profile .picture_selection .profile_pic_option{
+  flex-shrink: 0;
   width: 7vw;
+  height: 7vw;
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
@@ -66,9 +70,11 @@
 .edit_profile .picture_selection .profile_pic_option.selected{
   box-shadow: 0 0 0 .3vw #1AFF00;
 }
-.picture_selection .profile_pic_option img {
+.edit_profile .picture_selection .profile_pic_option img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 .edit_details #update_profile_form {
   display: flex;
@@ -215,6 +221,7 @@
   font-size: 3vw;
 }
 .edit_profile .picture_selection .profile_pic_option{
+  flex-shrink: 0;
   width: 10vw;
 }
 .edit_details #update_profile_form {

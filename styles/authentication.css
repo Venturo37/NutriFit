@@ -535,9 +535,9 @@
 
   .shape1 {
     width: 200px;
-    height: 125px;
+    height: 110px;
     background: #E3945F80;
-    top: 40px;
+    top: 0px;
     left: 0px;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
@@ -588,23 +588,23 @@
 
   .authentication_container #login {
     width: 85%;
-    height: 50vw;
+    /* height: 60%; */
+    height: fit-content;
 
   }
 
 
   .authentication_container #verify {
     width: 85%;
-    height: 50vw;
+    height: 50%;
   }
   .authentication_container #reset {
     width: 85%;
-    height: 50vw;
+    height: 50%;
   }
   .authentication_container #signup {
     width: 85%;
-    height: 50vw;
-
+    height: 55%;
 
   }
 
@@ -719,16 +719,16 @@
 
   .image-verify,
   .image-reset {
-    bottom: 15vh;
+    bottom: 0vh;
     right: 5vw;
     width: 300px;
-    height: 30vh;
+    height: 30%;
     z-index: 2;
   }
 
   
   .image-signup {
-    bottom: 10vh;
+    bottom: 0vh;
     right: 0vw;
     width: 160px;
     height: 22vh;
@@ -835,7 +835,7 @@
   #signup_page2 #user_input {
     display: flex;
     flex-direction: column; /* stack inputs vertically */
-    gap: 0;
+    gap: 5px;
     width: 100%;
     padding: 0;
   }

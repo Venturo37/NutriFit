@@ -9,14 +9,11 @@
         die("Connection failed: " . mysqli_connect_error());
     } 
 
-    // CHANGES
+    $connection->report_mode = MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT;
+
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
     
-    // CHANGES
     return $connection;
-    
-    // $_SESSION['usr_id'] = 1; // For testing purposes, set a user ID
-    // $_SESSION['adm_id'] = 1; // For testing purposes, set a user ID
     ?>

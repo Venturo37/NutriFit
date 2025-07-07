@@ -1,0 +1,272 @@
+/* General Reset */
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+/* body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #fafbf5;
+  color: #222;
+} */
+
+/* Header Styling */
+/* header {
+  background: #fff;
+  padding: 24px 40px 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo h1 {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2.2em;
+  color: #222;
+  margin-bottom: 0;
+}
+
+.logo p {
+  font-size: 0.9em;
+  color: #444;
+  margin-top: -8px;
+  font-style: italic;
+}
+
+nav a {
+  color: #222;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 30px;
+  font-size: 1.1em;
+  transition: color 0.2s;
+}
+
+nav a.logout {
+  color: #222;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #e15b5b;
+} */
+
+/* Banner */
+.new-fitness-banner {
+  background: #e15b5b;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  font-size: 1.3em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.new-fitness-banner a {
+  color: #fff;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form Layout */
+.form-container {
+  max-width: 900px;
+  margin: 32px auto 0 auto;
+  background: #fdfdf8;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 40px 48px;
+}
+
+form {
+  width: 100%;
+}
+
+.image-preview {
+  width: 180px;
+  height: 180px;
+  background: #e6e6e6;
+  border: 2px solid #aaa;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #333;
+  margin: 0 auto 18px auto;
+  font-size: 1.1em;
+}
+
+form label {
+  display: block;
+  margin-top: 1.2rem;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #222;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea,
+form select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.4rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  transition: border 0.2s;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form textarea:focus,
+form select:focus {
+  border: 2px solid #e15b5b;
+  outline: none;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.category-select {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  margin-top: 1.2rem;
+}
+
+.category-select select,
+.category-select option {
+  font-size: 1.1em;
+}
+
+.category-select select {
+  background: #e15b5b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  padding: 0.7rem 1rem;
+  margin-bottom: 0;
+}
+
+.category-select option {
+  background: #fff;
+  color: #222;
+}
+
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-top: 2rem;
+  align-items: flex-start;
+}
+
+.times {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.times label {
+  font-weight: normal;
+  font-size: 0.98em;
+  margin-top: 0;
+}
+
+form input[name="met"] {
+  width: 120px;
+}
+
+.save-btn, button.save-btn {
+  background-color: #a9cc5b;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  float: right;
+  margin-top: 2.5rem;
+  transition: background 0.2s;
+}
+
+.save-btn:hover, button.save-btn:hover {
+  background-color: #91b348;
+}
+
+footer {
+  background: #222;
+  color: #fff;
+  text-align: left;
+  padding: 16px 40px;
+  font-style: italic;
+  font-size: 1.1em;
+  margin-top: 40px;
+}
+
+/* ========================= */
+/* Responsive Media Queries */
+/* ========================= */
+@media screen and (max-width: 768px) {
+  /* header {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px 20px 10px;
+  }
+
+  .logo h1 {
+    font-size: 1.8em;
+  }
+
+  nav a {
+    margin: 10px;
+    font-size: 1em;
+  } */
+
+  .new-fitness-banner {
+    font-size: 1.1em;
+    padding: 0.8rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .form-container {
+    padding: 24px 20px;
+  }
+
+  .form-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .image-preview {
+    width: 140px;
+    height: 140px;
+  }
+
+  .save-btn {
+    width: 100%;
+    float: none;
+    margin-top: 2rem;
+  }
+
+  /* footer {
+    text-align: center;
+    padding: 16px 20px;
+  } */
+}

@@ -3,7 +3,7 @@
   flex-direction: row;
   gap: 3vw;
   justify-content: center;
-  margin: 2vw;
+  margin: 6vw;
 }
 .statistics .user_fitness_statistic h2, .user_nutrition_statistic h2{
   font-size: 1.5vw;
@@ -36,7 +36,7 @@
 }
 .statistic_container .chart_container canvas{
   flex: 1 1;
-  width: 25vw;
+  width: 20vw;
 }
 .statistic_details {
   width: 80%;
@@ -84,7 +84,7 @@
     padding: 0 5vw;
   }
   .statistic_container .chart_container canvas {
-    width: 130%;
+    width: 90%;
   }
   .statistic_details {
     width: fit-content  ;

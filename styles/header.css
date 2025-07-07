@@ -1,17 +1,19 @@
 /* HEADER */
 header {
+  position: relative;
   width: 100%;
   padding-top: 2vh;
   padding-bottom: 2vh;
   padding-left: 7vw;
   padding-right: 7vw;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap;
 }
 .header_transparent{
   background-color: transparent;
-  /* background-color: #e6f1ae; */
   color: #1F1F1F;
 }
 .header_red{
@@ -29,6 +31,7 @@ header .logo{
   font-style: italic;
   font-weight: 700;
   text-align: center;
+  flex-shrink: 1;
 }
 header a {
   text-decoration: none;
@@ -48,4 +51,110 @@ header nav ul{
   font-size: 2vw;
   font-weight: 700;
   gap: 5vw;
+}
+
+header nav {
+    display: flex; /* Desktop nav is visible by default */
+}
+.hamburger {
+  position: absolute;
+  right: 10vw;
+  top: 4vw;
+  display: none; 
+  margin-left: auto; 
+  font-size: 5vw;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; 
+    height: 100vh;
+    width: 250px;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    padding: 2rem 1.5rem;
+    transition: right 0.3s ease;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: #1F1F1F;
+
+    /* ---- BACKDROP-FILTER and FALLBACK ---- */
+    backdrop-filter: blur(15px); 
+    background-color: #FAFBF5;
+    -webkit-backdrop-filter: blur(15px); 
+}
+
+.sidebar.active {
+    right: 0; /* Slides into view */
+}
+
+.sidebar .close-btn {
+    align-self: flex-end;
+    font-size: 2.5rem;
+    cursor: pointer;
+    margin-bottom: 5vw;
+    color: inherit;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.sidebar ul li {
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar ul li a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #1F1F1F;
+    display: block;
+    padding: 0.5rem 0;
+    transition: color 0.2s ease;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a:focus {
+    color: #A1C14B;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+@media screen and (max-width: 700px) {
+    header nav {
+        display: none; /* Hide desktop nav */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger */
+    }
+    /* .sidebar {
+      right: -250px;
+    } */
 }

@@ -3,13 +3,7 @@ include('../features/connection.php');
 
 include('../features/restriction.php');
 
-if (!isset($_SESSION['usr_id'])) {
-// User is not logged in, redirect to login page
-    header('Location: ../');
-    exit();
-}
 $usr_id = $_SESSION['usr_id'];
-
 
 function getUserData ($connection, $usr_id) {
     $user_query = $connection->prepare(
@@ -517,6 +511,8 @@ for ($day = 1; $day <= $init_num_day_display; $day++) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <?php include('../features/embed.php'); ?>
+    <script src="../javascript/update_profile.js" defer></script>
+    
 </head>
 <body>
     <?php include('../features/header.php'); ?>

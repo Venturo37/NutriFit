@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php include('../features/embed.php'); ?>
 </head>
 <body>
-    <div class="content">
+    <div >
         <?php include('../features/header.php')?>
         <div id="top_section">
             <div id="about_us_title">
@@ -110,23 +110,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <form id="feedback_form" action="" method="POST">
                     <div class="rating_options">
                         <label>
-                            <input type="radio" name="feedback_rating" value="1" required>
+                            <input type="radio" name="feedback_rating" value="1">
                             <span>1</span>
                         </label>
                         <label>
-                            <input type="radio" name="feedback_rating" value="2" required>
+                            <input type="radio" name="feedback_rating" value="2">
                             <span>2</span>
                         </label>
                         <label>
-                            <input type="radio" name="feedback_rating" value="3" required>
+                            <input type="radio" name="feedback_rating" value="3">
                             <span>3</span>
                         </label>
                         <label>
-                            <input type="radio" name="feedback_rating" value="4" required>
+                            <input type="radio" name="feedback_rating" value="4">
                             <span>4</span>
                         </label>
                         <label>
-                            <input type="radio" name="feedback_rating" value="5" required>
+                            <input type="radio" name="feedback_rating" value="5">
                             <span>5</span>
                         </label>
                     </div>
@@ -139,5 +139,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <?php include('../features/footer.php') ?>
     </div>
+    <script>
+        document.getElementById("feedback_form").addEventListener("submit", function(event) {
+            const rating = document.querySelector('input[name="feedback_rating"]:checked');
+
+            if (!rating) {
+                alert("Please select a rating before submitting.");
+                event.preventDefault(); // Stop form submission
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,1323 @@
+/* Diet Page */
+
+.flex_container{
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  align-items: flex-start; 
+  align-content: flex-start;
+  gap: 30px; 
+  width: 100%;
+}
+
+.dp_section_1{
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+.dp_section_2{
+  flex: 2;
+  padding: 20px;
+  position: relative;
+  align-items: start;
+  height: 100%;
+}
+
+.dp_section_3{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  min-height: 35vh; /* Adjust as needed (60% of viewport height) */
+  height: auto;
+  place-items: center; /* Center single items */
+  gap: 2vw;
+  padding: 2vw;
+  margin-top: 3vw;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.search{
+  --padding: 0.726vw;
+
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 28px;
+  padding: var(--padding);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 280px; /* Limit search bar width */
+  margin-bottom: 30px;
+  background-color: #FAFBF5;
+  border: 2px solid #1F1F1F;
+}
+
+.search_input{
+  font-size: 16px;
+  color: #1f1f1f;
+  margin-left: var(--padding);
+  outline: none;
+  border: none;
+  background: transparent;
+  width: 24.948vw;
+}
+
+.text_container{
+  position: relative;
+  width: 20.417vw;
+  display: flex;
+  align-items: center;
+  padding: var(--padding);
+}
+
+.text_container h1{
+  position: relative;
+  font-size: 6.25vw;
+  font-weight: bold;
+  color: #B6D83D;
+  overflow: hidden;
+  padding: 5vw 1vw;
+  rotate: -7.11deg;
+}
+
+.text_container h1 span{
+  color: #FAFBF5;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.fitness_button{
+  width: 16.979vw;
+  height: 5.729vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-color: transparent;
+  border-radius: 0.726vw;
+  gap: 0.8vw;
+  background-color: #B6D83D;
+  color: #FAFBF5;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.fitness_button:hover{
+  transform: scale(1.1); /* Makes the button 10% larger */
+  letter-spacing: 1px;   /* Adds a little space between letters */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+}
+
+.fitness_button .fitness_icon{
+  font-size: 2vw;
+}
+
+.background_shapes .shape,
+.background_shapes .shape2 {
+    z-index: 0;
+}
+
+.dp_section_2 > div { /* Target direct child divs like profile_container, status_container, chunk_1, etc. */
+    z-index: 1; /* Keep content above background shapes */
+}
+
+.shape{
+    width: 791px;
+    height: 953px;
+    background-color: #A1C14B;
+    clip-path: path("M 355,28 A 28,28 0,0,1 383,0 L 763,0 A 28,28 0,0,1 791,28 L 791,587 A 28,28 0,0,1 763,615 L 88.48,615 A 28,28 0,0,0 60.48,643 L 60.48,762 A 28,28 0,0,0 88.48,790 L 418,790 A 28,28 0,0,1 446,818 L 446,925 A 28,28 0,0,1 418,953 L 28,953 A 28,28 0,0,1 0,925 L 0,528 A 28,28 0,0,1 28,500 L 448.83,500 A 28,28 0,0,0 476.83,472 L 476.83,287 A 28,28 0,0,0 448.83,259 L 383,259 A 28,28 0,0,1 355,231 Z");
+    z-index: -1;
+}
+
+.shape2{
+  position: absolute;
+  width: 40.1vw;
+  height: 40.771vw;
+  background-color: #E6E6E4;
+  border-radius: 1.458vw;
+  z-index: -2;
+  bottom: -4vw;
+  left: 3vw;
+}
+
+.status_container{
+  position: absolute;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  top: 22vw;
+  left: 0.4vw;
+}
+
+.status_container .status{
+  width: 17.656vw;
+  height: 7.865vw;
+  background-color: #B6D83D;
+  border: 6px solid #E6E6E4;
+  border-radius: 0.726vw;
+  color: #FAFBF5;
+  text-align: center;
+  align-content: center;
+}
+
+.status_container .status h1{
+  font-size: 2vw;
+}
+
+.circle{
+  position: absolute;
+  width: 6.042vw;
+  height: 6.042vw;
+  background-color: #B6D83D;
+  border: 6px solid #E6E6E4; 
+  border-radius: 50%;
+  align-content: center;
+  transform: translate(14vw,-1.8vw);
+}
+
+.circle h1{
+  font-size: 1.667vw;
+}
+
+.dp_section_2 .profile_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 4vw;
+  right: 14vw;
+
+}
+
+.dp_section_2 .profile_pic img {
+  width: 13.472vw;
+  height: 13.472vw;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.dp_section_2 .name h1 {
+  font-size: 1.4em;
+  color: #FAFBF5;
+  margin: 0;
+  position: relative;
+  text-align: center;
+}
+
+.chunk_1{
+  text-align: center;
+  padding: 20px;
+  color: #FAFBF5;
+  position: absolute;
+  bottom: 18vw;
+}
+
+.text_box{
+  padding: 1.042vw 0;
+  margin-left: 6.8vw;
+}
+
+.kcal_box{
+  width: 16.146vw;
+  height: 5.729vw;
+  padding: 1.042vw;
+  align-content: center;
+  background-color: #D35B50;
+  translate: 6vw 4.5vw;
+  border-radius: 0.726vw;
+}
+
+.chunk_1 h1{
+  color: #FAFBF5;
+  font-size: 1.667vw;
+}
+
+.chunk_2{
+  text-align: center;
+  padding: 20px;
+  color: #FAFBF5;
+  position: absolute;
+  bottom: 0.2vw;
+  left: 4.8vw;
+}
+
+.dropdown{
+  width: 16.806vw;
+  position: relative;
+  margin: 2em;
+}
+
+.dropdown *{
+  box-sizing: border-box;
+}
+
+.select{
+  background: #D35B50;
+  color: #FAFBF5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5em;
+  padding: 1em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/*
+  Clicked styles(in JS)
+*/
+
+.select_clicked{
+  box-shadow: 0 0 0.8em #d9d9d9;
+}
+
+.select:hover{
+  background: #CE473B;
+}
+
+.caret{
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #FAFBF5;
+  transition: 0.3s;
+}
+
+/*
+Rotate caret styles(In JS)
+*/
+
+.caret_rotate {
+  transform: rotate(180deg);
+}
+
+.menu{
+  list-style: none;
+  padding: 0.2em 0.5em;
+  background: #E6E6E4;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  color: #1F1F1F;
+  position: absolute;
+  top: 3em;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  opacity: 0;
+  display: none;
+  transition: 0.2s;
+  z-index: 1;
+}
+
+.menu li{
+  padding: 0.7em 0.5em;
+  margin: 0.3em 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+menu:hover{
+  background: #D9D9D9;
+}
+
+/*
+Active Styles(In JS)
+*/
+
+.active{
+  background: #D9D9D9;
+}
+
+/*
+Open Styles(In JS)
+*/
+
+.menu_open{
+  display: block;
+  opacity: 1;
+}
+
+.chunk_2 h1{
+  color: #FAFBF5;
+  font-size: 1.667vw;
+}
+
+.chunk_3{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #FAFBF5;
+  padding: 20px;
+  gap: 15px;
+  position: absolute;
+  right: 10vw;
+  bottom: -8.4vw;
+}
+
+.calorie_container {
+  width: 20.56vw;
+  height: 20.56vw;
+  margin-top: 4vw;
+  margin-bottom: 2vw;
+}
+
+.progress_ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.bg_ring,
+.progress_ring_circle {
+  fill: #FAFBF5;
+  stroke-width: 10;
+}
+
+.bg_ring {
+  stroke: #D35B50;
+}
+
+.progress_ring_circle {
+  stroke: #B6D83D; /* default color */
+  stroke-linecap: round;
+  stroke-dasharray: 282.74; /* 2πr for r=65 */
+  stroke-dashoffset: 282.74;
+  transition: stroke-dashoffset 0.5s, stroke 0.5s;
+}
+
+.calorie_info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#kcalText {
+  font-size: 2vw;
+  color: #D35B50;
+  font-weight: bold;
+}
+
+.flame_icon {
+  font-size: 2.5vw;
+  color: #D35B50;
+}
+.chunk_3 h1{
+  color: #FAFBF5;
+  font-size: 1.667vw;
+}
+
+.input_button{
+  width: 16.806vw;
+  height: 4.792vw;
+  border: none;
+  border-radius: 28px;
+  background-color: #B6D83D;
+  color: #FAFBF5;
+  font-size: 1.068vw;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.input_button:hover {
+    transform: scale(1.1); /* Makes the button 10% larger */
+    letter-spacing: 1px;   /* Adds a little space between letters */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+}
+
+.dp_section_3 .card {
+    /* Basic styling for your cards - adjust as needed */
+    border: 1px solid #ddd;
+    border-radius: 1.5vw;
+    padding: 2vw 1.5vw;
+    text-align: center;
+    box-shadow: 0 0.3vw 1vw rgba(0, 0, 0, 0.1);
+    width: 28.347vw;
+    height: 29.306vw;
+    max-height: 50vw; 
+    background-color: #E6E6E4; 
+    display: flex; /* Enable flexbox for card content */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally within the card */
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    background-color: #F3CE6E; /* Change background color on hover */
+}
+
+.card img {
+    width: 20.625vw;
+    height: 15.694vw;
+    object-fit: cover;
+    border-radius: 1vw;
+    margin-bottom: 1.2vw;
+}
+
+.card_button{
+    font-size: 2.222vw;
+    margin: 0.5vw 0;
+    text-align: center;
+    color: #1F1F1F;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.kcal_intake{
+    font-size: 1.25vw;
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+    color: #1F1F1F;
+    margin: 1vw;
+}
+
+.kcal_intake i{
+    font-size: 2vw;
+    color: #D35B50; /* Flame color */
+}
+
+.card ion-icon {
+    font-size: 2vw;
+    color: #D35B50; /* Flame color */
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 1000; /* Make sure it's on top of everything */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Hide by default */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* This class will be added by JavaScript to show the pop-up */
+.popup-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    line-height: 1;
+}
+
+.popup-container h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    box-sizing: border-box;
+}
+
+.calorie-calculator {
+    background-color: #c6e377; /* Lime green */
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
+.calorie-calculator p {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.calorie-calculator .form-group input {
+    background-color: #fff;
+}
+
+.total-calories {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.insert-btn {
+    background: linear-gradient(to bottom, #aed581, #9ccc65);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.insert-btn:hover {
+    background: linear-gradient(to bottom, #9ccc65, #8bc34a);
+}
+
+/* ===================== */
+/* RESPONSIVE - TABLET & MOBILE */
+/* ===================== */
+@media screen and (max-width: 768px) {
+    
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    /* --- General Body/Header/Footer (mostly kept from your previous) --- */
+
+    /* --- Main Content Flex Container --- */
+    .flex_container {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: center; /* Center sections horizontally */
+        padding: 0; /* Remove padding from flex_container, let sections handle it */
+        gap: 20px; /* Space between dp_sections */
+    }
+
+    /* --- DP_SECTION_1 (Top Section - Search, Text, Button) --- */
+    .dp_section_1 {
+        width: 100%; /* Take full width */
+        padding: 5vw; /* Add padding inside the section */
+        display: flex;
+        flex-direction: column; /* Stack its children */
+        align-items: center; /* Center children horizontally */
+        gap: 20px; /* Space between search, text, button */
+    }
+
+    .search {
+        max-width: 90%; /* Responsive width */
+        width: 100%; /* Ensure it expands to max-width */
+        margin-bottom: 0; /* Let flex gap handle spacing */
+        padding: 3vw;
+    }
+    .search_input {
+        width: calc(100% - 3vw * 2);
+        font-size: 4vw;
+        margin-left: 0;
+    }
+
+    /* REMOVED: text_container */
+    .text_container {
+        display: none; /* Hide the text_container on mobile */
+    }
+
+    .fitness_button {
+        display: none; /* Keeping this as 'display: none' as per your previous code */
+    }
+
+    /* --- DP_SECTION_2 (Middle Section - Profile, Status, Chunks, Calories) --- */
+    .dp_section_2 {
+        width: 100%; /* Take full width */
+        padding: 5vw; /* Add padding inside the section */
+        display: flex;
+        flex-direction: column; /* Stack its children */
+        align-items: center; /* Center children horizontally */
+        gap: 10px; /* Space between elements in dp_section_2 */
+        position: relative; /* Keep relative for background shapes */
+        overflow: hidden; /* Hide overflowing parts of shapes if they extend */
+        margin-top: 3vw;
+    }
+
+    /* Background Shapes within dp_section_2 (Adjusted for responsiveness) */
+    .shape {
+        width: 315px; 
+        height: 303px; 
+        background-color: #A1C14B;
+        clip-path: path("M 169,10 A 28,28 0,0,1 190,0 L 287,0 A 28,28 0,0,1 315,28 L 315,139 A 28,28 0,0,1 287,167 L 190,167 A 28,28 0,0,0 162,195 L 162,275 A 28,28 0,0,1 134,303 L 28,303 A 28,28 0,0,1 0,275 L 0,128 A 28,28 0,0,1 28,96 L 109,96 A 28,28 0,0,0 121,88 Z");
+        position: absolute;
+        top: 2%;
+        left: 50%;
+        transform: translateX(-55%);
+        z-index: -1;
+    }
+    .shape2 {
+        width: 275px;
+        height: 391px;
+        background-color: #E6E6E4;
+        border-radius: 28px;
+        position: absolute;
+        z-index: -2;
+        left: 14%;
+        top: 0;
+    }
+
+    /* Profile Container - now flex item within dp_section_2 */
+    .dp_section_2 .profile_container {
+        position: absolute; 
+        right: 20%;
+        margin-top: 2vw; /* Adjust margin for spacing */
+        margin-bottom: 0; /* Let flex gap handle spacing */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 2; /* Keep above shapes */
+        order: 1; /* Define order if needed, otherwise natural flow */
+    }
+    .dp_section_2 .profile_pic img {
+        width: 22vw; /* Adjusted size */
+        height: 22vw; /* Adjusted size */
+        border-radius: 50%;
+    }
+    .dp_section_2 .name h1 {
+        font-size: 3vw; /* Adjusted font size */
+        color: #FAFBF5;
+        text-align: center;
+        margin-top: 1vw; /* Space between image and name */
+    }
+
+    /* Status Container - now flex item within dp_section_2 */
+    .status_container {
+        position: absolute; 
+        width: 100%; /* Take full width for better control */
+        display: flex;
+        align-items: center;
+        gap: 2vw; /* Space between status box and circle */
+        margin: 3vw 0; /* Adjust margin for spacing */
+        order: 2;
+        transform: translate(-22%, -100%);
+    }
+    .status {
+        width: 86px; /* Make it take roughly half the width */
+        height: 36px; /* Adjust height for mobile */
+        padding: 2vw;
+        border: none;
+        text-align: center;
+        display: flex; /* Make status content flex to center */
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        margin: 2vw 0; /* Adjust margin for spacing */
+    }
+
+    .status h1{
+      font-size: 2vw;
+    }
+
+    .circle {
+        position: absolute; /* IMPORTANT: Remove absolute positioning */
+        width: 10vw; /* Adjusted size */
+        height: 10vw; /* Adjusted size */
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2vw 0; /* Adjust margin for spacing */
+        transform: translate(0, -100%);
+    }
+    .circle h1 {
+        font-size: 3vw; /* Adjusted font size */
+        line-height: 1;
+    }
+
+    /* Chunk sections - now flex items within dp_section_2 */
+    /* Combine styles for better maintainability */
+    .chunk_1,
+    .chunk_2,
+    .chunk_3 {
+        position: static; /* IMPORTANT: Remove absolute positioning for general flow */
+        width: 100%; /* Take full width */
+        padding: 3vw 0; /* Add top/bottom padding, no horizontal */
+        display: flex;
+        flex-direction: column; /* Stack elements within each chunk */
+        align-items: center; /* Center content within chunks */
+        gap: 10px; /* Space between elements in each chunk */
+        margin: 0; /* Reset margins */
+        text-align: center; /* Center text within chunks */
+        color: #FAFBF5; /* Ensure text color is still white */
+    }
+
+    .chunk_1 { order: 3; }
+    .chunk_2 { order: 4; }
+    .chunk_3 { order: 5; }
+
+    .chunk_1 h1,
+    .chunk_2 h1,
+    .chunk_3 h1 {
+        font-size: 2.5vw; /* Adjusted font size */
+        margin-bottom: 0; /* Let gap handle spacing */
+    }
+    
+    .chunk_1{
+        transform: translate(-25%, 100%); /* Center horizontally */
+    }
+
+    .text_box {
+        padding: 0;
+        margin-left: 0;
+    }
+    .kcal_box {
+        width: 28vw; /* Adjust width for mobile */
+        height: 6vw; /* Adjust height */
+        padding: 2vw;
+        font-size: 1vw;
+        translate: 0;
+        border-radius: 0.726vw;
+        margin-top: 1vw;
+        display: flex; /* Center content vertically and horizontally */
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .chunk_2{
+        transform: translate(-25%, 60%); /* Center horizontally */
+    }
+
+    .dropdown {
+        width: 30%; /* Adjust width for mobile */
+        margin: 1vw 0;
+    }
+    .select {
+        padding: 3vw; /* Adjust padding */
+        font-size: 2.5vw; /* Adjust font size */
+    }
+    .caret {
+        border-left-width: 3px;
+        border-right-width: 3px;
+        border-top-width: 4px;
+    }
+    .menu {
+        top: 100%; /* Position below the select button */
+        left: 0; /* Align left */
+        transform: translateX(0); /* Remove center transform */
+        width: 100%; /* Take full width of dropdown */
+        padding: 1vw;
+    }
+    .menu li {
+        padding: 1.5vw;
+        font-size: 2.5vw;
+    }
+
+    .chunk_3{
+      transform: translate(20%, -14%); 
+    }
+
+    .chunk_3 h1{
+      color: #1F1F1F;
+    }
+
+    /* --- Circle Progress Ring and its elements (only size adjustments) --- */
+    .calorie_container {
+        width: 30vw; /* Reduced size for mobile */
+        height: 30vw; /* Reduced size for mobile */
+        margin-top: 2vw;
+        margin-bottom: 1vw;
+        /* Keep existing position/transform if applied in original CSS for center */
+    }
+
+    .calorie_info{
+        position: absolute;
+        top: 46%;
+        left: 50%;
+        text-align: center;
+    }
+
+    #kcalText {
+        font-size: 3vw; /* Adjusted font size to fit smaller container */
+    }
+    .flame_icon {
+        font-size: 4vw; /* Adjusted icon size to fit smaller container */
+    }
+    /* End of Circle Progress Ring adjustments */
+
+    .input_button {
+        width: 40%; /* Adjust width */
+        height: 10vw; /* Adjust height */
+        font-size: 3vw; /* Adjusted font size */
+        border-radius: 15px;
+        padding: 0;
+    }
+
+    /* --- DP_SECTION_3 (Cards) --- */
+    .dp_section_3 {
+        display: grid;
+        grid-template-columns: 1fr; /* Single-column layout on mobile */
+        gap: 20px;
+        padding: 1vw 0; /* Responsive horizontal padding */
+        margin-top: 0;
+        margin-bottom: 3vw;
+        justify-items: center; 
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+    
+    .dp_section_3 .card {
+      width: 70%;
+      height: auto;
+      border-radius: 4vw;
+      box-shadow: 0 1.5vw 4vw rgba(0, 0, 0, 0.15);
+      box-sizing: border-box;
+      background-color: #E6E6E4; /* optional: improves text contrast */
+      transform: translateX(25%);
+      transition: 0.5s;
+    }
+
+    .card img {
+       width: 50%;           
+      height: auto;
+      border-radius: 1vw;
+      margin-bottom: 1.5vw;
+    }
+
+    .card_button {
+      font-size: 3.5vw;     
+    }
+
+    .kcal_intake {
+      font-size: 2.5vw;
+      gap: 1vw;
+    }
+    .kcal_intake i,
+    .card ion-icon {
+      font-size: 3.2vw;
+    }
+
+    .card:hover {
+        width: 75%; /* Slightly increase card size on hover */
+        transform: translateX(20%); /* Adjust position to keep it centered */
+        background-color: #F3CE6E;
+    }
+}
+
+/* ========== SELECTED_MEAL_PAGE ========== */
+.selected_meal_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 4vw;
+    background-color: #FAFBF5;
+    position: relative;
+    height: 84vw;
+    overflow: hidden;
+}
+
+.meal_container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* BACK ARROW */
+.back_arrow {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2vw;
+    color: #1F1F1F;
+    text-decoration: none;
+    z-index: 10;
+}
+
+.back_arrow i {
+    font-weight: bold;
+}
+
+/* MAIN CARD LAYOUT */
+.meal_details_card {
+    margin: 0 auto;
+  max-width: 1200px;   /* Or any value that fits your layout well */
+  width: 100%;
+  display: grid;
+  grid-template-columns: 240px 1fr 300px;
+  grid-template-rows: 200px auto auto;
+  gap: 2vw;
+  padding: 3vw;
+  border-radius: 20px;
+  color: #1F1F1F;
+  box-sizing: border-box;
+}
+
+/* Left Scroll */
+.nutrition_info::-webkit-scrollbar,
+.ingredients_list::-webkit-scrollbar {
+    width: 6px;
+}
+.nutrition_info::-webkit-scrollbar-thumb,
+.ingredients_list::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 4px;
+}
+
+/* NUTRITION INFO */
+.nutrition_info {
+    background-color: #FAFBF5;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    padding: 1.2vw;
+    height: 364px;
+    overflow-y: auto;
+    border-radius: 10px;
+    font-size: 1vw;
+    z-index: 2;
+    text-align: center;
+}
+
+.nutrition_info h2 {
+    font-size: 2.2vw;
+    font-weight: 800;
+    margin: 1vw 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5vw;
+}
+
+.nutrition_info h2 i {
+    color: #D35B50; /* Flame color */
+}
+
+.nutrition_info p{
+    font-size: 1.2vw;
+    margin: 0.5vw 0;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* MEAL IMAGE */
+.meal_image_container {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: flex-start;     /* Push container upward */
+    margin-top: -1.5vw;         /* Optional: nudge further if needed */
+    transform: translateY(-15.2vw);
+    z-index: 1;
+}
+
+.meal_photo {
+    width: 480px;
+    height: 580px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 6px solid #F3CE6E; 
+}
+
+.meal_title {
+  margin-top: 1.8vw;
+    font-size: 1.8vw;
+    font-weight: 700;
+    color: #FAFBF5;
+}
+
+/* INGREDIENT SECTION */
+.ingredients_and_action {
+  grid-column: 3 / 4;         /* Rightmost column */
+  grid-row: 2 / 2;            /* Second row */
+  display: flex;
+  flex-direction: column;
+  align-items: center;        /* Center contents horizontally inside */
+  justify-content: flex-start;/* Align at the top of the grid cell */
+  text-align: center;         /* Center text */
+  gap: 2vw;
+}
+
+.person_image_container {
+    grid-column: 3 / 4;         /* Rightmost column */
+    grid-row: 1 / 2;            /* First row */
+    width: 100%;
+    margin-bottom: 1vw;
+    transform: translate(2vw, -2vw);
+}
+
+.person_photo {
+    width: 100%;
+    max-width: 200px;
+    display: block;
+    margin-top: -6vw;
+    margin-left: 2.2vw;
+}
+
+.ingredients_list {
+    padding: 1.2vw;
+    border-radius: 10px;
+    max-height: 380px;
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 2;
+}
+
+.ingredients_list h3 {
+    font-size: 2.4vw;
+    font-weight: 700;
+}
+
+.ingredients_list .meal_description {
+    font-size: 1.2vw;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* BUTTON SECTION */
+.choose_meal_button_container {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    text-align: center;
+    padding: 2vw 0;
+    margin-top: -7vw;
+}
+
+.choose_meal_btn {
+    background-color: #D35B50;
+    color: #FAFBF5;
+    border: none;
+    padding: 1vw 2.5vw;
+    font-size: 1.5vw;
+    font-weight: 700;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.choose_meal_btn:hover {
+    background-color: #c04e43;
+}
+
+/* SHAPE BACKGROUNDS */
+.shape_3,
+.shape_4 {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.shape_3 {
+    position: absolute;
+    width: 1194px;
+    height: 862px;
+    background-color: #A1C14B;
+    clip-path: path("M 0,28 A 28,28 0,0,1 28,0 L 861,0 A 28,28 0,0,1 889,28 L 889,253 A 28,28 0,0,0 917,281 L 1166,281 A 28,28 0,0,1 1194,309 L 1194,834 A 28,28 0,0,1 1166,862 L 869,862 A 28,28 0,0,1 841,834 L 841,675 A 28,28 0,0,0 813,647 L 28,647 A 28,28 0,0,1 0,619 Z");
+    z-index: 1;
+}
+
+.shape_4 {
+    position: absolute;
+    width: 730px;
+    height: 711px;
+    background-color: #E6E6E4;
+    z-index: 0;
+    border-radius: 28px;
+}
+
+/* ========== RESPONSIVE for Selected Page ========== */
+@media (max-width: 768px) {
+  /* Main container for the selected meal page */
+    .selected_meal_page {
+        padding: 5vw; /* Increase overall padding for mobile */
+        height: auto;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+        align-items: center; /* Center items horizontally */
+    }
+
+    /* Back arrow */
+    .back_arrow {
+        top: 20px; /* Adjust position from top */
+        left: 20px; /* Adjust position from left */
+        font-size: 5vw; /* Increase icon size */
+    }
+
+    /* Main card layout for meal details */
+    .meal_details_card {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center items horizontally within the card */
+        gap: 5vw; /* Increase gap between stacked elements */
+        max-width: 90%; /* Limit card width to 90% of viewport */
+        width: 100%;
+        z-index: 2; /* Ensure card is above background shapes */
+        transform: translateY(0); /* Reset any existing transforms */
+        background-color: transparent; /* Make background transparent to show shapes */
+        box-shadow: none; /* Remove box shadow if not needed */
+    }
+
+    .shape_3{
+      position: absolute;
+      width: 315px;
+      height: 363px;
+      clip-path: path("M 0,28 A 28,28 0,0,1 28,0 L 110,0 A 28,28 0,0,1 138,28 L 138,77 A 28,28 0,0,0 166,105 L 287,105 A 28,28 0,0,1 315,133 L 315,335 A 28,28 0,0,1 287,363 L 274,363 A 28,28 0,0,1 246,335 L 246,328 A 28,28 0,0,0 218,300 L 97,300 A 28,28 0,0,0 69,328 L 69,335 A 28,28 0,0,1 41,363 L 28,363 A 28,28 0,0,1 0,335 Z");
+      top: 7%;
+    }
+
+    .shape_4 {
+      position: absolute;
+      width: 275px;
+      height: 542px;
+      border-radius: 28px;
+      top: 0;
+    }
+
+    /* Nutrition Info Section */
+    .nutrition_info {
+        position: absolute;
+        height: auto; /* Allow height to adjust to content */
+        font-size: 3.2vw; /* Decreased font size further */
+        padding: 3vw; /* Decreased padding further */
+        text-align: center;
+        background-color: #FAFBF5; /* Ensure a background color for readability */
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Add a subtle shadow */
+        width: 140px; 
+        margin: 0 auto; /* Center it */
+        right: 8%;
+        top: 11%;
+    }
+
+    .nutrition_info h2 {
+        font-size: 4.5vw; /* Decreased heading size further */
+        margin: 1.5vw 0; /* Adjusted margin */
+    }
+
+    .nutrition_info p {
+        font-size: 3.2vw; /* Consistent with overall font size */
+        margin: 0.8vw 0; /* Adjusted margin */
+    }
+
+    /* Meal Image Container */
+    .meal_image_container {
+        position: relative;
+        margin-top: 0; /* Reset margin */
+        transform: translate(-16vw, 30%); /* Reset transform */
+        align-self: center; /* Center the container */
+    }
+
+    .meal_photo {
+        width: 30vw; 
+        height: 65vw; 
+        max-width: 250px; /* Adjusted max size for tablets */
+        max-height: 200px; /* Adjusted max height */
+        object-fit: cover;
+        border-radius: 15px;
+        border: none;
+    }
+
+    .meal_title {
+        margin-top: 2vw; /* Adjust margin */
+        font-size: 6vw; /* Adjust title size */
+        color: #1F1F1F; /* Ensure good contrast on light background */
+        text-align: center;
+        transform: translateX(34%);
+    }
+
+    /* Ingredients and Action Section */
+    .ingredients_and_action {
+        position: relative; /* Keep it in flow, but allows for positioning children */
+        width: 100%; /* Adjust width as needed */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center contents */
+        gap: 4vw;
+        margin-top: 2vw; /* Additional margin below the 'padding-top' */
+    }
+
+    .person_image_container {
+        position: absolute;
+        width: 60%; /* Adjust width of the container */
+        margin-bottom: 2vw; /* Adjust margin */
+        transform: translate(30%, 0);
+    }
+
+    .person_photo {
+        width: 100%; /* Make photo responsive within its container */
+        max-width: 150px; /* Limit max size */
+        margin-top: -10vw; /* Adjust negative margin */
+        margin-left: auto; /* Center horizontally */
+        margin-right: auto; /* Center horizontally */
+        display: block; /* Ensure it's a block element for margin auto to work */
+    }
+
+    .ingredients_list {
+        padding: 4vw; /* Adjust padding */
+        max-height: none; /* Allow full height */
+        background-color: #FAFBF5; /* Ensure a background color for readability */
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Add a subtle shadow */
+        width: 200px; 
+        margin-top: 4vw;
+        transform: translateY(12%);
+    }
+
+    .ingredients_list h3 {
+        font-size: 6vw; /* Adjust heading size */
+        margin-bottom: 2vw;
+    }
+
+    .ingredients_list .meal_description {
+        font-size: 3.5vw; /* Adjust description font size */
+        margin: 1vw 0;
+    }
+
+    /* Choose Meal Button */
+    .choose_meal_button_container {
+        padding: 5vw 0;
+        margin-top: 3vw; 
+        order: 4;
+    }
+
+    .choose_meal_btn {
+        padding: 3vw 6vw; /* Adjust padding for a larger touch target */
+        font-size: 5vw; /* Increase font size */
+        border-radius: 10px; /* Adjust border radius */
+    }
+}

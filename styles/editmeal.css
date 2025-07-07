@@ -1,0 +1,343 @@
+/* General Reset */
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #fafbf5;
+  color: #222;
+} */
+
+/* --- THIS HEADER SECTION HAS BEEN CORRECTED --- */
+.edit-banner {
+  background: #A1C14B;
+  color: #fff;
+  padding: 16px 40px;
+  font-size: 1.3em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* This rule creates the transparent circle around the arrow */
+.edit-banner a {
+  color: #fff;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* --- END OF CORRECTIONS --- */
+
+
+/* Main Form Container */
+.form-container {
+  min-width: 900px;
+  margin: 32px auto 0 auto;
+  background: #fdfdf8;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 40px 48px;
+}
+
+/* Image Preview Box */
+.image-preview {
+  width: 180px;
+  height: 180px;
+  background: #e6e6e6;
+  border: 2px solid #aaa;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px auto;
+  overflow: hidden;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Form Styling */
+form label {
+  display: block;
+  margin-top: 1.2rem;
+  font-weight: bold;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.4rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border-color: #A1C14B;
+  outline: none;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* This allows native default style for file input */
+input[type="file"] {
+  all: revert;
+  margin-top: 0.4rem;
+  font-size: 1rem;
+}
+
+/* Macronutrient Section */
+.macros-section {
+  margin: 24px 0 0 0;
+}
+.macros-title {
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.macros-row {
+  display: flex;
+  gap: 32px;
+  margin: 0 0 18px 0;
+}
+.macros-row label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 500;
+  margin-top: 0;
+}
+.macros-row input {
+  width: 100px;
+  padding: 8px 12px;
+  border: 1.5px solid #222;
+  border-radius: 18px;
+  text-align: center;
+}
+.macros-kcal {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.macros-kcal span {
+  font-weight: normal;
+  margin-left: 8px;
+}
+
+/* Form Buttons */
+.form-actions {
+  display: flex;
+  justify-content: space-between; /* Delete on left, Save on right */
+  gap: 1rem;
+  margin-top: 2.5rem;
+  max-width: 420px; /* Adjust this value as needed to control overall button width */
+  margin-left: auto; /* Center the action buttons container */
+  margin-right: auto; /* Center the action buttons container */
+}
+
+.save-btn,
+.delete-btn {
+  color: white;
+  padding: 0.8rem 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 200px; /* Keep individual button width consistent */
+}
+
+.save-btn {
+  background-color: #a9cc5b;
+}
+.save-btn:hover {
+  background-color: #91b348;
+}
+
+.delete-btn {
+  background-color: #e15b5b;
+}
+.delete-btn:hover {
+  background-color: #c14646;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none; /* Controlled by JavaScript */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: #fafbf5;
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  min-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
+}
+
+.modal-box p {
+  font-weight: bold;
+  font-size: 1.35em;
+  margin-bottom: 2.2rem;
+}
+
+.modal-box .modal-btn-row {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.modal-box .delete-btn,
+.modal-box .save-btn {
+  width: 180px;
+}
+
+
+
+/* ======= RESPONSIVE: Media Queries for Smaller Screens ======= */
+@media screen and (max-width: 768px) {
+    /* Header adjustments */
+    .edit-banner {
+        padding: 12px 20px; /* Smaller padding */
+        font-size: 1.1em; /* Slightly smaller font */
+    }
+
+    .edit-banner a {
+        width: 28px; /* Smaller circle */
+        height: 28px;
+        font-size: 0.9em; /* Smaller arrow icon */
+    }
+
+    /* Main form container adjustments */
+    .form-container {
+        min-width: unset; /* Remove fixed min-width */
+        width: 95%; /* Use a percentage width */
+        margin: 20px auto; /* Adjust margin */
+        padding: 25px 20px; /* Adjust padding for smaller screens */
+    }
+
+    /* Image preview - remains centered and sized */
+    .image-preview {
+        width: 150px; /* Slightly smaller image preview */
+        height: 150px;
+    }
+
+    /* Form inputs and labels */
+    form label {
+        margin-top: 1rem; /* Adjust label margin */
+        font-size: 0.95em;
+    }
+
+    form input,
+    form textarea,
+    form select {
+        padding: 0.6rem; /* Smaller padding for inputs */
+        font-size: 0.9em; /* Smaller font size for inputs */
+    }
+
+    input[type="file"] {
+        font-size: 0.9em; /* Smaller font for file input */
+    }
+
+    /* Macronutrient Section adjustments */
+    .macros-section {
+        margin: 20px 0 0 0; /* Adjust margin */
+    }
+    .macros-title {
+        font-size: 1em; /* Smaller title font */
+        margin-bottom: 5px;
+    }
+    .macros-row {
+        flex-direction: column; /* Stack macro inputs vertically */
+        gap: 15px; /* Adjust gap */
+        margin: 0 0 15px 0;
+        align-items: flex-start; /* Align labels/inputs to the start */
+    }
+    .macros-row label {
+        width: 100%; /* Make label take full width in column layout */
+        align-items: flex-start; /* Align label content to start */
+    }
+    .macros-row input {
+        width: 100%; /* Make input take full width */
+        max-width: 150px; /* Limit max width for numerical inputs */
+        text-align: left; /* Align text left for better readability on small screens */
+    }
+    .macros-kcal {
+        font-size: 1.1rem; /* Slightly smaller total kcal font */
+    }
+
+    /* Form Buttons adjustments (Delete left, Save right on mobile too) */
+    .form-actions {
+        flex-direction: row; /* Keep them in a row */
+        justify-content: space-between; /* Delete left, Save right */
+        align-items: center; /* Vertically align them if their heights differ */
+        gap: 10px; /* Smaller gap for mobile */
+        margin-top: 2rem;
+        width: 100%; /* Take full available width of parent */
+        max-width: 350px; /* Adjust max-width for smaller screens to ensure fit */
+        padding: 0 10px; /* Add some padding to prevent sticking to edges */
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    .save-btn,
+    .delete-btn {
+        width: 48%; /* Each button takes roughly half the width, accounting for gap */
+        padding: 0.7rem 0;
+        font-size: 1em;
+        max-width: unset; /* Remove max-width from individual buttons to allow 48% width to work */
+    }
+
+    /* Modal styles for small screens */
+    .modal-box {
+        padding: 1.5rem 1.8rem; /* Smaller padding */
+        min-width: unset; /* Remove min-width */
+        width: 90%; /* Use percentage width */
+    }
+    .modal-box p {
+        font-size: 1.15em; /* Smaller modal text */
+        margin-bottom: 1.5rem; /* Adjust margin */
+    }
+    .modal-box .modal-btn-row {
+        flex-direction: column; /* Stack modal buttons on mobile */
+        gap: 10px;
+    }
+    .modal-box .delete-btn,
+    .modal-box .save-btn {
+        width: 100%; /* Make modal buttons full width */
+        max-width: 200px; /* Limit their max width */
+    }
+
+    /* Footer adjustment */
+    /* footer {
+        padding: 0.8rem; Smaller footer padding
+        font-size: 0.9em;
+    } */
+}

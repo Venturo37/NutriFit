@@ -1,55 +1,40 @@
 <?php
 include('../features/connection.php');
-
-
-
-include('../features/header.php');
-
-// session_start();
-
-// TEST RUN 
-// $_SESSION['adm_id'] = 1;
-
-// Ensure user is logged in
-if (!isset($_SESSION['adm_id'])) {
-    echo json_encode(['message' => 'User not logged in.']);
-    exit();
-}
-
-$logged_in_adm_id = $_SESSION['adm_id'];
+include('../features/restriction.php');
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>User Management</title>
+  <?php include('../features/embed.php'); ?>
+<!-- <link rel="stylesheet" href="../styles/admin_user_management.css"> -->
 </head>
+
+
 <body>
+  <?php include('../features/header.php'); ?>
+  <div class="content">
 
-<div id="content">
-  <div class="usermanage_header">
-    <h2>User Management</h2>
-  </div>
+    <div class="usermanage_header">
+      <h2>User Management</h2>
+    </div>
 
-  <div class="usermanage_buttons">
-    <button class="green_btn">Update Profile Picture</button>
-  </div>
+    <div class="usermanage_buttons">
+      <button class="green_btn">Update Profile Picture</button>
+    </div>
 
-  <div class="record_table_wrapper admin_user_management" id="admin_table_container">
-    <!-- Admin Table loaded via AJAX -->
-  </div>
-
-  <div class="record_table_wrapper admin_user_management" id="user_table_container">
-    <!-- User Table loaded via AJAX -->
-  </div>
+    <div class="record_table_wrapper admin_user_management" id="admin_table_container"></div>
+    <div class="record_table_wrapper admin_user_management" id="user_table_container"></div>
+<script>
+/* const logged_in_adm_id = <?php echo json_encode($logged_in_adm_id); ?>; */
+const logged_in_adm_id = 1; //TESTING
+</script>
 </div>
 <?php include('../features/footer.php'); ?>
 
-<script>
-const logged_in_adm_id = <?php echo json_encode($logged_in_adm_id); ?>;
-</script>
 
 <!-- Add Admin Popup -->
 <div class="popup_overlay" id="add_admin_popup">
@@ -132,7 +117,6 @@ const logged_in_adm_id = <?php echo json_encode($logged_in_adm_id); ?>;
     </div>
     <div class="profile_btn_wrapper">
       <button class="profile_btn red">Delete Profile</button>
-      <button class="profile_btn green">Save Changes</button>
     </div>
   </div>
 </div>
@@ -198,6 +182,7 @@ function close_popup() {
     if (e.target.classList.contains('profile_option')) {
       document.querySelectorAll('.profile_option').forEach(i => i.classList.remove('selected'));
       e.target.classList.add('selected');
+      selected_pic_id = e.target.getAttribute('data-id');
     }
   });
 
@@ -473,10 +458,72 @@ emailInput.addEventListener('input', checkEmail);
       }
     });
   });
-});
-</script>
 
-<script>
+document.querySelector('.profile_btn.red').addEventListener('click', () => {
+  if (!selected_pic_id) {
+    alert("Please select a profile picture to delete.");
+    return;
+  }
+
+  const confirmed = confirm("Are you sure you want to delete this profile picture?");
+  if (!confirmed) return;
+
+  fetch('../features/delete_admin_pic.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `pic_id=${selected_pic_id}`
+  })
+  .then(res => res.text())
+  .then(response => {
+    alert(response);
+
+    if (response.trim() === 'Profile picture deleted successfully.') {
+      // Remove the image from the grid
+      const selectedImage = document.querySelector(`.profile_option.selected`);
+      if (selectedImage) {
+        selectedImage.remove();
+      }
+  
+      selected_pic_id = null;
+    }
+
+    document.getElementById("new_profile_upload").value = '';
+  });
+});
+});
+
+document.getElementById('new_profile_upload').addEventListener('change', () => {
+  const fileInput = document.getElementById('new_profile_upload');
+  const file = fileInput.files[0];
+  if (!file) return;
+
+  const formData = new FormData();
+  formData.append('new_profile_upload', file);
+
+  fetch('../features/upload_admin_pic.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(res => res.text())
+  .then(html => {
+    // Append the returned image
+    const container = document.querySelector('.profile_pic_grid');
+    container.insertAdjacentHTML('beforeend', html);
+
+    // Re-bind click listeners to include the new one
+    bindProfileImageClicks();
+
+    // Auto-select the new one
+    const newImg = container.querySelector('.profile_option:last-child');
+    document.querySelectorAll('.profile_option').forEach(i => i.classList.remove('selected'));
+    newImg.classList.add('selected');
+    selected_pic_id = newImg.getAttribute('data-id');
+
+    fileInput.value = ""; // reset input
+  })
+  .catch(err => alert("Upload failed: " + err));
+});
+
 let selected_pic_id = null;
 
 function bindProfileImageClicks() {
@@ -488,50 +535,6 @@ function bindProfileImageClicks() {
     });
   });
 }
-
-document.querySelector('.profile_btn.green').addEventListener('click', () => {
-  if (selected_pic_id) {
-    const formData = new FormData();
-    formData.append('pic_id', selected_pic_id);
-    formData.append('adm_id', logged_in_adm_id); // test with adm_id = 1
-
-    fetch('../features/update_admin_pic.php', {
-      method: 'POST',
-      body: formData
-    }).then(res => res.text()).then(data => {
-      alert(data);
-       // Close popup after success
-      document.getElementById("profile_pic_popup").style.display = "none";
-
-      // Optionally clear selection
-      document.querySelectorAll('.profile_option').forEach(i => i.classList.remove('selected'));
-      selected_pic_id = null;
-    });
-  } else {
-    alert("Please select a profile picture.");
-  }
-});
-
-document.querySelector('.profile_btn.red').addEventListener('click', () => {
-  const adm_id = logged_in_adm_id; // test with 1
-
-  fetch('../features/delete_admin_pic.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `adm_id=${adm_id}`
-  })
-  .then(res => res.text())
-  .then(response => {
-    alert(response);
-
-    // Close popup and clear selection
-    document.getElementById("profile_pic_popup").style.display = "none";
-    document.querySelectorAll('.profile_option').forEach(i => i.classList.remove('selected'));
-    selected_pic_id = null;
-  });
-});
-
 </script>
-  
 </body>
 </html>

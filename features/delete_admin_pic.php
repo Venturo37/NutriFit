@@ -1,24 +1,49 @@
 <?php
 include 'connection.php';
+$acting_adm_id = $_SESSION['adm_id'];
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $adm_id = $_POST['adm_id'] ?? '';
-    $default_pic_id = 2; 
+    $pic_id = $_POST['pic_id'] ?? '';
 
-    if (!empty($adm_id)) {
-        $stmt = $connection->prepare("UPDATE admin_t SET pic_id = ? WHERE adm_id = ?");
-        $stmt->bind_param("ii", $default_pic_id, $adm_id);
+    if (!empty($pic_id)) {
+        // Check if any user/admin is still using this pic_id
+        $checkAdmin = $connection->prepare("SELECT COUNT(*) FROM admin_t WHERE pic_id = ?");
+        $checkAdmin->bind_param("i", $pic_id);
+        $checkAdmin->execute();
+        $checkAdmin->bind_result($admin_count);
+        $checkAdmin->fetch();
+        $checkAdmin->close();
 
-        if ($stmt->execute()) {
-            echo "Profile picture reset to default.";
+        $checkUser = $connection->prepare("SELECT COUNT(*) FROM user_t WHERE pic_id = ?");
+        $checkUser->bind_param("i", $pic_id);
+        $checkUser->execute();
+        $checkUser->bind_result($user_count);
+        $checkUser->fetch();
+        $checkUser->close();
+
+        if ($admin_count > 0 || $user_count > 0) {
+            echo "This profile picture is still in use by an admin or user.";
         } else {
-            echo "Failed to reset profile picture.";
-        }
+            $logStmt = $connection->prepare("INSERT INTO picture_management_t (adm_id, pic_id, pic_mana_action, pic_mana_timestamp) 
+                VALUES (?, ?, 'Deleted', NOW())");
+            $logStmt->bind_param("ii", $acting_adm_id, $pic_id);
+            $logStmt->execute();
+            $logStmt->close();
 
-        $stmt->close();
+            $delete = $connection->prepare("DELETE FROM profile_picture_t WHERE pic_id = ?");
+            $delete->bind_param("i", $pic_id);
+
+            if ($delete->execute()) {
+                echo "Profile picture deleted successfully.";
+            } else {
+                echo "Failed to delete profile picture.";
+            }
+
+            $delete->close();
+        }
     } else {
-        echo "Admin ID missing.";
+        echo "Missing pic_id.";
     }
 
     $connection->close();

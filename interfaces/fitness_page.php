@@ -4,9 +4,6 @@
 include '../features/connection.php';
 
 
-
-include '../features/header.php';
-
 include '../features/embed.php'; 
 
 $user_id = $_SESSION['usr_id'];
@@ -78,6 +75,22 @@ $genderFactor = ($gender === 'M') ? 1.0 : 0.95;
 $ageFactor = ($age < 40) ? 1.0 : (($age >= 40 && $age < 50) ? 0.97 : (($age >= 50 && $age < 60) ? 0.94 : 0.91));
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fitness Page</title>
+<link rel="stylesheet" href="../styles/fitness.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <?php include '../features/header.php'; ?>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search" />
+    <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+  </div>
 <div class="shape-wrapper">
   <div class="gray-bg-box">
     <div class="slogan-box">
@@ -89,12 +102,21 @@ $ageFactor = ($age < 40) ? 1.0 : (($age >= 40 && $age < 50) ? 0.97 : (($age >= 5
   </div>
 
   <div class="svg-wrapper">
-    <div class="svg-container">
-      <svg viewBox="0 0 515 420" xmlns="http://www.w3.org/2000/svg" class="red-shape">
-        <path d="M 0 35 A 35 35 0 0 1 35 0 H 205 A 35 35 0 0 1 240 35 
-          v 195 A 35 35 0 0 0 275 260 H 475 A 35 35 0 0 1 515 290 
-          V 389 A 35 35 0 0 1 480 420 H 40 A 35 35 0 0 1 0 385 Z" fill="#D35B50"/>
-      </svg>
+      <div class="svg-container">
+        <!-- Desktop Red Shape -->
+        <svg viewBox="0 0 515 420" xmlns="http://www.w3.org/2000/svg" class="red-shape red-desktop">
+          <path d="M 0 35 A 35 35 0 0 1 35 0 H 205 A 35 35 0 0 1 240 35 
+                  v 195 A 35 35 0 0 0 275 260 H 475 A 35 35 0 0 1 515 290 
+                  V 389 A 35 35 0 0 1 480 420 H 40 A 35 35 0 0 1 0 385 Z" fill="#D35B50"/>
+        </svg>
+
+        <!-- Mobile Red Shape (hidden on desktop) -->
+        <svg viewBox="0 0 515 420" xmlns="http://www.w3.org/2000/svg" class="red-shape red-mobile">
+          <path d="M 35 253 C 0 253 0 218 0 218 V 28 C 0 0 35 0 35 0 H 205 A 35 35 0 0 1 240 35 
+                  v 130 A 35 35 0 0 0 280 200 H 475 A 35 35 0 0 1 506 233 
+                  V 389 A 35 35 0 0 1 480 420 H 274 C 245 420 241 395 242 394 
+                  V 281 V 282 C 231 254 214 253 201 254 Z" fill="#D35B50"/>
+        </svg>
 
       <div class="svg-content">
         <?php $profileImg = 'data:image/jpeg;base64,' . base64_encode($picture); ?>
@@ -129,11 +151,6 @@ $ageFactor = ($age < 40) ? 1.0 : (($age >= 40 && $age < 50) ? 0.97 : (($age >= 5
     </div>
 
     <div class="right-section">
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search" />
-        <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-      </div>
-
       <div class="kcal-box">
         <p><strong>Total Kcal Burned:</strong></p>
         <div class="kcal-circle">
@@ -142,7 +159,7 @@ $ageFactor = ($age < 40) ? 1.0 : (($age >= 40 && $age < 50) ? 0.97 : (($age >= 5
         </div>
       </div>
 
-      <div class="meal-button">
+      <div class="meal-button" onclick="window.location.href='../interfaces/diet_page_name.php'">
         <button class="btn-meal">Meal Plans <i class="fa-solid fa-utensils"></i></button>
       </div>
     </div>
@@ -150,6 +167,10 @@ $ageFactor = ($age < 40) ? 1.0 : (($age >= 40 && $age < 50) ? 0.97 : (($age >= 5
 </div>
 
 <div class="fitness-cards">
+  <div id="no-results" style="display:none; text-align:center; font-weight:bold; margin-top:20px; text-size:1.3vw;">
+    No matching workout found.
+  </div>
+
   <?php
     $query = "SELECT w.work_id, w.work_name, w.work_description, w.work_MET, w.work_image, 
                     w.work_beginner, w.work_intense, c.cate_name 
@@ -174,56 +195,95 @@ $ageFactor = ($age < 40) ? 1.0 : (($age >= 40 && $age < 50) ? 0.97 : (($age >= 5
       $beginnerKcal = round($MET * 0.75 * $weight * $durationBeginner * $genderFactor * $ageFactor);
       $intenseKcal = round($MET * 1.25 * $weight * $durationIntense * $genderFactor * $ageFactor);
   ?>
-  <div id="no-results" style="display:none; text-align:center; font-weight:bold; margin-top:20px; text-size:1.3vw; ">
-    No matching workout found.
-  </div>
-  <a href="fitness_session.php?work_id=<?php echo $row['work_id']; ?>" 
-    class="card" data-category="<?php echo $categoryKey; ?>" style="text-decoration: none; color: inherit;">    <div class="card-img-wrapper">
-      <img src="<?php echo $src; ?>" class="card-img" alt="Workout Image">
-      <button class="card-play"><i class="fa-solid fa-circle-play"></i></button>
-    </div>
-    <div class="card-body">
-      <div class="card-top">
-        <h4 class="card-title"><?php echo htmlspecialchars($row['work_name']); ?></h4>
-          <span class="card-category"><?php echo htmlspecialchars($row['cate_name']); ?></span>
+  <div class="card" 
+          data-category="<?php echo $categoryKey; ?>" 
+          data-work-id="<?php echo $row['work_id']; ?>" 
+          style="text-decoration: none; color: inherit;">
+        <div class="card-img-wrapper">
+          <img src="<?php echo $src; ?>" class="card-img" alt="Workout Image">
+          <button class="card-play"><i class="fa-solid fa-circle-play"></i></button>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h4 class="card-title"><?php echo htmlspecialchars($row['work_name']); ?></h4>
+            <span class="card-category"><?php echo htmlspecialchars($row['cate_name']); ?></span>
+          </div>
+          <p class="card-kcal"><i class="fa-solid fa-fire"></i> <?php echo $beginnerKcal . ' - ' . $intenseKcal; ?> Kcal</p>
+        </div>
       </div>
-      <p class="card-kcal"><i class="fa-solid fa-fire"></i> <?php echo $beginnerKcal . ' - ' . $intenseKcal; ?> Kcal</p>
-    </div>
-  </a>
   <?php }
   $stmt->close();
   ?>
 </div>
+<?php include '../features/footer.php'; ?>
+
 
 <script>
-  const searchInput = document.getElementById('searchInput');
-  const categoryFilter = document.getElementById('categoryFilter');
-  const cards = document.querySelectorAll('.fitness-cards .card');
-  const noResults = document.getElementById('no-results');
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const cards = document.querySelectorAll('.fitness-cards .card');
+    const noResults = document.getElementById('no-results');
 
-  function filterCards() {
-    const keyword = searchInput.value.toLowerCase().trim();
-    const selectedCategory = categoryFilter.value.toLowerCase().trim();
-    let found = false;
+    function filterCards() {
+      const keyword = searchInput.value.toLowerCase().trim();
+      const selectedCategory = categoryFilter.value.toLowerCase().trim();
+      let found = false;
 
-    cards.forEach(card => {
-      const title = card.querySelector('.card-title').textContent.toLowerCase();
-      const cardCategory = card.dataset.category.toLowerCase().trim();
+      cards.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        const cardCategory = card.dataset.category.toLowerCase().trim();
 
-      const matchesCategoryDropdown = selectedCategory === 'all' || cardCategory === selectedCategory;
-      const matchesSearch = title.includes(keyword) || cardCategory.includes(keyword);
+        const matchesCategoryDropdown = selectedCategory === 'all' || cardCategory === selectedCategory;
+        const matchesSearch = title.includes(keyword) || cardCategory.includes(keyword);
 
-      const shouldShow = matchesCategoryDropdown && matchesSearch;
-      card.style.display = shouldShow ? 'block' : 'none';
-      if (shouldShow) found = true;
+        const shouldShow = matchesCategoryDropdown && matchesSearch;
+        card.style.display = shouldShow ? 'block' : 'none';
+        if (shouldShow) found = true;
+      });
+
+      noResults.style.display = found ? 'none' : 'block';
+    }
+
+    searchInput.addEventListener('input', filterCards);
+    categoryFilter.addEventListener('change', filterCards);
+
+    // const toggleBtn = document.getElementById("menuToggle");
+    // const sideMenu = document.getElementById("sideMenu");
+    // const closeBtn = document.getElementById("closeMenu");
+
+    // toggleBtn.addEventListener("click", () => {
+    //   sideMenu.classList.toggle("active");
+    // });
+
+    // closeBtn.addEventListener("click", () => {
+    //   sideMenu.classList.remove("active");
+    // });
+
+
+    document.querySelectorAll('.fitness-cards .card').forEach(card => {
+    card.addEventListener('click', function () {
+
+      const workId = this.getAttribute('data-work-id');
+
+      fetch('../features/store_work_id.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'work_id=' + encodeURIComponent(workId)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("HI");
+        console.log(data);
+        if (data.status === 'success') {
+          window.location.href = 'fitness_session.php';
+        } else {
+          alert('Failed to load session.');
+        }
+      });
     });
+  });
 
-    noResults.style.display = found ? 'none' : 'block';
-  }
-
-  searchInput.addEventListener('input', filterCards);
-  categoryFilter.addEventListener('change', filterCards);
 </script>
 
-
-<?php include '../features/footer.php'; ?>
+</body>
+</html>

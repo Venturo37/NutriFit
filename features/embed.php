@@ -11,9 +11,11 @@
 <!-- LINK TO style.css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+
 <link rel="stylesheet" href="../styles/header.css">
 <link rel="stylesheet" href="../styles/footer.css">
 <link rel="stylesheet" href="../styles/body.css">
+
 <link rel="stylesheet" href="../styles/admin_dashboard_direc.css">
 <link rel="stylesheet" href="../styles/admin_statistic_chart.css">
 <link rel="stylesheet" href="../styles/sys_activity_log.css">
@@ -27,10 +29,9 @@
 
 <link rel="stylesheet" href="../styles/activity_history.css">
 <link rel="stylesheet" href="../styles/admin_user_management.css">
-<link rel="stylesheet" href="../styles/fitness.css">
+<!-- <link rel="stylesheet" href="../styles/fitness.css"> -->
+<!-- <link rel="stylesheet" href="../styles/nutrition.css"> -->
 
-
-<!-- <link rel="stylesheet" href="../styles/YanPingstyle.css"> -->
 
 
 <!-- LINK TO Chart.js -->
@@ -39,7 +40,8 @@
 
 <!-- LINK TO javascript.js (defer = runs after html is fully loaded) -->
 <script src="../javascript/user_profile.js" defer></script>
-<script src="../javascript/update_profile.js" defer></script>
+<!-- <script src="../javascript/update_profile.js" defer></script> -->
 <script src="../javascript/admin_dashboard.js" defer></script>
 <script src="../javascript/authentication.js" ></script>
 <script src="../javascript/feedback.js" ></script>
+<script src="../javascript/nutrition.js" defer></script>

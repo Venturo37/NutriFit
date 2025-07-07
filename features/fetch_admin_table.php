@@ -14,7 +14,7 @@ $totalPages = ceil($total / $limit);
 echo '<h3 class="table_title">Admin Table
     <button class="add_admin_btn"><i class="fas fa-plus"></i> Add Admin</button>
 </h3>
-<table class="record_table">
+<table class="record_table usermanage_theme">
     <thead>
         <tr>
             <th>Admin ID</th>

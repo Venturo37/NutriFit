@@ -1,0 +1,369 @@
+/* Base Reset & Fonts */
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+/* body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fdfdf8;
+    color: #222;
+} */
+
+/* Header */
+/* header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 1rem 2rem;
+    border-bottom: 2px solid #e0e0e0;
+} */
+/* 
+.logo h1 {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.logo p {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #555;
+}
+
+nav a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+}
+
+nav a.logout {
+    color: #b00;
+} */
+
+/* Main Content Area */
+main {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+main h2 {
+    text-align: center;
+    margin: 2rem 0 1rem;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+/* Actions Section */
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+
+.actions-right {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn.manage, .btn.add {
+    background: #A1C14B;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    padding: 18px 36px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+}
+
+/* --- CARDS SECTION --- */
+
+.cards {
+    display: grid;
+    /* THIS IS THE CORRECTED LINE: It now creates exactly 3 columns. */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    background: #A1C14B;
+    border-radius: 24px;
+    padding: 40px;
+    margin: 2vw;
+    justify-items: center;
+}
+/* .card {
+    background: #E6E6E4;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    padding: 1.5rem;
+    width: 100%;
+    position: relative;
+    transition: transform 0.2s ease;
+    text-align: center;
+} */
+.card {
+  width: 320px;
+  min-height: 420px;
+  background-color: #E6E6E4;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 1.5rem;
+  position: relative;
+  transition: transform 0.2s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 1.2rem;
+}
+
+.card h3 {
+    font-size: 2rem;
+    margin-bottom: 0;
+    color: #333;
+}
+
+.card-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.card-info .fa-fire {
+    color: #ff5722; /* Orange fire icon */
+}
+
+.edit-icon {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: #FFE082; /* Yellowish background */
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-decoration: none;
+    border: 3px solid #F5F5F5;
+    z-index: 2;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.edit-icon i {
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.edit-icon:hover {
+    background: #FFD54F;
+    transform: scale(1.1);
+}
+
+
+/* =================================================== */
+/* Responsive Design - Tablets (max-width: 1024px) */
+/* =================================================== */
+@media screen and (max-width: 1024px) {
+    /* header {
+        padding: 0.8rem 1.5rem;
+    }
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+    .logo p {
+        font-size: 0.8rem;
+    }
+    nav a {
+        margin-left: 1rem;
+        font-size: 0.95rem;
+    } */
+
+    main {
+        padding: 0 1.5rem;
+    }
+
+    main h2 {
+        font-size: 3rem;
+        margin: 1.5rem 0 0.8rem;
+    }
+
+    .actions {
+        flex-direction: column; /* Stack search and buttons vertically */
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+        width: 90%; /* Wider actions container on tablet */
+        max-width: 500px; /* Limit max-width */
+        margin-left: auto; /* Center the actions container */
+        margin-right: auto; /* Center the actions container */
+        align-items: center; /* Center items (like search-box) within the column */
+    }
+
+
+
+    .actions-right {
+        flex-direction: column; /* Stack manage/add buttons vertically */
+        gap: 0.8rem;
+        width: 100%; /* Make buttons full width within their parent */
+        align-items: center; /* Ensure buttons are centered if not full width */
+    }
+
+    .btn.manage, .btn.add {
+        font-size: 1.2rem;
+        padding: 14px 28px;
+        width: 100%; /* Make buttons full width */
+        text-align: center; /* Ensure text is centered */
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        gap: 30px;
+        padding: 30px;
+    }
+
+    .card {
+        padding: 1.2rem;
+    }
+
+    .card img {
+        height: 180px; /* Slightly smaller image height */
+    }
+
+    .card h3 {
+        font-size: 1.5rem;
+    }
+
+    .card-info {
+        font-size: 1.1rem;
+    }
+
+    .edit-icon {
+        width: 48px;
+        height: 48px;
+        top: 18px;
+        right: 18px;
+    }
+    .edit-icon i {
+        font-size: 1.3rem;
+    }
+}
+
+/* ================================================= */
+/* Responsive Design - Mobile (max-width: 768px) */
+/* ================================================= */
+@media screen and (max-width: 768px) {
+    /* header {
+        flex-direction: column;
+        align-items: center; Center items in column layout
+        gap: 8px;
+        padding: 0.8rem 1rem;
+    }
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+    .logo p {
+        font-size: 0.75rem;
+    }
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: center; Center nav links
+        gap: 0.8rem;
+        flex-wrap: wrap;
+    }
+    nav a {
+        margin-left: 0; Remove individual margins, use gap on parent
+        font-size: 0.9rem;
+    } */
+
+    main {
+        padding: 0 1rem;
+    }
+
+    main h2 {
+        font-size: 2.2rem;
+        margin: 1rem 0 0.8rem;
+    }
+
+    .actions {
+        gap: 1rem;
+        margin-bottom: 1rem;
+        width: 95%; /* Even wider actions container on mobile */
+        max-width: 400px; /* Limit max-width */
+        align-items: center; /* Center items within the column */
+    }
+
+
+    .actions-right {
+        flex-direction: column; /* Ensure buttons remain stacked */
+        gap: 0.8rem;
+        width: 100%; /* Full width of parent .actions */
+        align-items: center; /* Ensure buttons are centered if not full width */
+    }
+
+    .btn.manage, .btn.add {
+        font-size: 1.1rem;
+        padding: 10px 15px;
+        width: 100%; /* Full width when stacked */
+        text-align: center; /* Ensure text is centered */
+    }
+
+    .cards {
+        grid-template-columns: 1fr; /* Single column for mobile */
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .card {
+        padding: 1rem;
+        border-radius: 24px;
+    }
+
+    .card img {
+        height: 160px;
+        margin-bottom: 1rem;
+    }
+
+    .card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .card-info {
+        font-size: 1rem;
+        gap: 6px;
+    }
+
+    .edit-icon {
+        width: 40px;
+        height: 40px;
+        top: 15px;
+        right: 15px;
+    }
+    .edit-icon i {
+        font-size: 1.1rem;
+    }
+}

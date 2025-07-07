@@ -19,7 +19,7 @@ if (isset($_GET['token'])) {
     $token = $_GET['token'];
     $token_hash = hash("sha256", $token);
 
-    $mysqli = require __DIR__ . '../features/connection.php';
+    $mysqli = require __DIR__ . '/../features/connection.php';
 
     $stmt = $mysqli->prepare("SELECT usr_id, rst_pass_log_expires FROM reset_password_log_t WHERE rst_pass_log_token = ?");
     $stmt->bind_param("s", $token_hash);
@@ -72,9 +72,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
             $stmt = $connection -> prepare("INSERT INTO user_t (usr_name, usr_password, usr_birthdate, usr_gender, usr_email, usr_height, pic_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
             $stmt -> bind_param("sssssds", $username, $password, $date, $gender, $email, $height, $picId);
             $stmt -> execute();
-            $stmt -> close();
-
             
+            $usrId = $connection->insert_id;
+
+            $stmt->close();
+
+            // Insert the weight into user_weight_log_t
+            $weightStmt = $connection -> prepare("INSERT INTO user_weight_log_t (usr_id, weight_log_weight) VALUES (?, ?)");
+            $weightStmt -> bind_param("id", $usrId, $weight);
+            $weightStmt -> execute();
+            $weightStmt -> close();
+
+            // Optional: redirect or show success
+            echo "<script>
+                    alert('Registration successful!');
+                    window.location.href = 'authentication.php';
+                </script>";
+            exit();
 
         }
     }
@@ -92,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
             $row = mysqli_fetch_assoc($result_user);
             $_SESSION['usr_id'] = $row['usr_id'];
 
-            header("Location: about_us.php");
+            header("Location: fitness_page.php");
             exit();
         }
 
@@ -125,6 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
         $token = bin2hex(random_bytes(16));
         $token_hash = hash("sha256", $token);
         $expiry = date("Y-m-d H:i:s", time() + 60 * 30);
+        // $expiry = date("Y-m-d H:i:s", time() + 30);
 
         // CHANGES
         $mysqli = require __DIR__ . '/../features/connection.php';
@@ -153,7 +168,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
         $stmt->execute();
 
         // Send the reset link
-        $reset_link = "http://localhost/Capstone%20Project/Capstone%20Project/authentication.php?token=$token";
+        // $reset_link = "http://localhost/Capstone%20Project/Capstone%20Project/authentication.php?token=$token";
+        $reset_link = "http://localhost/Nutrifit/interfaces/authentication.php?token=$token";
         $to = $email;
         $subject = "Reset your password";
         $message = "Hi,\n\nClick the following link to reset your password:\n$reset_link\n\nThis link will expire in 30 minutes.";
@@ -182,7 +198,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
         if ($newPassword !== $confirmPassword) {
             echo "<script>
                     alert('Passwords do not match!');
-                    window.location.href = 'http://localhost/Capstone%20Project/Capstone%20Project/authentication.php?token=$token';
+                    window.location.href = 'http://localhost/Nutrifit/interfaces/authentication.php?token=$token';
                 </script>";
             exit();
         }
@@ -232,7 +248,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
 <body>
 
 <!-- Top left title card -->
-<div class="content" id="content">
+<div id="content">
     <div class="authentication_container">
         <?php include("../features/header.php") ?>
 
@@ -344,22 +360,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
 
                         <div id="username">
                             <label for="username_input">Username: </label>
-                            <input type="text" id="username_input" name="username_input" required>
+                            <input type="text" id="username_input" name="username_input">
                         </div>
                         
                         <div id="email">
                             <label for="signup_email_input">Email: </label>
-                            <input type="email" id="signup_email_input" name="signup_email_input" required>
+                            <input type="email" id="signup_email_input" name="signup_email_input">
                         </div>
 
                         <div id="password">
                             <label for="signup_password_input">Password: </label>
-                            <input type="password" id="signup_password_input" name="signup_password_input" required>
+                            <input type="password" id="signup_password_input" name="signup_password_input">
                         </div>
 
                         <div id="gender">
                             <label class="gender_option">
-                                <input type="radio" name="gender_input" value="male">
+                                <input type="radio" name="gender_input" value="M">
                                 <div class="gender_button">
                                     <img src="../images/auth-signup-male.png" alt="">
                                     <div class="checkmark">
@@ -371,7 +387,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
                             </label>
 
                             <label class="gender_option">
-                                <input type="radio" name="gender_input" value="female">
+                                <input type="radio" name="gender_input" value="F">
                                 <div class="gender_button">
                                     <img src="../images/auth-signup-female.png" alt="">
                                     <div class="checkmark">
@@ -410,17 +426,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
                         <div id="user_input">
                             <div id="date">
                                 <label for="date_input">Birth Date: </label>
-                                <input type="date" id="date_input" name="date_input" required>
+                                <input type="date" id="date_input" name="date_input">
                             </div>
                             
                             <div id="weight">
                                 <label for="weight_input">Weight (kg): </label>
-                                <input type="number" id="weight_input" name="weight_input" required>
+                                <input type="number" id="weight_input" name="weight_input">
                             </div>
 
                             <div id="height">
                                 <label for="height_input">Height (cm): </label>
-                                <input type="number" id="height_input" name="height_input" required>
+                                <input type="number" id="height_input" name="height_input">
                             </div>
                         </div>
 
@@ -463,11 +479,88 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
     mediaQueryWidth.addEventListener("change", handleResponsiveImage);
     mediaQueryHeight.addEventListener("change", handleResponsiveImage);
 
+    <?php 
+    // if ($showResetForm): 
+    ?>
+        // showForm('reset');
+    <?php 
+// else: 
+?>
+        // showForm('login');
+    <?php 
+    // endif; 
+    ?>
+</script>
+
+<script>
+document.getElementById("signup_form").addEventListener("submit", function(event) {
+    const username = document.getElementById("username_input").value.trim();
+    const email = document.getElementById("signup_email_input").value.trim();
+    const password = document.getElementById("signup_password_input").value.trim();
+    const gender = document.querySelector('input[name="gender_input"]:checked');
+    const date = document.getElementById("date_input").value.trim();
+    const weight = document.getElementById("weight_input").value.trim();
+    const height = document.getElementById("height_input").value.trim();
+
+    let errorMessage = "";
+
+    if (!username || !email || !password || !gender || !date || !weight || !height) {
+        errorMessage = "Please fill in all fields.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorMessage = "Invalid email format.";
+    } else if (password.length < 6) {
+        errorMessage = "Password should be at least 6 characters.";
+    } else {
+        // CHANGE HERE
+        // Check if the date is in the future
+        const selectedDate = new Date(date);
+        const today = new Date();
+        // Set the time of today's date to midnight for accurate comparison
+        today.setHours(0, 0, 0, 0);
+        if (selectedDate > today) {
+            errorMessage = "Date cannot be later than today.";
+        }
+    }
+
+    if (errorMessage) {
+        alert(errorMessage);
+        event.preventDefault(); // Prevent form submission
+    }
+});
+document.getElementById("reset_form").addEventListener("submit", function(event) {
+    const newPassword = document.getElementById("new_password_input").value.trim();
+    const confirmPassword = document.getElementById("confirm_password_input").value.trim();
+
+    if (newPassword.length <= 6) {
+        alert("Password must be more than 6 characters.");
+        event.preventDefault(); // Prevent form submission
+    }
+});
+
+// window.addEventListener('DOMContentLoaded', () => {
+//   const hash = window.location.hash.substring(1); // remove #
+//   const validForms = ['login', 'verify', 'reset', 'signup'];
+
+//   if (validForms.includes(hash)) {
+//     showForm(hash);
+//   } else {
+//     showForm('login'); // fallback
+//   }
+// });
+
+window.addEventListener('DOMContentLoaded', () => {
     <?php if ($showResetForm): ?>
         showForm('reset');
     <?php else: ?>
-        showForm('login');
+        const hash = window.location.hash.substring(1); // remove #
+        const validForms = ['login', 'verify', 'reset', 'signup'];
+        if (validForms.includes(hash)) {
+            showForm(hash);
+        } else {
+            showForm('login'); // fallback
+        }
     <?php endif; ?>
+});
 </script>
 
 
