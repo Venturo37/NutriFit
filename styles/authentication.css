@@ -1,3 +1,17 @@
+/* 
+NAME : Mr. Ivan Shak Loong Wye  
+PROJECT NAME : authentication.css  
+DESCRIPTION OF PROGRAM :  
+    This stylesheet defines the styles used for the authentication page (authentication.php), 
+	including login, registration, and password reset forms. 
+	It also includes responsive design features, color schemes, input styling, 
+	and layout formatting to enhance user interaction.
+	Lastly, it ensures consistency across various screen sizes by applying responsive design.
+
+FIRST WRITTEN : June 7th, 2025  
+LAST MODIFIED : July 9th, 2025
+*/
+
 /* AUTHENTICATION PHP */
 
 .background-shape,

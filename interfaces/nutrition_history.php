@@ -1,3 +1,11 @@
+<!-- 
+NAME: CHOW YAN PING
+Project name: Nutrifit
+DESCRIPTION OF PROGRAM: Displays a logged-in user's nutrition intake history, including meals from the system and manual inputs.
+FIRST WRITTEN: 2/6/2025
+LAST MODIFIED: 9/7/2025 
+-->
+
 <?php
 // session_start();
 include('../features/connection.php');
@@ -15,21 +23,16 @@ $offset = ($page - 1) * $limit;
 
 // Unified query
 $query = "
-    (SELECT umi.mlog_timestamp AS timestamp, m.meal_name AS dish_name,
-            m.meal_carbohydrates AS carbs, m.meal_protein AS protein, m.meal_fats AS fats
-     FROM user_meal_intake_t umi
-     JOIN meal_t m ON umi.meal_id = m.meal_id
-     WHERE umi.manual_id IS NULL AND umi.usr_id = $usr_id)
-
-    UNION
-
-    (SELECT umi.mlog_timestamp AS timestamp, mi.meal_name AS dish_name,
-            mi.meal_carbohydrates AS carbs, mi.meal_protein AS protein, mi.meal_fats AS fats
-     FROM user_meal_intake_t umi
-     JOIN manual_input_t mi ON umi.manual_id = mi.manual_id
-     WHERE umi.manual_id IS NOT NULL)
-
-    ORDER BY timestamp ASC
+    SELECT umi.mlog_timestamp AS timestamp,
+           COALESCE(m.meal_name, mi.meal_name) AS dish_name,
+           COALESCE(m.meal_carbohydrates, mi.meal_carbohydrates) AS carbs,
+           COALESCE(m.meal_protein, mi.meal_protein) AS protein,
+           COALESCE(m.meal_fats, mi.meal_fats) AS fats
+    FROM user_meal_intake_t umi
+    LEFT JOIN meal_t m ON umi.meal_id = m.meal_id
+    LEFT JOIN manual_input_t mi ON umi.manual_id = mi.manual_id
+    WHERE (umi.usr_id = $usr_id OR mi.usr_id = $usr_id)
+    ORDER BY timestamp DESC
     LIMIT $limit OFFSET $offset
 ";
 
@@ -37,17 +40,11 @@ $result = mysqli_query($connection, $query);
 
 // Count total records
 $countQuery = "
-    SELECT COUNT(*) AS total FROM (
-        (SELECT 1
-         FROM user_meal_intake_t umi
-         JOIN meal_t m ON umi.meal_id = m.meal_id
-         WHERE umi.manual_id IS NULL AND umi.usr_id = $usr_id)
-        UNION
-        (SELECT 1
-         FROM user_meal_intake_t umi
-         JOIN manual_input_t mi ON umi.manual_id = mi.manual_id
-         WHERE umi.manual_id IS NOT NULL)
-    ) AS combined
+    SELECT COUNT(*) AS total
+    FROM user_meal_intake_t umi
+    LEFT JOIN meal_t m ON umi.meal_id = m.meal_id
+    LEFT JOIN manual_input_t mi ON umi.manual_id = mi.manual_id
+    WHERE (umi.usr_id = $usr_id OR mi.usr_id = $usr_id)
 ";
 
 $countResult = mysqli_query($connection, $countQuery);

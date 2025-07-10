@@ -1,3 +1,16 @@
+/* 
+Name: Mr. Chung Yhung Yie
+Project Name: body.css
+Description:  sets global base styles for the entire page. It applies the Exo 2 sans-serif font, resets default margins and paddings,
+  and ensures consistent box sizing for all elements. The body is styled with a soft off-white background (#FAFBF5), uses a vertical flex layout 
+  to allow flexible content stacking, and ensures the page fills at least the full viewport height. The .no-scroll class disables scrolling when applied. 
+  Finally, the #content area is designed to grow and fill available space, providing a flexible container for the main page content
+
+First Written: 1/6/2025
+Last Modified: 20/6/2025 
+*/
+
+
 *{
   font-family: "Exo 2", sans-serif;
   padding: 0;
@@ -18,6 +31,4 @@ body {
 /* CONTENT */
 #content {
   flex-grow: 1;
-  /* background-color: rgb(211, 255, 240); */
-  /* margin: 0 4vw;   */
 }

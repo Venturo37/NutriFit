@@ -1,3 +1,11 @@
+// Name: Mr. Chung Yhung Yie
+// Project Name: admin_dashboard.js
+// Description: listens for the DOM to load, then creates two pie charts, one for fitness activity and one for meal intake, using Chart.js. 
+//              It formats the input data, sorts it (putting “Others” last), and applies custom colors.
+
+// First Written: 2/6/2025
+// Last Modified: 5/7/2025  
+
 document.addEventListener('DOMContentLoaded', () => {
 
     function createPieChart (canvas_Id, data, colors) {

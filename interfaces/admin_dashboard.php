@@ -1,8 +1,14 @@
-<?php
-// if (session_start() === PHP_SESSION_NONE) {
-//     session_start();
-// }
+<!-- 
+Name: Mr. Chung Yhung Yie
+Project Name: admin_dashboard.php
+Description: retrieves the admin’s profile and site-wide fitness and meal statistics, then displays this data visually 
+    along with links to manage fitness, diet, users, feedback, and recent system activity.
 
+First Written: 1/6/2025
+Last Modified: 2/7/2025 
+-->
+
+<?php
 include('../features/connection.php');
 
 include('../features/restriction.php');
@@ -99,32 +105,28 @@ function getFitnessActivityCounts($connection) {
 
 function getMealIntakeCounts ($connection) {
     $data = [];
-    $query = "SELECT meal_name, SUM(count) as count 
-        FROM (
-            SELECT m.meal_name, COUNT(*) as count
-            FROM user_meal_intake_t umi JOIN meal_t m ON umi.meal_id = m.meal_id
-            WHERE umi.meal_id IS NOT NULL
-            GROUP BY m.meal_name
-            UNION ALL
-            SELECT 'Others' AS meal_name, COUNT(*) AS count
-            FROM user_meal_intake_t
-            WHERE manual_id IS NOT NULL
-        ) AS combined
-        GROUP BY meal_name
+    $manual_count = 0;
+
+    $query = "SELECT m.meal_name, COUNT(*) as count
+        FROM user_meal_intake_t umi JOIN meal_t m ON umi.meal_id = m.meal_id
+        WHERE umi.meal_id IS NOT NULL
+        GROUP BY m.meal_name
         ORDER BY count DESC";
-    $query_result = $connection->query($query);
-    
-    if (!$query_result) {
+    $result = $connection->query($query);
+    if (!$result) {
         die("Query failed: " . $connection->error);
     }
-    while ($row = $query_result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         $data[] = $row;
     }
-    // [
-    //     ["meal_name" => "Others", "count" => 5],
-    //     ["meal_name" => "Spaghetti", "count" => 3],
-    //     ["meal_name" => "Salad", "count" => 2]
-    // ]
+
+    $manual_query = "SELECT COUNT(*) as count 
+        FROM user_meal_intake_t 
+        WHERE manual_id IS NOT NULL";
+    $manual_result = $connection->query($manual_query);
+    if ($manual_result) {
+        $manual_count = $manual_result->fetch_assoc()['count'];
+    }
 
     $top3 = array_slice($data,0,3);
     $othersCount = 0;
@@ -134,8 +136,18 @@ function getMealIntakeCounts ($connection) {
         foreach ($others as $item) {
             $othersCount += $item["count"];
         }
-        $top3[] = ["meal_name"=> "Others", 'count' => $othersCount];
     }
+    $othersCount += $manual_count;
+
+    if ($othersCount > 0) {
+        $top3[] = ['meal_name' => 'Others', 'count' => $othersCount];
+    }
+
+    // [
+    //     ["meal_name" => "Others", "count" => 5],
+    //     ["meal_name" => "Spaghetti", "count" => 3],
+    //     ["meal_name" => "Salad", "count" => 2]
+    // ]
     return $top3;
 }
 

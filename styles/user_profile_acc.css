@@ -1,3 +1,12 @@
+/* 
+Name: Mr. Chung Yhung Yie
+Project Name: user_profile_acc.css
+Description: styles a user profile section with a flex layout: a round profile picture and user info on the left, and an update button on the right. 
+  It uses large, responsive text, clean spacing, and bold colors for a modern, clear look that stays user-friendly on all screens.
+First Written: 1/6/2025
+Last Modified: 28/6/2025 
+*/
+
 /* PROFILE */
 .account {
   width: 100%;

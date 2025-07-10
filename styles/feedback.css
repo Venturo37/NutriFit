@@ -1,3 +1,17 @@
+/* 
+NAME : Mr. Ivan Shak Loong Wye  
+PROJECT NAME : feedback.css  
+DESCRIPTION OF PROGRAM :  
+    This stylesheet contains the visual styling for the Feedback page (feedback.css). 
+	It includes table formatting, popup modal design, and layout spacing 
+	to make the feedback viewing experience clean, organized, and user-friendly for administrators. 
+	It also styles the feedback popup when admins want to view a specific feedback record in more detail.
+	Responsive adjustments are also included for smaller screens.
+
+FIRST WRITTEN : June 16th, 2025  
+LAST MODIFIED : July 9th, 2025  
+*/
+
 /* ========== FEEDBACK TITLE ========== */
 #feedback_title h1 {
   text-align: center;

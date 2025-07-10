@@ -1,3 +1,12 @@
+<!-- 
+NAME: CHOW YAN PING
+Project name: Nutrifit
+DESCRIPTION OF PROGRAM: Displays a logged-in user's fitness activity history, including completed workout sessions
+                        with details such as date, duration, intensity, and estimated calories burned.
+FIRST WRITTEN: 2/6/2025
+LAST MODIFIED: 9/7/2025 
+-->
+
 <?php
 // session_start();
 include('../features/connection.php');
@@ -30,7 +39,7 @@ $query = "
     FROM user_workout_session_t uws
     JOIN workout_t wt ON uws.work_id = wt.work_id
     WHERE uws.usr_id = $usr_id
-    ORDER BY uws.wlog_timestamp ASC
+    ORDER BY uws.wlog_timestamp DESC
     LIMIT $limit OFFSET $offset
 ";
 $result = mysqli_query($connection, $query);

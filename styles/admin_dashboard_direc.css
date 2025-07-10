@@ -1,3 +1,13 @@
+/* 
+Name: Mr. Chung Yhung Yie
+Project Name: admin_dashboard_direc.css
+Description: styles a responsive directory section with a centered container that displays management buttons in a two-column grid. 
+    Each button is styled with distinct background colors, rounded corners, bold typography, and smooth hover effects that scale both 
+    the button and its icon for an interactive, modern look. The layout uses flexible units for easy adaptation across screen sizes.
+First Written: 1/6/2025
+Last Modified: 20/6/2025 
+*/
+
 .directory_section{
   width: 100%;
   display: flex;
@@ -24,9 +34,11 @@
   color: #FAFBF5;
   align-items: center;
   cursor: pointer;
+  transition: .1s ease-in-out;
 }
 .directory_container button span {
   font-size: 2.3vw;
+  transition: .1s ease-in-out;
 }
 .directory_container .fitness_content_management_directory{
   background-color: #D35B52;
@@ -39,4 +51,10 @@
 }
 .directory_container .view_user_feedback_directory{
   background-color: #8998AD;
+}
+.directory_section .directory_container button:hover{
+  scale: 1.05;
+}
+.directory_section .directory_container button:hover span {
+  scale: 1.5;
 }

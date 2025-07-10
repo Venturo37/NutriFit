@@ -1,6 +1,26 @@
-<?php
+<!-- 
+NAME : Mr. Ivan Shak Loong Wye
+PROJECT NAME : authentication.php
+DESCRIPTION OF PROGRAM : 
+	This script manages the full user authentication process, including login, registration, and password reset. 
+	It also handles validation, session control, and error messaging. 
+	Furthermore, it ensures secure access to protected parts of the system. 
+	Designed to interact with both front-end forms and backend email handling via SMTP configuration.
 
-// session_start();
+FIRST WRITTEN : June 7th, 2025
+LAST MODIFIED : July 9th, 2025 
+-->
+
+<?php
+// UPDATE THIS TO UR DIRECTORY
+$base_url = "http://localhost/Nutrifit/interfaces/authentication.php";
+// $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
+// $host = $_SERVER['HTTP_HOST'];
+// $script_name = dirname($_SERVER['SCRIPT_NAME']);
+// $base_url = $protocol . $host . $script_name;
+
+// echo $base_url . "/interfaces/authentication.php";
+
 
 include('../features/connection.php');
 
@@ -168,14 +188,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
         $stmt->execute();
 
         // Send the reset link
-        // $reset_link = "http://localhost/Capstone%20Project/Capstone%20Project/authentication.php?token=$token";
-        $reset_link = "http://localhost/Nutrifit/interfaces/authentication.php?token=$token";
+        $reset_link = $base_url . "?token=$token";
         $to = $email;
         $subject = "Reset your password";
         $message = "Hi,\n\nClick the following link to reset your password:\n$reset_link\n\nThis link will expire in 30 minutes.";
         $headers = "From: Your Name <ivanshak3@gmail.com>\r\n";
         $headers .= "Reply-To: ivanshak3@gmail.com\r\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
 
 
         if (mail($to, $subject, $message, $headers)) {
@@ -197,9 +217,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
 
         if ($newPassword !== $confirmPassword) {
             echo "<script>
-                    alert('Passwords do not match!');
-                    window.location.href = 'http://localhost/Nutrifit/interfaces/authentication.php?token=$token';
-                </script>";
+                alert('Passwords do not match!');
+                window.location.href = '$base_url?token=$token';
+            </script>";
             exit();
         }
 

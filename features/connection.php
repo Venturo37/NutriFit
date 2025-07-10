@@ -1,3 +1,13 @@
+<!-- 
+Name: Mr. Chung Yhung Yie
+Project Name: connection.php
+Description: Connects to a local MySQL database using the mysqli extension with the root user and no password, checks for connection error,
+    sets mysqli to strict mode , starts a session if one doesn't exist and returns the database connection.
+
+First Written: 1/6/2025
+Last Modified: 8/7/2025
+-->
+
 <?php
     $server = '127.0.0.1'; 
     $user = 'root';
@@ -16,4 +26,4 @@
     }
     
     return $connection;
-    ?>
+?>

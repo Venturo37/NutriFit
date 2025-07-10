@@ -1,3 +1,15 @@
+/* 
+Name: Mr. Chung Yhung Yie
+Project Name: update_profile.css
+Description: styles a profile update modal that appears centered on the screen with a semi-transparent dark backdrop and blur effect for focus. 
+  The modal box (#update_profile) is light-colored and responsive in width, containing a header bar with a title and close icon. Inside, the layout is 
+  organized with flexible containers for profile picture selection, editable input fields, and gender selection, all styled with modern rounded elements, 
+  shadows, and subtle hover/scale effects. Buttons are bold, colorful, and interactive to enhance usability. The design is fully responsive, adjusting sizes, 
+  gaps, and layouts for smaller screens to maintain clarity and accessibility.
+First Written: 1/6/2025
+Last Modified: 28/6/2025 
+*/
+
 /* UPDATE PROFILE */
 .update_container {
   position: fixed;
@@ -38,6 +50,10 @@
   align-items: center;
   border-radius: 50%;
   cursor: pointer;
+  transition: .1s ease-in-out;
+}
+.update_profile_directory .icon:hover {
+  scale: 1.1;
 }
 #update_profile .update_content {
   padding: .5vw 3vw 3vw;
@@ -70,12 +86,17 @@
 .edit_profile .picture_selection .profile_pic_option.selected{
   box-shadow: 0 0 0 .3vw #1AFF00;
 }
-.edit_profile .picture_selection .profile_pic_option img {
+.edit_profile .picture_selection .profile_pic_option {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transition: .1s ease-in-out;
 }
+.edit_profile .picture_selection .profile_pic_option:hover{
+  scale: 1.08;
+}
+
 .edit_details #update_profile_form {
   display: flex;
   flex-direction: column;
@@ -128,14 +149,18 @@
 }
 .edit_sub_container2 button {
   background-color: #D35B50;
-  padding: 1vw 2vw;
+  padding: 1vw 1.5vw;
   color: #FAFBF5;
   font-size: 1.2vw;
   font-weight: 700;
   border: none;
   border-radius: 1vw;
   cursor: pointer;
+  transition: .1s ease-in-out;
 } 
+.edit_sub_container2 button:hover {
+  transform: scaleX(1.05);
+}
 .edit_sub_container2 .edit_gender {
   display: flex;
   justify-content: space-around;
@@ -201,7 +226,12 @@
   border-radius: 1vw;
   border: none;
   cursor: pointer;
+  transition: .1s ease-in-out;
 }
+.edit_details #change button:hover{
+  transform: scaleX(1.05);
+}
+
 @media (max-width: 1200px) {
 #update_profile {
   width: 80vw;

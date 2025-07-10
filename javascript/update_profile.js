@@ -1,3 +1,12 @@
+// Name: Mr. Chung Yhung Yie
+// Project Name: update_profile.js
+// Description: ontrols a user profile update popup. It handles opening and closing the popup, tracks the form’s initial state, 
+//              restores unsaved changes, lets the user select a profile picture, validates the input (username, birthdate, gender, weight, height), 
+//              sends the form data via AJAX to update the profile, and updates the UI with the new info if the update succeeds. It also provides 
+//              feedback messages for success, errors, or info.
+// First Written: 1/6/2025
+// Last Modified: 6/7/2025 
+
 document.addEventListener('DOMContentLoaded', () => {
     const isUser = window.appConfig?.isUser || false;
 

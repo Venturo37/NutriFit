@@ -455,6 +455,7 @@ Open Styles(In JS)
     align-items: center; /* Center content horizontally within the card */
     transition: transform 0.2s ease-in-out;
     cursor: pointer;
+    margin-top: 2vw;
 }
 
 .card:hover {
@@ -903,21 +904,22 @@ Open Styles(In JS)
     }
     
     .dp_section_3 .card {
-      width: 70%;
-      height: auto;
+      width: 57.25vw;
+      height: 44.5vw;
       border-radius: 4vw;
       box-shadow: 0 1.5vw 4vw rgba(0, 0, 0, 0.15);
       box-sizing: border-box;
       background-color: #E6E6E4; /* optional: improves text contrast */
-      transform: translateX(25%);
       transition: 0.5s;
+      margin: 2vw 0;
     }
 
     .card img {
        width: 50%;           
-      height: auto;
+      height: 100%;
       border-radius: 1vw;
       margin-bottom: 1.5vw;
+      overflow: hidden;
     }
 
     .card_button {
@@ -934,8 +936,7 @@ Open Styles(In JS)
     }
 
     .card:hover {
-        width: 75%; /* Slightly increase card size on hover */
-        transform: translateX(20%); /* Adjust position to keep it centered */
+      scale: 1.2;
         background-color: #F3CE6E;
     }
 }
@@ -1170,6 +1171,7 @@ Open Styles(In JS)
 @media (max-width: 768px) {
   /* Main container for the selected meal page */
     .selected_meal_page {
+        margin-top: 4vw;
         padding: 5vw; /* Increase overall padding for mobile */
         height: auto;
         overflow-x: hidden; /* Prevent horizontal scroll */
@@ -1294,7 +1296,7 @@ Open Styles(In JS)
 
     .ingredients_list {
         padding: 4vw; /* Adjust padding */
-        max-height: none; /* Allow full height */
+        max-height: 70vw; 
         background-color: #FAFBF5; /* Ensure a background color for readability */
         border-radius: 15px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Add a subtle shadow */

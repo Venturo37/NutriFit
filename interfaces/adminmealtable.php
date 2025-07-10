@@ -28,7 +28,7 @@ include ("../features/header.php")
     <div class="actions">
       <!-- <input type="text" placeholder="Search" class="search-box"/> -->
       <div class="actions-right">
-        <a href="../features/mealcategory.php" class="btn manage">MANAGE Category</a>
+        <a href="../features/mealcategory.php" class="btn manage">MANAGE Meal Time</a>
         <a href="../features/addmeal_form.php" class="btn add">ADD New Meals</a>
       </div>
     </div>

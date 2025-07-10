@@ -1,4 +1,14 @@
-// IVAN - AUTHENTICATION PHP
+// NAME : Mr. Ivan Shak Loong Wye  
+// PROJECT NAME : authentication.js  
+// DESCRIPTION OF PROGRAM :  
+//     This script manages the dynamic behavior of the authentication interface.  
+//     It enables switching between login, registration, verification, and reset forms.  
+//     For registration, it supports navigation between two pages. It also includes responsive layout 
+//     handling to adapt visual elements (like background images and shapes) based on screen size 
+//     for an optimal user experience.
+
+// FIRST WRITTEN : June 7th, 2025  
+// LAST MODIFIED : July 9th, 2025  
 
 function goToPage1() {
     document.getElementById('signup_page1').style.display = 'block';

@@ -1,10 +1,28 @@
+<!-- 
+NAME: Joan Chua Yong Xin
+Project name: Fitness Session Page
+
+DESCRIPTION OF PROGRAM:
+- This script generates the Fitness Session page of the NutriFit system, allowing users to engage in guided workout sessions.
+- It retrieves a selected workout’s details from the database, including name, MET value, category, image, description, and level 
+durations (beginner, intermediate, intense). It also fetches the user's gender, age, and most recent weight to personalize calorie burn 
+estimations based on intensity level using MET-based formulas.
+- The interface presents a visually engaging layout with a red SVG background, motivational quote, workout information, and a circular animated timer. 
+Users can select their workout level, view estimated duration and calories burned, and start or end the session using interactive buttons.
+- When training starts, a countdown timer begins. Upon completion or early termination, the session data (duration, intensity,calories burned, timestamp) 
+is logged into the user_workout_session_t table via AJAX POST. After logging, users are redirected to the fitness result page.
+
+FIRST WRITTEN: 22-06-2025
+LAST MODIFIED: 08-07-2025
+-->
+
 <?php
 include ('../features/connection.php');
 include ('../features/embed.php'); 
 
 // Handle AJAX to log workout
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'log_workout') {
-    $usr_id = 1; // Temporary fixed user
+    $usr_id = $_SESSION['usr_id'];
     $work_id = $_POST['work_id'];
     $duration = $_POST['duration'];
     $intensity = $_POST['intensity'];
@@ -23,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'log_workout')
     exit;
 }
 
+$usr_id = $_SESSION['usr_id'];
 $work_id = isset($_SESSION['work_id']) ? (int)$_SESSION['work_id'] : 1;
 
 $query = "SELECT w.work_name, w.work_description, w.work_MET, w.work_image, 
@@ -31,7 +50,7 @@ $query = "SELECT w.work_name, w.work_description, w.work_MET, w.work_image,
                  uwl.weight_log_weight, u.usr_gender, u.usr_birthdate
           FROM workout_t w
           LEFT JOIN category_t c ON w.cate_id = c.cate_id
-          JOIN user_t u ON u.usr_id = 1
+          JOIN user_t u ON u.usr_id = ?
           LEFT JOIN user_weight_log_t uwl ON uwl.weight_log_id = (
               SELECT weight_log_id 
               FROM user_weight_log_t 
@@ -42,7 +61,8 @@ $query = "SELECT w.work_name, w.work_description, w.work_MET, w.work_image,
           WHERE w.work_id = ?";
 
 $stmt = $connection->prepare($query);
-$stmt->bind_param("i", $work_id);
+// $stmt->bind_param("ii", $work_id, $usr_id);
+$stmt->bind_param("ii", $usr_id, $work_id);
 $stmt->execute();
 $stmt->bind_result($name, $description, $met, $image, $beginner, $intermediate, $intense, $category, $weight, $gender, $birthdate);
 $stmt->fetch();

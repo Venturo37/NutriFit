@@ -1,3 +1,12 @@
+<!-- 
+ NAME: CHOW YAN PING
+Project name: Nutrifit
+DESCRIPTION OF PROGRAM: Deletes a user account from the user_t table based on the provided usr_id / admin account from admin_t table based on the provided adm_id.
+                        May also handle cleanup of related records such as workout sessions, meal logs, or weight logs if implemented.
+FIRST WRITTEN: 2/6/2025
+LAST MODIFIED: 9/7/2025
+ -->
+
 <?php
 include 'connection.php';
 

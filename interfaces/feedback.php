@@ -1,3 +1,16 @@
+<!-- 
+NAME : Mr. Ivan Shak Loong Wye  
+PROJECT NAME : feedback.php  
+DESCRIPTION OF PROGRAM :  
+    This script allows administrators to view feedback obtained from users 
+	and present it in an intuitive and clear table format.
+	An additional button is also provided to view the feedback in more detail,
+	including the text area explanation provided by the user.
+
+FIRST WRITTEN : June 16th, 2025  
+LAST MODIFIED : July 9th, 2025   
+-->
+
 <?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();

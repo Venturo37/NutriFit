@@ -1,3 +1,12 @@
+// Name: Mr. Chung Yhung Yie
+// Project Name: user_profile.js
+// Description: dynamically renders three interactive charts — a weight trend line chart, a calories burned bar chart, and a stacked meal intake bar chart, 
+//              using Chart.js. It fetches data asynchronously from a PHP backend based on the user’s selected month and year, updates the charts in real-time, 
+//              and ensures smooth performance by properly destroying and reinitializing chart instances. 
+// First Written: 1/6/2025
+// Last Modified: 6/7/2025 
+
+
 // Global chart instance. Changed from 'let' to 'var' to prevent redeclaration errors in environments where the script might be executed multiple times or in specific scopes.
 var weightChart;
 var kcalChart;

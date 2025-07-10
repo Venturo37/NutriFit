@@ -1,3 +1,13 @@
+/* 
+Name: Mr. Chung Yhung Yie
+Project Name: footer.css
+Description: styles the footer to create a clean, bold closing section for the page. It makes the footer span the full width, with comfortable top, 
+    bottom, and left padding for spacing. The background is set to a deep blackish color (#1F1F1F), contrasting with the light text color (#FAFBF5). 
+    The font is styled to be italic, bold (font-weight: 700), and slightly larger (1.3vw), giving the footer a distinct, stylish look that stands out at the bottom of the page.
+First Written: 1/6/2025
+Last Modified: 3/6/2025 
+*/
+
 /* FOOTER */
 footer {
   width: 100%;

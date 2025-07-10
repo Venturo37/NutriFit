@@ -1,6 +1,16 @@
+<!-- 
+Name: Mr. Chung Yhung Yie
+Project Name: user_profile.php
+Description: displays a logged-in user’s profile with their name, photo, and interactive charts showing weight progress, 
+    calories burned, and meal intake for a selected month and year. It lets users filter data, update their profile, 
+    and direct to detailed fitness and nutrition history.
+
+First Written: 1/6/2025
+Last Modified: 5/7/2025 
+-->
+
 <?php
 include('../features/connection.php');
-
 include('../features/restriction.php');
 
 $usr_id = $_SESSION['usr_id'];
@@ -31,7 +41,6 @@ function getUserData ($connection, $usr_id) {
     return $user;
 }
 
-
 function getProfilePic ($connection, $pic_id) {
     $profile_src = '';
     $profile_statement = $connection->prepare(
@@ -55,7 +64,6 @@ function getProfilePic ($connection, $pic_id) {
     $profile_statement->close();
     return $profile_src;
 }
-
 
 function getUserWeightLogs ($connection, $usr_id) {
 // // Sample data for user_weight_log_t table
@@ -92,7 +100,6 @@ function getUserWeightLogs ($connection, $usr_id) {
     return $raw_weight_logs;
 }
 
-
 function getUserWorkoutData ($connection, $usr_id) {
     $workout_query = $connection->prepare(
         "SELECT DATE(wlog_timestamp) AS wlog_timestamp, 
@@ -117,7 +124,6 @@ function getUserWorkoutData ($connection, $usr_id) {
 // ];
     return $raw_workout_data;
 }
-
 
 function getUserMealData($connection, $usr_id) {
     $meal_query = $connection->prepare(
@@ -151,7 +157,6 @@ function getUserMealData($connection, $usr_id) {
     // ];
     return $meal_data;
 }
-
 
 function calculateEstimatedWeight($raw_weight_logs, $workout_data, $meal_data, $user, $all_dates) {
     $weight_logs = [];
@@ -210,9 +215,6 @@ function calculateEstimatedWeight($raw_weight_logs, $workout_data, $meal_data, $
 
     return ['weight_logs' => $weight_logs, 'daily_tdee_values' => $daily_tdee_values];
 }
-
-
-
 
 function getActivityDateRange($connection, $usr_id) {
     $activity_query = $connection->prepare(
@@ -503,7 +505,6 @@ for ($day = 1; $day <= $init_num_day_display; $day++) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -512,7 +513,6 @@ for ($day = 1; $day <= $init_num_day_display; $day++) {
     <title>User Profile</title>
     <?php include('../features/embed.php'); ?>
     <script src="../javascript/update_profile.js" defer></script>
-    
 </head>
 <body>
     <?php include('../features/header.php'); ?>
@@ -651,7 +651,6 @@ for ($day = 1; $day <= $init_num_day_display; $day++) {
             labels: <?php echo json_encode($init_labels); ?>,
             weights: <?php echo json_encode($init_weights); ?>
         };
-
 
         const init_kcalChart_data = {
             labels: <?php echo json_encode($init_kcal_labels); ?>,

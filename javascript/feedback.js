@@ -1,3 +1,14 @@
+// NAME : Mr. Ivan Shak Loong Wye  
+// PROJECT NAME : feedback.js  
+// DESCRIPTION OF PROGRAM :  
+//     This script controls the interactivity of the Feedback page.  
+//     It manages the display of a popup when a feedback record is selected, including applying blur effects 
+//     to the background and populating the popup with detailed user feedback such as date, name, email, 
+//     rating, and written response. Also includes functions to both show and hide the popup smoothly.
+
+// FIRST WRITTEN : June 16th, 2025  
+// LAST MODIFIED : July 9th, 2025  
+
 // FOR SHOWING FEEDBACK POPUP
 function showPopup(date, name, email, rating, response) {
     // DISPLAY POPUP

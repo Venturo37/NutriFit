@@ -1,8 +1,14 @@
-<!-- WRITES THE FONT STYLES AND LINK TO CSS & JS -->
+<!-- 
+Name: Mr. Chung Yhung Yie
+Project Name: embed.php
+Description: to set teh page's font by linking to Google Fonts, includes the Font Awesome library for icons, links multiple custom CSS files 
+    for sytling diffrent parts of the website, loads Chart.js library for creating charts and adds custom JavaSCript files to handle functionalities. 
 
-<!-- WRITE UNDER PHP:
-    include('embed.php'); 
+First Written: 1/6/2025
+Last Modified: 8/7/2025 
 -->
+
+<!-- WRITES THE FONT STYLES AND LINK TO CSS & JS -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,8 +35,6 @@
 
 <link rel="stylesheet" href="../styles/activity_history.css">
 <link rel="stylesheet" href="../styles/admin_user_management.css">
-<!-- <link rel="stylesheet" href="../styles/fitness.css"> -->
-<!-- <link rel="stylesheet" href="../styles/nutrition.css"> -->
 
 
 
@@ -40,7 +44,6 @@
 
 <!-- LINK TO javascript.js (defer = runs after html is fully loaded) -->
 <script src="../javascript/user_profile.js" defer></script>
-<!-- <script src="../javascript/update_profile.js" defer></script> -->
 <script src="../javascript/admin_dashboard.js" defer></script>
 <script src="../javascript/authentication.js" ></script>
 <script src="../javascript/feedback.js" ></script>

@@ -1,55 +1,14 @@
-//Get all dropdown from document
-const dropdowns = document.querySelectorAll('.dropdown');
-//Loop through all dropdown elements
-dropdowns.forEach(dropdown => {
-    const select = dropdown.querySelector('.select');
-    const caret = dropdown.querySelector('.caret');
-    const menu = dropdown.querySelector('.menu');
-    const options = dropdown.querySelectorAll('.menu li');
-    const selected = dropdown.querySelector('.selected');
-
-    select.addEventListener('click', () => {
-        select.classList.toggle('select_clicked');
-        caret.classList.toggle('caret_rotate');
-        menu.classList.toggle('menu_open');
-    });
-
-    options.forEach(option => {
-        option.addEventListener('click', () => {
-            selected.innerText = option.innerText;
-            select.classList.remove('select_clicked');
-            caret.classList.remove('caret_rotate');
-            menu.classList.remove('menu_open');
-            
-            options.forEach(otherOption => {
-                otherOption.classList.remove('active');
-            });
-            option.classList.add('active');
-
-            const mealTimeId = option.dataset.mealTime;
-            const searchInput = document.querySelector('.search_input');
-            const searchQuery = searchInput ? searchInput.value.trim().toLowerCase() : '';
-            fetchMeals(mealTimeId, searchQuery);
-        });
-    });
-});
-
-// SEARCH FUNCTIONALITY
-const searchInput = document.querySelector('.search_input');
-if (searchInput) {
-    searchInput.addEventListener('input', () => {
-        const selectedOption = document.querySelector('.menu li.active');
-        const mealTimeId = selectedOption ? selectedOption.dataset.mealTime : 1;
-        const searchQuery = searchInput.value.trim().toLowerCase();
-        fetchMeals(mealTimeId, searchQuery);
-    });
-}
+// NAME
+// Project name
+// DESCRIPTION OF PROGRAM
+// FIRST WRITTEN 
+// LAST MODIFIED
 
 function fetchMeals(mealTimeId, searchQuery = '') {
     const mealContainer = document.querySelector('.dp_section_3');
     mealContainer.innerHTML = '<p style="text-align: center;">Loading meals...</p>';
 
-    const url = `get_meals.php?meal_time=${mealTimeId}&search_query=${encodeURIComponent(searchQuery)}`;
+    const url = `../features/get_meals.php?${mealTimeId !== null ? `meal_time=${mealTimeId}&` : ''}search_query=${encodeURIComponent(searchQuery)}`;
 
     fetch(url)
         .then(response => response.json())
@@ -57,23 +16,26 @@ function fetchMeals(mealTimeId, searchQuery = '') {
             mealContainer.innerHTML = '';
             if (meals.length > 0) {
                 meals.forEach(meal => {
-                    const meal_kcal = (meal.meal_carbohydrates * 4) + (meal.meal_protein * 4) + (meal.meal_fats * 9);
-                    const card = `
-                        <form action="selected_meal.php" method="POST" class="card_form">
-                            <input type='hidden' name='meal_id' value='${meal.meal_id}'/>
-                            <div class="card">
-                                <img src="${meal.meal_image}" alt="Meal image for ${meal.meal_name}" onerror="this.onerror=null;this.src='https://placehold.co/200x150/EFEFEF/AAAAAA&text=No+Image';">
-                                <div class="card_button">${meal.meal_name}</div>
-                                <div class="kcal_intake">
-                                    <ion-icon name="flame-outline"></ion-icon>
-                                    ${Math.round(meal_kcal)} Kcal
-                                </div>
+                    const meal_kcal = (meal.meal_carbohydrates * 3) + (meal.meal_protein * 4) + (meal.meal_fats * 9);
+                    const card = document.createElement('form');
+                    card.classList.add('card_form');
+                    card.setAttribute('action', 'selected_meal.php');
+                    card.setAttribute('method', 'POST');
+                    card.innerHTML = `
+                        <input type='hidden' name='meal_id' value='${meal.meal_id}'/>
+                        <div class="card">
+                            <img src="${meal.meal_image}" alt="Meal image for ${meal.meal_name}" onerror="this.onerror=null;this.src='https://placehold.co/200x150/EFEFEF/AAAAAA&text=No+Image';">
+                            <div class="card_button">${meal.meal_name}</div>
+                            <div class="kcal_intake">
+                                <ion-icon name="flame-outline"></ion-icon>
+                                ${Math.round(meal_kcal)} Kcal
                             </div>
-                        </form>`;
-                    mealContainer.insertAdjacentHTML('beforeend', card);
+                        </div>
+                    `;
+                    mealContainer.appendChild(card);
                 });
 
-                // Enable full-card click after new DOM insert
+                // REBIND CARD CLICK
                 const cards = document.querySelectorAll('.card_form .card');
                 cards.forEach(card => {
                     card.addEventListener('click', () => {
@@ -89,9 +51,6 @@ function fetchMeals(mealTimeId, searchQuery = '') {
             mealContainer.innerHTML = '<p style="color: red; text-align: center;">Error loading meals.</p>';
         });
 }
-
-
-
 function updateCalories(consumed, burned) {
     const circle = document.querySelector('.progress_ring_circle');
     const text = document.getElementById('kcalText');
@@ -190,6 +149,56 @@ function updateBMI(bmi) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    //Get all dropdown from document
+const dropdowns = document.querySelectorAll('.dropdown');
+//Loop through all dropdown elements
+dropdowns.forEach(dropdown => {
+    const select = dropdown.querySelector('.select');
+    const caret = dropdown.querySelector('.caret');
+    const menu = dropdown.querySelector('.menu');
+    const options = dropdown.querySelectorAll('.menu li');
+    const selected = dropdown.querySelector('.selected');
+
+    select.addEventListener('click', () => {
+        select.classList.toggle('select_clicked');
+        caret.classList.toggle('caret_rotate');
+        menu.classList.toggle('menu_open');
+    });
+
+    options.forEach(option => {
+        option.addEventListener('click', () => {
+            selected.innerText = option.innerText;
+            select.classList.remove('select_clicked');
+            caret.classList.remove('caret_rotate');
+            menu.classList.remove('menu_open');
+            
+            options.forEach(otherOption => {
+                otherOption.classList.remove('active');
+            });
+            option.classList.add('active');
+
+            const mealTimeId = option.dataset.mealTime;
+            const searchInput = document.querySelector('.search_input');
+            const searchQuery = searchInput ? searchInput.value.trim().toLowerCase() : '';
+            fetchMeals(mealTimeId, searchQuery);
+        });
+    });
+});
+
+// SEARCH FUNCTIONALITY
+const searchInput = document.querySelector('.search_input');
+if (searchInput) {
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.trim().toLowerCase();
+
+        // If there's a query, ignore meal time filter
+        if (query.length > 0) {
+            fetchMeals(null, query); // null = no meal_time filtering
+        } else {
+            fetchMeals(selectedMealTimeId, ''); // fallback to dropdown
+        }
+    });
+}
 
     // --- POP-UP FUNCTIONALITY ---
     const manualInputButton = document.querySelector('.input_button');
@@ -334,7 +343,7 @@ if (chooseMealButton) {
             return;
         }
 
-        fetch('insert_selected_meal.php', {
+        fetch('../features/insert_selected_meal.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

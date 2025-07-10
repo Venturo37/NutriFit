@@ -1,3 +1,14 @@
+/* 
+Name: Mr. Chung Yhung Yie
+Project Name: header.css
+Description: styles a responsive website header with a flexible layout that adjusts between desktop and mobile views. 
+  The header uses flex to space out a logo on the left and navigation links on the right, with customizable background color themes (transparent, red, green). 
+  For smaller screens (max-width: 700px), the desktop navigation hides and a hamburger menu appears, which toggles a stylish sliding sidebar navigation. 
+  The sidebar uses a blurred background (backdrop-filter), smooth transitions, and an overlay for a modern mobile-friendly experience.
+First Written: 1/6/2025
+Last Modified: 5/7/2025 
+*/
+
 /* HEADER */
 header {
   position: relative;
@@ -24,7 +35,6 @@ header {
 .header_green{
   background-color: #A1C14B;
   color: #FAFBF5;
-
 }
 header .logo{
   width: fit-content;
@@ -56,6 +66,12 @@ header nav ul{
 header nav {
     display: flex; /* Desktop nav is visible by default */
 }
+header nav li{
+  transition: .1s ease-in-out;
+}
+header nav li:hover{
+  scale: 1.1;
+}
 .hamburger {
   position: absolute;
   right: 10vw;
@@ -63,6 +79,7 @@ header nav {
   display: none; 
   margin-left: auto; 
   font-size: 5vw;
+  cursor: pointer;
 }
 
 .sidebar {

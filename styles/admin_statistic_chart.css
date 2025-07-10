@@ -1,3 +1,14 @@
+/* 
+Name: Mr. Chung Yhung Yie
+Project Name: admin_statistic_chart.css
+Description: styles a statistics section with two main panels for displaying user fitness and nutrition data. 
+    The layout uses a flexible row with spacing that switches to a stacked column on smaller screens for better responsiveness. 
+    Each panel has a clear heading with an underline, bold statistic values, and a clean white background. 
+    Inside, charts and detailed statistic items are arranged neatly with visual dots, labels, and counts, all styled for modern readability and easy adaptation across devices.
+First Written: 1/6/2025
+Last Modified: 28/6/2025 
+*/
+
 .statistics{
   display: flex;
   flex-direction: row;

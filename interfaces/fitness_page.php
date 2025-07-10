@@ -1,10 +1,31 @@
+<!-- 
+
+NAME: Joan Chua Yong Xin
+Project name: Fitness Page
+
+DESCRIPTION OF PROGRAM:
+- This script generates the main Fitness Page in the NutriFit system for logged-in users.
+- It retrieves user-specific data such as name, height, gender, birthdate, latest weight log, profile picture, and calculates the BMI and BMI status. The background color of the BMI box
+dynamically changes based on the BMI category (Underweight, Normal, Overweight, Obese).
+- It also calculates the total calories burned for the current day from the workout session log.
+- The page dynamically displays a list of available workouts fetched from the database, including their images, names, MET values, estimated calories burned, and category. The calories burned
+for each workout are calculated using the user’s weight, age, gender factor, and workout intensity.
+- Users can filter workouts using a search bar or category dropdown, and click a card to begin a training session. Upon card click, the selected workout ID is stored via AJAX and redirects
+the user to fitness_session.php.
+
+FIRST WRITTEN: 18-06-2025
+LAST MODIFIED: 08-07-2025 
+
+-->
+
 <?php
 // session_start(); 
 // $_SESSION['account_type'] = 'user';
-include '../features/connection.php';
+include ('../features/connection.php');
 
+include ('../features/restriction.php');
 
-include '../features/embed.php'; 
+include ('../features/embed.php'); 
 
 $user_id = $_SESSION['usr_id'];
 
@@ -36,10 +57,25 @@ if ($bmi < 18.5) {
     $bmiStatus = "Normal";
 } elseif ($bmi < 29.9) {
     $bmiStatus = "Overweight";
-} elseif ($bmi < 39.9) {
-    $bmiStatus = "Obesity";
 } else {
-    $bmiStatus = "Severe Obesity";
+    $bmiStatus = "Obese";
+}
+
+switch ($bmiStatus) {
+    case "Underweight":
+        $bmiColor = "#6EC1F3";
+        break;
+    case "Normal":
+        $bmiColor = "#a6d44d";
+        break;
+    case "Overweight":
+        $bmiColor = "#F3CE6E";
+        break;
+    case "Obese":
+        $bmiColor = "#D35B50";
+        break;
+    default:
+        $bmiColor = "#ccc";
 }
 
 // Calculate total calories burned today
@@ -145,9 +181,9 @@ $ageFactor = ($age < 40) ? 1.0 : (($age >= 40 && $age < 50) ? 0.97 : (($age >= 5
       </div>
     </div>
 
-    <div class="bmi-box" data-weight="<?php echo $weight; ?>" data-height="<?php echo $height; ?>">
+    <div class="bmi-box" style="background-color: <?php echo $bmiColor; ?>;" data-weight="<?php echo $weight; ?>" data-height="<?php echo $height; ?>">
       <p>BMI Status<br><strong id="bmi-status"><?php echo $bmiStatus; ?></strong></p>
-      <div class="bmi-circle" id="bmi-value"><?php echo $bmi; ?></div>
+      <div class="bmi-circle" id="bmi-value" style="background-color: <?php echo $bmiColor; ?>;"><?php echo $bmi; ?></div>
     </div>
 
     <div class="right-section">
@@ -260,7 +296,7 @@ $ageFactor = ($age < 40) ? 1.0 : (($age >= 40 && $age < 50) ? 0.97 : (($age >= 5
     // });
 
 
-    document.querySelectorAll('.fitness-cards .card').forEach(card => {
+  document.querySelectorAll('.fitness-cards .card').forEach(card => {
     card.addEventListener('click', function () {
 
       const workId = this.getAttribute('data-work-id');

@@ -1,3 +1,14 @@
+/* 
+Name: Mr. Chung Yhung Yie
+Project Name: sys_activity_log.css
+Description: styles a system activity table section with a modern card-like look. It uses a light blue background with rounded corners 
+  and a solid border for emphasis. The table header (h2) is bold and sized for easy reading. Inside, a flex container organizes the table 
+  and a pagination control, aligning elements neatly. The table itself is full-width, clean, and center-aligned, with subtle colors for the headers. 
+  Below, pagination buttons are styled as clickable squares with hover scaling for a responsive, user-friendly interaction.
+First Written: 1/6/2025
+Last Modified: 28/6/2025 
+*/
+
 .sys_activity_table {
   /* width: 100%; */
   height: 45vw;
@@ -45,4 +56,9 @@
   height: 3vw;
   border-radius: .5vw;
   font-size: 2vw;
+  cursor: pointer;
+  transition: .1s ease-in-out;
+}
+.system_activity_pagination .activity_page_btn:hover {
+  scale: 1.2;
 }

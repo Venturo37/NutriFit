@@ -189,9 +189,10 @@ if (!empty($user['pic_id'])) {
     include('../features/embed.php'); 
     ?>
     <link rel="stylesheet" href="../styles/nutrition.css">
+    
 
 
-    <title>Nutrifit - Diet Tracker</title>
+    <title>Nutrifit - Diet</title>
 </head>
 <body>
     <?php include ('../features/header.php'); ?>
