@@ -60,7 +60,16 @@ if ($weight_kg > 0 && $height_cm > 0 && $age > 0) {
 
 // --- 2. CALCULATE TODAY'S ACTUAL INTAKE AND EXPENDITURE ---
 
-// Calculate total calories consumed TODAY.
+/*
+
+NAME : Mr. Chan Rui Jie 
+PROJECT NAME : diet_page.php(User Daily Energy Expenditure)  
+DESCRIPTION OF PROGRAM :  
+    Calculate User's TDEE
+FIRST WRITTEN : June 9th, 2025  
+LAST MODIFIED : July 10th, 2025  
+
+*/
 $consumed = 0;
 
 $consume_query = "SELECT SUM(calories) AS total_consumed FROM (
@@ -179,6 +188,17 @@ if (!empty($user['pic_id'])) {
 }
 
 ?>
+
+/*
+
+NAME : Mr. Chan Rui Jie 
+PROJECT NAME : diet_page.php 
+DESCRIPTION OF PROGRAM :  
+    Main Diet page for user interface.
+FIRST WRITTEN : June 7th, 2025  
+LAST MODIFIED : July 10th, 2025  
+
+*/
 
 <!DOCTYPE html>
 <html lang="en">
