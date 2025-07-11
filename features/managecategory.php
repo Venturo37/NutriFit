@@ -1,5 +1,12 @@
 <?php
+// NAME: Mr. CHEAH XUE XIAN
+// Project name: managecategory.php
+// DESCRIPTION OF PROGRAM: displays and manages workout categories. It connects to the database, fetches all categories, and shows them in a list 
+//   with options to add, rename, or delete a category. It uses modals for renaming and deletion confirmation and handles messages for user feedback. 
+//   JavaScript manages the selection and form submissions dynamically.
 
+// FIRST WRITTEN: 1/6/2025
+// LAST MODIFIED: 2/7/2025
 include('connection.php'); 
 $message = '';
 $message_type = ''; // 'success' or 'error'

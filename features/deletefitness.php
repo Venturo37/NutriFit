@@ -1,4 +1,11 @@
 <?php
+// NAME: Mr. CHEAH XUE XIAN
+// Project name: deletefitness.php
+// DESCRIPTION OF PROGRAM: deletes a workout by ID when a valid POST request is received. It removes the workout from workout_t, 
+//     logs the deletion action in workout_management_t for auditing, and redirects to the admin fitness table with a status flag.
+
+// FIRST WRITTEN: 1/6/2025
+// LAST MODIFIED: 2/7/2025
 include('connection.php');
 $acting_adm_id = $_SESSION['adm_id'];
 

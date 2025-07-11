@@ -1,13 +1,10 @@
-<!-- 
-NAME: CHOW YAN PING
-Project name: Nutrifit
-DESCRIPTION OF PROGRAM: Handles the upload of a new profile picture into the database. 
-                        Inserts the image into the profile_picture_t table as a BLOB and returns the new pic_id.
-FIRST WRITTEN: 2/6/2025
-LAST MODIFIED: 9/7/2025
- -->
-
 <?php
+// NAME: Ms. CHOW YAN PING
+// Project name: Nutrifit
+// DESCRIPTION OF PROGRAM: Handles the upload of a new profile picture into the database. 
+//                         Inserts the image into the profile_picture_t table as a BLOB and returns the new pic_id.
+// FIRST WRITTEN: 2/6/2025
+// LAST MODIFIED: 9/7/2025
 include('connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['new_profile_upload'])) {

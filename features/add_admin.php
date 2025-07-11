@@ -1,13 +1,11 @@
-<!-- 
-NAME: CHOW YAN PING
-Project name: Nutrifit
-DESCRIPTION OF PROGRAM: Handles the creation of a new admin account. 
-                        Validates that the email is unique across both admin_t and user_t tables before inserting into admin_t.
-FIRST WRITTEN: 2/6/2025
-LAST MODIFIED: 9/7/2025
--->
-
 <?php
+// NAME: Ms. CHOW YAN PING
+// Project name: Nutrifit
+// DESCRIPTION OF PROGRAM: Handles the creation of a new admin account. 
+//                         Validates that the email is unique across both admin_t and user_t tables before inserting into admin_t.
+// FIRST WRITTEN: 2/6/2025
+// LAST MODIFIED: 9/7/2025
+
 include('connection.php');
 include('restriction.php');
 

@@ -1,4 +1,11 @@
 <?php
+// NAME: Mr. CHEAH XUE XIAN
+// Project name: delete_category.php
+// DESCRIPTION OF PROGRAM: deletes a workout category by first checking if any workouts are linked to it. If linked workouts exist, deletion is blocked. 
+//     If not, it logs the deletion action in category_management_t, deletes the category from category_t, and redirects back with a success or error message.
+
+// FIRST WRITTEN: 1/6/2025
+// LAST MODIFIED: 2/7/2025
 // delete_category.php
 include('connection.php'); // Ensure this path is correct
 $acting_adm_id = $_SESSION['adm_id'];

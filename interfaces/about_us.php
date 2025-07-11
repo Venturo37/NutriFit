@@ -1,19 +1,14 @@
-<!-- 
- NAME : Mr. Ivan Shak Loong Wye  
-PROJECT NAME : about_us.php  
-DESCRIPTION OF PROGRAM :  
-    This script displays background information about the system and development team.  
-    It serves as a static content page meant to inform users about the project's purpose, values, and mission. 
-	In addition, buttons which direct the user to Facebook and Instagram are also provided.
-    Lastly, a function which lets users send feedback with text explanation and rating (1 to 5).
-
-FIRST WRITTEN : June 14th, 2025  
-LAST MODIFIED : July 9th, 2025  
- -->
-
 <?php
+//  NAME : Mr. Ivan Shak Loong Wye  
+// PROJECT NAME : about_us.php  
+// DESCRIPTION OF PROGRAM :  
+//     This script displays background information about the system and development team.  
+//     It serves as a static content page meant to inform users about the project's purpose, values, and mission. 
+// 	In addition, buttons which direct the user to Facebook and Instagram are also provided.
+//     Lastly, a function which lets users send feedback with text explanation and rating (1 to 5).
 
-// session_start();
+// FIRST WRITTEN : June 14th, 2025  
+// LAST MODIFIED : July 9th, 2025  
 
 include('../features/connection.php');
 

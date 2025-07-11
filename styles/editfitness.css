@@ -1,15 +1,14 @@
-/* General Reset */
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #fafbf5;
-  color: #222;
-} */
+/* 
+NAME: Ms. CHEAH XUE XIAN
+Project name: editfitness.css
+DESCRIPTION OF PROGRAM: styles a fitness management form with a bold red header banner, a clean form container, and a responsive layout. 
+It defines the appearance of input fields, textareas, select dropdowns, and category selectors with modern rounded edges and clear focus states. 
+It includes an image preview box for uploaded images and styled action buttons for saving and deleting, each with hover effects. The layout uses 
+flexible grids for form fields and modal dialog styles for confirmations or alerts. The design ensures consistency and a user-friendly interface 
+for managing fitness content.
+FIRST WRITTEN: 2/6/2025
+LAST MODIFIED: 9/7/2025 
+*/
 
 /* Header Banner (Red theme, title aligned left) */
 .new-fitness-banner {

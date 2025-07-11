@@ -1,13 +1,10 @@
-<!-- 
- NAME: CHOW YAN PING
-Project name: Nutrifit
-DESCRIPTION OF PROGRAM: Deletes a selected profile picture from the profile_picture_t table based on the provided pic_id. 
-                        Ensures the image is not currently assigned to any admin or user before deletion.
-FIRST WRITTEN: 2/6/2025
-LAST MODIFIED: 9/7/2025
- -->
-
 <?php
+// NAME: Ms. CHOW YAN PING
+// Project name: Nutrifit
+// DESCRIPTION OF PROGRAM: Deletes a selected profile picture from the profile_picture_t table based on the provided pic_id. 
+//                         Ensures the image is not currently assigned to any admin or user before deletion.
+// FIRST WRITTEN: 2/6/2025
+// LAST MODIFIED: 9/7/2025
 include 'connection.php';
 $acting_adm_id = $_SESSION['adm_id'];
 

@@ -1,58 +1,15 @@
-/* General Reset */
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
+/*  
+NAME: Ms. CHEAH XUE XIAN
+Project name: addfitness.css
+DESCRIPTION OF PROGRAM: defines the layout and styling for a fitness content management form and banner. It styles a prominent banner with a bold
+ background and link buttons, sets up a clean, centered form container with a modern card-like appearance, and provides consistent styling for 
+ text inputs, selects, and textareas with clear focus states. It also includes styles for image previews, category dropdowns, time inputs, and 
+ save buttons with hover effects. The footer is styled with a dark background and subtle typography. Finally, responsive media queries adjust the 
+ layout and sizing for mobile devices, ensuring the form, buttons, and banner remain user-friendly and visually appealing on smaller screens.
 
-/* body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #fafbf5;
-  color: #222;
-} */
-
-/* Header Styling */
-/* header {
-  background: #fff;
-  padding: 24px 40px 10px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo h1 {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  font-weight: bold;
-  font-size: 2.2em;
-  color: #222;
-  margin-bottom: 0;
-}
-
-.logo p {
-  font-size: 0.9em;
-  color: #444;
-  margin-top: -8px;
-  font-style: italic;
-}
-
-nav a {
-  color: #222;
-  text-decoration: none;
-  font-weight: bold;
-  margin-left: 30px;
-  font-size: 1.1em;
-  transition: color 0.2s;
-}
-
-nav a.logout {
-  color: #222;
-  font-weight: bold;
-}
-
-nav a:hover {
-  color: #e15b5b;
-} */
-
+FIRST WRITTEN: 2/6/2025
+LAST MODIFIED: 9/7/2025 
+*/
 /* Banner */
 .new-fitness-banner {
   background: #e15b5b;

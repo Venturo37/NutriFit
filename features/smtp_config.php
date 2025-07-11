@@ -1,25 +1,20 @@
-<!-- 
-
-NAME : Mr. Ivan Shak Loong Wye  
-PROJECT NAME : smtp_config.php  
-DESCRIPTION OF PROGRAM :  
-    This file sets up the SMTP email configuration used across the system.  
-    It defines the SMTP host, port, path, and authentication details 
-	for the purpose of sending emails to reset password. 
-	This configuration thus ensures proper email delivery when the function is needed.
-	For the program to work correctly, the user must do the following only ONCE or until the config file is modified again:
-		1. Launch XAMPP.
-		2. Open the smtp_config.php file in browser.
-		3. Restart XAMPP.
-		4. Process is completed.
+<?php
+// NAME : Mr. Ivan Shak Loong Wye  
+// PROJECT NAME : smtp_config.php  
+// DESCRIPTION OF PROGRAM :  
+//     This file sets up the SMTP email configuration used across the system.  
+//     It defines the SMTP host, port, path, and authentication details 
+// 	for the purpose of sending emails to reset password. 
+// 	This configuration thus ensures proper email delivery when the function is needed.
+// 	For the program to work correctly, the user must do the following only ONCE or until the config file is modified again:
+// 		1. Launch XAMPP.
+// 		2. Open the smtp_config.php file in browser.
+// 		3. Restart XAMPP.
+// 		4. Process is completed.
 	
 
-FIRST WRITTEN : June 28th, 2025  
-LAST MODIFIED : July 9th, 2025  
-
--->
-
-<?php
+// FIRST WRITTEN : June 28th, 2025  
+// LAST MODIFIED : July 9th, 2025   
 // =================== EDITABLE CONFIG ===================
 $newSMTP = "smtp.gmail.com";
 $newPort = "587";

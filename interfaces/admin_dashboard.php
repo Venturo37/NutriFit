@@ -1,14 +1,11 @@
-<!-- 
-Name: Mr. Chung Yhung Yie
-Project Name: admin_dashboard.php
-Description: retrieves the admin’s profile and site-wide fitness and meal statistics, then displays this data visually 
-    along with links to manage fitness, diet, users, feedback, and recent system activity.
-
-First Written: 1/6/2025
-Last Modified: 2/7/2025 
--->
-
 <?php
+// Name: Mr. Chung Yhung Yie
+// Project Name: admin_dashboard.php
+// Description: retrieves the admin’s profile and site-wide fitness and meal statistics, then displays this data visually 
+//     along with links to manage fitness, diet, users, feedback, and recent system activity.
+
+// First Written: 1/6/2025
+// Last Modified: 2/7/2025 
 include('../features/connection.php');
 
 include('../features/restriction.php');

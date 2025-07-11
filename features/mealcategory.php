@@ -1,4 +1,12 @@
 <?php
+// NAME: Mr. CHEAH XUE XIAN
+// Project name: mealcategory.php
+// DESCRIPTION OF PROGRAM: allows an admin to manage meal times for a nutrition/meal planning system. It supports adding a new meal time, 
+//     renaming an existing meal time, and deleting a meal time (with a foreign key check to prevent deletion if it’s in use). All admin actions are logged. 
+//     The page displays current meal times, shows success/error messages, and uses modals for rename and delete confirmations.
+
+// FIRST WRITTEN: 1/6/2025
+// LAST MODIFIED: 2/7/2025
 include('connection.php');
 $acting_adm_id = $_SESSION['adm_id']; // Assuming you have the admin ID in session
 

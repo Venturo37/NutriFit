@@ -1,19 +1,16 @@
-<!-- 
-Name: Mr. Chung Yhung Yie
-Project Name: update_profile.php
-Description: handles both the display and processing of a user/admin profile update feature for a web application. 
-    It supports updating:
-        - Profile picture (both)
-        - Username (both user and admin)
-        - Password (link to separate flow)
-        - And for users only: birthdate, gender, weight, and height.
-        - It also handles logging the profile update and conditionally recording the user’s weight history.
-
-First Written: 1/6/2025
-Last Modified: 8/7/2025 
--->
-
 <?php
+// Name: Mr. Chung Yhung Yie
+// Project Name: update_profile.php
+// Description: handles both the display and processing of a user/admin profile update feature for a web application. 
+//     It supports updating:
+//         - Profile picture (both)
+//         - Username (both user and admin)
+//         - Password (link to separate flow)
+//         - And for users only: birthdate, gender, weight, and height.
+//         - It also handles logging the profile update and conditionally recording the user’s weight history.
+
+// First Written: 1/6/2025
+// Last Modified: 8/7/2025 
     include('../features/connection.php');
 
     include('../features/restriction.php');

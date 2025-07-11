@@ -1,4 +1,12 @@
 <?php
+// NAME: Mr. CHEAH XUE XIAN
+// Project name: addmeal_form.php
+// DESCRIPTION OF PROGRAM: to add a new meal. It lets the user upload an image, enter the meal name and ingredients, choose a meal time from the database, 
+//     and input macronutrient values (carbs, protein, fat). A small JavaScript calculates and displays the total approximate calories in real time. 
+//     The form data is submitted via POST to addmeal.php.
+
+// FIRST WRITTEN: 1/6/2025
+// LAST MODIFIED: 2/7/2025
 include ("connection.php");
 include ("embed.php")
 ?>

@@ -1,26 +1,21 @@
-<!-- 
-
-NAME: Joan Chua Yong Xin
-Project name: Fitness Page
-
-DESCRIPTION OF PROGRAM:
-- This script generates the main Fitness Page in the NutriFit system for logged-in users.
-- It retrieves user-specific data such as name, height, gender, birthdate, latest weight log, profile picture, and calculates the BMI and BMI status. The background color of the BMI box
-dynamically changes based on the BMI category (Underweight, Normal, Overweight, Obese).
-- It also calculates the total calories burned for the current day from the workout session log.
-- The page dynamically displays a list of available workouts fetched from the database, including their images, names, MET values, estimated calories burned, and category. The calories burned
-for each workout are calculated using the user’s weight, age, gender factor, and workout intensity.
-- Users can filter workouts using a search bar or category dropdown, and click a card to begin a training session. Upon card click, the selected workout ID is stored via AJAX and redirects
-the user to fitness_session.php.
-
-FIRST WRITTEN: 18-06-2025
-LAST MODIFIED: 08-07-2025 
-
--->
-
 <?php
-// session_start(); 
-// $_SESSION['account_type'] = 'user';
+// NAME: Joan Chua Yong Xin
+// Project name: Fitness Page
+
+// DESCRIPTION OF PROGRAM:
+// - This script generates the main Fitness Page in the NutriFit system for logged-in users.
+// - It retrieves user-specific data such as name, height, gender, birthdate, latest weight log, profile picture, and calculates the BMI and BMI status. The background color of the BMI box
+// dynamically changes based on the BMI category (Underweight, Normal, Overweight, Obese).
+// - It also calculates the total calories burned for the current day from the workout session log.
+// - The page dynamically displays a list of available workouts fetched from the database, including their images, names, MET values, estimated calories burned, and category. The calories burned
+// for each workout are calculated using the user’s weight, age, gender factor, and workout intensity.
+// - Users can filter workouts using a search bar or category dropdown, and click a card to begin a training session. Upon card click, the selected workout ID is stored via AJAX and redirects
+// the user to fitness_session.php.
+
+// FIRST WRITTEN: 18-06-2025
+// LAST MODIFIED: 08-07-2025 
+
+
 include ('../features/connection.php');
 
 include ('../features/restriction.php');

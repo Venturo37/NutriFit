@@ -1,19 +1,11 @@
-/* --- BASE STYLES --- */
-
-/* body {
-    background: #f9faf2;
-    font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    overflow-x: hidden;
-
-    sticky footer
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; Ensures body takes full viewport height
-} */
-
+/* 
+NAME: Ms. CHEAH XUE XIAN
+Project name: mealcategory2.css
+DESCRIPTION OF PROGRAM: styling for a workout/category management page, including header with back button, content boxes, category buttons, 
+modals (rename/delete), action buttons, messages, and mobile-friendly layouts.
+FIRST WRITTEN: 2/6/2025
+LAST MODIFIED: 9/7/2025 
+*/
 
 /*MATCH THE ARROW UI --- */
 .header-bar {

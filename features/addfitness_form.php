@@ -1,4 +1,14 @@
 <?php
+// NAME: Mr. CHEAH XUE XIAN
+// Project name: addfitness_form.php
+// DESCRIPTION OF PROGRAM: generates a web page with a form for adding a new fitness exercise. It connects to a database to fetch 
+//   available categories for a dropdown menu. It also retrieves any success or error messages from the session to display to the user. 
+//   The form collects an image, exercise name, description, category, time estimates for different difficulty levels (beginner, intermediate, intense), 
+//   and a MET value. Submitted values are retained if there’s an error to improve the user experience. When the form is submitted, 
+//   it sends the data to addfitness.php for processing.
+
+// FIRST WRITTEN: 1/6/2025
+// LAST MODIFIED: 2/7/2025
 include('connection.php'); // Assuming this file establishes your database connection ($connect).
 
 // session_start(); // Start the session at the very top of your HTML form file

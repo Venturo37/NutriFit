@@ -1,4 +1,12 @@
 <?php
+// NAME: Mr. CHEAH XUE XIAN
+// Project name: editfitness.php
+// DESCRIPTION OF PROGRAM: displays an edit form for a workout (workout_t) identified by work_id. It allows admins to update workout details, 
+//   optionally upload a new image, and handles image validation. Upon saving, it logs the update in workout_management_t. The page also includes a modal 
+//   for deleting the workout via deletefitness.php.
+
+// FIRST WRITTEN: 1/6/2025
+// LAST MODIFIED: 2/7/2025
 include('connection.php');
 $acting_adm_id = $_SESSION['adm_id'];
 

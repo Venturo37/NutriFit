@@ -1,17 +1,13 @@
-/* --- BASE STYLES --- */
-/* body {
-    background: #f9faf2;
-    font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    overflow-x: hidden;
+/* 
+NAME: Ms. CHEAH XUE XIAN
+Project name: managecategory.css
+DESCRIPTION OF PROGRAM: styles a responsive workout categories page with a red-themed header bar featuring a circular back arrow link. 
+It includes layouts for category lists, add/save buttons, and modals for renaming and deleting categories. The design uses flexbox for layout, 
+subtle shadows, rounded corners, and hover effects for modern UI interactions. Media queries ensure mobile-friendly scaling and stacking of elements.
 
-    Add these for sticky footer
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; Ensures body tak es full viewport height
-} */
+FIRST WRITTEN: 2/6/2025
+LAST MODIFIED: 9/7/2025 
+*/
 
 
 /* --- THIS HEADER SECTION IS NOW CORRECTED TO MATCH THE ARROW UI --- */

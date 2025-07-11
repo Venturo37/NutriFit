@@ -1,47 +1,12 @@
-/* Base Reset & Fonts */
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
-
-/* body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #fdfdf8;
-    color: #222;
-} */
-
-/* Header */
-/* header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fff;
-    padding: 1rem 2rem;
-    border-bottom: 2px solid #e0e0e0;
-} */
 /* 
-.logo h1 {
-    font-weight: bold;
-    font-size: 1.5rem;
-}
+NAME: Ms. CHEAH XUE XIAN
+Project name: style3.css
+DESCRIPTION OF PROGRAM: Responsive, flexible card grid with action buttons and editable cards. Features include adaptive spacing, an edit icon, 
+card info section with icons, and a green theme with styling optimized for desktop, tablet, and mobile layouts
 
-.logo p {
-    font-size: 0.9rem;
-    font-style: italic;
-    color: #555;
-}
-
-nav a {
-    margin-left: 1.5rem;
-    text-decoration: none;
-    color: #222;
-    font-weight: bold;
-}
-
-nav a.logout {
-    color: #b00;
-} */
+FIRST WRITTEN: 2/6/2025
+LAST MODIFIED: 9/7/2025 
+*/
 
 /* Main Content Area */
 main {

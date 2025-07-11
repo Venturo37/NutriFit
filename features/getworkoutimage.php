@@ -1,7 +1,12 @@
 <?php
+// NAME: Mr. CHEAH XUE XIAN
+// Project name: getworkoutimage.php
+// DESCRIPTION OF PROGRAM: fetches and serves a workout image from the database using work_id. It sets the correct MIME type for the browser or returns a 404 if the image is not found.
+
+// FIRST WRITTEN: 1/6/2025
+// LAST MODIFIED: 2/7/2025
 // Connect to database
 include('connection.php');
-
 if (!isset($_GET['work_id'])) {
     http_response_code(400);
     echo "Missing work_id";

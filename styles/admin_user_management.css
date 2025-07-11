@@ -1,3 +1,14 @@
+/* 
+NAME: CHOW YAN PING
+Project name: Nutrifit
+DESCRIPTION OF PROGRAM: This stylesheet handles the layout and styling for the Admin User Management interface,
+                        including admin and user tables, popup overlays for profile picture updates, user info,
+                        and delete confirmation. It also includes responsive design rules to ensure the interface
+                        is usable on various screen sizes.
+FIRST WRITTEN: 2/6/2025
+LAST MODIFIED: 9/7/2025
+*/
+
 .usermanage_header {
   text-align: center;
   padding: 2vw 0 2vw 0;

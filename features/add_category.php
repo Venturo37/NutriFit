@@ -1,4 +1,13 @@
 <?php
+// NAME: Mr. CHEAH XUE XIAN
+// Project name: add_category.php
+// DESCRIPTION OF PROGRAM: handles adding a new category to a database via a POST request. It checks if the provided category name is valid 
+//     and does not already exist in the category_t table. If the category is new, it inserts it into the database and logs the action in 
+//     category_management_t with the acting admin’s ID. The script returns a JSON response indicating success or failure, along with an 
+//     appropriate message or error detail.
+
+// FIRST WRITTEN: 1/6/2025
+// LAST MODIFIED: 2/7/2025
 // add_category.php
 include('connection.php'); // Ensure this path is correct
 $acting_adm_id = $_SESSION['adm_id'];

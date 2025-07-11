@@ -1,22 +1,19 @@
-<!-- 
-NAME: Joan Chua Yong Xin
-Project name: Fitness Session Page
-
-DESCRIPTION OF PROGRAM:
-- This script generates the Fitness Session page of the NutriFit system, allowing users to engage in guided workout sessions.
-- It retrieves a selected workout’s details from the database, including name, MET value, category, image, description, and level 
-durations (beginner, intermediate, intense). It also fetches the user's gender, age, and most recent weight to personalize calorie burn 
-estimations based on intensity level using MET-based formulas.
-- The interface presents a visually engaging layout with a red SVG background, motivational quote, workout information, and a circular animated timer. 
-Users can select their workout level, view estimated duration and calories burned, and start or end the session using interactive buttons.
-- When training starts, a countdown timer begins. Upon completion or early termination, the session data (duration, intensity,calories burned, timestamp) 
-is logged into the user_workout_session_t table via AJAX POST. After logging, users are redirected to the fitness result page.
-
-FIRST WRITTEN: 22-06-2025
-LAST MODIFIED: 08-07-2025
--->
-
 <?php
+// NAME: Joan Chua Yong Xin
+// Project name: Fitness Session Page
+
+// DESCRIPTION OF PROGRAM:
+// - This script generates the Fitness Session page of the NutriFit system, allowing users to engage in guided workout sessions.
+// - It retrieves a selected workout’s details from the database, including name, MET value, category, image, description, and level 
+// durations (beginner, intermediate, intense). It also fetches the user's gender, age, and most recent weight to personalize calorie burn 
+// estimations based on intensity level using MET-based formulas.
+// - The interface presents a visually engaging layout with a red SVG background, motivational quote, workout information, and a circular animated timer. 
+// Users can select their workout level, view estimated duration and calories burned, and start or end the session using interactive buttons.
+// - When training starts, a countdown timer begins. Upon completion or early termination, the session data (duration, intensity,calories burned, timestamp) 
+// is logged into the user_workout_session_t table via AJAX POST. After logging, users are redirected to the fitness result page.
+
+// FIRST WRITTEN: 22-06-2025
+// LAST MODIFIED: 08-07-2025
 include ('../features/connection.php');
 include ('../features/embed.php'); 
 

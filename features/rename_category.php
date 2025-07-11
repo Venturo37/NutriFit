@@ -1,4 +1,11 @@
 <?php
+// NAME: Mr. CHEAH XUE XIAN
+// Project name: rename_category.php
+// DESCRIPTION OF PROGRAM: handles renaming a category in the database. It checks if the new name is unique (excluding the current category), 
+//     updates the name if valid, logs the update action, and redirects back to the category management page with a success or error message.
+
+// FIRST WRITTEN: 1/6/2025
+// LAST MODIFIED: 2/7/2025
 // rename_category.php
 include('connection.php');
 $acting_adm_id = $_SESSION['adm_id']; // Assuming you have the admin ID in session

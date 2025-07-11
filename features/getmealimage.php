@@ -1,5 +1,10 @@
 <?php
-// getmealimage.php
+// NAME: Mr. CHEAH XUE XIAN
+// Project name: getmealimage.php
+// DESCRIPTION OF PROGRAM: retrieves and outputs a meal’s image from the database based on a meal_id parameter. If no image is found or the ID is invalid, 
+//     it serves a placeholder image instead. It sets the correct MIME type dynamically for proper browser display.
+// FIRST WRITTEN: 1/6/2025
+// LAST MODIFIED: 2/7/2025
 
 // Use the same connection file as your main page
 // Adjust the path if your connection.php file is in a different directory

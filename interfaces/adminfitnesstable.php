@@ -1,4 +1,11 @@
 <?php
+// NAME: Ms. CHEAH XUE XIAN
+// Project name: adminfitnesstable.php
+// DESCRIPTION OF PROGRAM: lists all workouts from the workout_t table. Each workout shows its image and name, and includes an edit icon linking to the workout’s edit form. 
+//   The page also provides buttons to manage categories and add a new fitness style.
+
+// FIRST WRITTEN: 2/6/2025
+// LAST MODIFIED: 9/7/2025
 // Database connection
 include('../features/connection.php');
 // We need work_id for the edit link

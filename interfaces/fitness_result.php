@@ -1,22 +1,19 @@
-<!-- 
-NAME: Joan Chua Yong Xin
-
-Project name: Fitness Result Page
-
-DESCRIPTION OF PROGRAM:
-- This script displays the Fitness Result page of the NutriFit system after a user completes a workout session.
-- It retrieves the most recent workout session for the logged-in user from the `user_workout_session_t` table, including workout name, 
-intensity level, and calories burned, by joining with the `workout_t` table.
-- The page includes a "Return Home Page" button to redirect users back to the Fitness main page.
-- It serves as a motivational summary and completion screen for users to reflect on their performance.
-
-FIRST WRITTEN: 25-06-2025
-LAST MODIFIED: 06-07-2025
-
--->
-
-
 <?php
+// NAME: Joan Chua Yong Xin
+
+// Project name: Fitness Result Page
+
+// DESCRIPTION OF PROGRAM:
+// - This script displays the Fitness Result page of the NutriFit system after a user completes a workout session.
+// - It retrieves the most recent workout session for the logged-in user from the `user_workout_session_t` table, including workout name, 
+// intensity level, and calories burned, by joining with the `workout_t` table.
+// - The page includes a "Return Home Page" button to redirect users back to the Fitness main page.
+// - It serves as a motivational summary and completion screen for users to reflect on their performance.
+
+// FIRST WRITTEN: 25-06-2025
+// LAST MODIFIED: 06-07-2025
+
+
 include ('../features/connection.php');
 include ('../features/embed.php'); 
 

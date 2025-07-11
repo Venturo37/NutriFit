@@ -1,18 +1,13 @@
-<!-- 
-Name: Mr. Chung Yhung Yie
-Project Name: header.php
-Description: dynamically sets the header’s style and logo link based on the current page and user session 
-    (user, admin, or guest), then renders a responsive navigation menu and sidebar with different links for users and admins, 
-    and includes JavaScript to toggle the sidebar visibility on smaller screens.
-
-First Written: 1/6/2025
-Last Modified: 5/7/2025 
--->
-
 <?php
-    // if (session_start() === PHP_SESSION_NONE) {
-    //     session_start();
-    // }
+// Name: Mr. CHUNG YHUNG YIE, Mr. CHAN RUI JIE
+// Project Name: header.php
+// Description: dynamically sets the header’s style and logo link based on the current page and user session 
+//     (user, admin, or guest), then renders a responsive navigation menu and sidebar with different links for users and admins, 
+//     and includes JavaScript to toggle the sidebar visibility on smaller screens.
+
+// First Written: 1/6/2025
+// Last Modified: 5/7/2025 
+
     $current_page = basename($_SERVER['PHP_SELF'], ".php");
 
     $header_class = 'header_transparent';

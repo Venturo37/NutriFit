@@ -1,4 +1,12 @@
 <?php
+// NAME: Mr. CHEAH XUE XIAN
+// Project name: editmeal.php
+// DESCRIPTION OF PROGRAM: handles editing a meal entry in a database. It displays a form pre-filled with the meal’s current details, 
+//   validates and updates any changes (including a new image upload with checks for type and size), logs the update action, and provides an 
+//   option to delete the meal with a confirmation modal.
+
+// FIRST WRITTEN: 1/6/2025
+// LAST MODIFIED: 2/7/2025
 // Your existing PHP code to fetch data is fine.
 // $connection = new mysqli("localhost", "root", "", "nutrifit");
 // if ($connection->connect_error) { die("Connection failed: " . $connection->connect_error); }

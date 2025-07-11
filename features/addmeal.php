@@ -1,4 +1,12 @@
 <?php
+// NAME: Mr. CHEAH XUE XIAN
+// Project name: addmeal.php
+// DESCRIPTION OF PROGRAM: handles the form submission for adding a new meal. It validates the uploaded image (type and size), 
+//     saves the meal details (name, description, macros, meal time, image) into the meal_t table, and logs the action in meal_management_t 
+//     with the admin’s ID and timestamp. If there are upload or database errors, an error message is prepared for display.
+
+// FIRST WRITTEN: 1/6/2025
+// LAST MODIFIED: 2/7/2025
 include('connection.php'); 
 
 $acting_adm_id = $_SESSION['adm_id'];

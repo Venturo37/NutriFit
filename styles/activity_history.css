@@ -1,3 +1,13 @@
+/* 
+NAME: CHOW YAN PING
+Project name: Nutrifit
+DESCRIPTION OF PROGRAM: This stylesheet defines the visual layout and design for the activity history pages,
+                        including both fitness and nutrition records. It ensures consistent table formatting,
+                        responsive structure, and visual distinction for alternating rows and interactive
+                        elements like pagination and buttons.
+FIRST WRITTEN: 2/6/2025
+LAST MODIFIED: 9/7/2025
+*/
 .record_header {
   width: 100vw;
   background-color: #1F1F1F;

@@ -1,13 +1,10 @@
-<!-- 
-NAME: CHOW YAN PING
-Project name: Nutrifit
-DESCRIPTION OF PROGRAM: Retrieves and returns user data from the database for display in the admin user management interface. 
-                        Includes pagination and dynamic rendering of user info.
-FIRST WRITTEN: 2/6/2025
-LAST MODIFIED: 9/7/2025 
--->
-
 <?php
+// NAME: Ms. CHOW YAN PING
+// Project name: Nutrifit
+// DESCRIPTION OF PROGRAM: Retrieves and returns user data from the database for display in the admin user management interface. 
+//                         Includes pagination and dynamic rendering of user info.
+// FIRST WRITTEN: 2/6/2025
+// LAST MODIFIED: 9/7/2025 
 include('connection.php');
 
 $limit = 5;

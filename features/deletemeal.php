@@ -1,4 +1,11 @@
 <?php
+// NAME: Mr. CHEAH XUE XIAN
+// Project name: deletemeal.php
+// DESCRIPTION OF PROGRAM: deletes a meal from meal_t by its ID when a valid POST request is received. It also logs the deletion 
+//     action in meal_management_t for tracking purposes and redirects to the admin meal table with a success flag.
+
+// FIRST WRITTEN: 1/6/2025
+// LAST MODIFIED: 2/7/2025
 include('connection.php');
 $acting_adm_id = $_SESSION['adm_id'];
 

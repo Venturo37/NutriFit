@@ -1,14 +1,11 @@
-<!-- 
-Name: Mr. Chung Yhung Yie
-Project Name: fetch_sys_activity_table.php
-Description: connects to the database, combines and paginates various admin and user activity logs from multiple tables using UNION SQL query, 
-    counts the total results, outputs the latest activities as an HTML table with user role, action and timestamp, and provides pagination controls for navigation.
-
-First Written: 1/6/2025
-Last Modified: 1/7/2025
--->
-
 <?php
+// Name: Mr. CHUNG YHUNG YIE
+// Project Name: fetch_sys_activity_table.php
+// Description: connects to the database, combines and paginates various admin and user activity logs from multiple tables using UNION SQL query, 
+//     counts the total results, outputs the latest activities as an HTML table with user role, action and timestamp, and provides pagination controls for navigation.
+
+// First Written: 1/6/2025
+// Last Modified: 1/7/2025
     include('connection.php');
 
     $limit = 7;

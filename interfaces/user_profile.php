@@ -1,15 +1,12 @@
-<!-- 
-Name: Mr. Chung Yhung Yie
-Project Name: user_profile.php
-Description: displays a logged-in user’s profile with their name, photo, and interactive charts showing weight progress, 
-    calories burned, and meal intake for a selected month and year. It lets users filter data, update their profile, 
-    and direct to detailed fitness and nutrition history.
-
-First Written: 1/6/2025
-Last Modified: 5/7/2025 
--->
-
 <?php
+// Name: Mr. Chung Yhung Yie
+// Project Name: user_profile.php
+// Description: displays a logged-in user’s profile with their name, photo, and interactive charts showing weight progress, 
+//     calories burned, and meal intake for a selected month and year. It lets users filter data, update their profile, 
+//     and direct to detailed fitness and nutrition history.
+
+// First Written: 1/6/2025
+// Last Modified: 5/7/2025 
 include('../features/connection.php');
 include('../features/restriction.php');
 

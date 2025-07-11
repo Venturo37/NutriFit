@@ -1,14 +1,13 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* 
+NAME: Ms. CHEAH XUE XIAN
+Project name: addmeal.css
+DESCRIPTION OF PROGRAM: tyles a responsive page for adding or editing meals. It includes a header banner, a form container with image previews, 
+custom input fields, macros tracking, and styled buttons. The layout adjusts cleanly for tablets and mobile screens, ensuring usability with 
+flexible grids, stacking, and adaptive sizing.
 
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background-color: #FAFBF5;
-  color: #333;
-} */
+FIRST WRITTEN: 2/6/2025
+LAST MODIFIED: 9/7/2025 
+*/
 
 .page-header {
   width: 100%;

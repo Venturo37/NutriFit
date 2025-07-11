@@ -1,13 +1,10 @@
-<!-- 
-NAME: CHOW YAN PING
-Project name: Nutrifit
-DESCRIPTION OF PROGRAM: Fetches and returns admin account records for the admin user management interface. 
-                        Includes pagination and dynamic loading of admin info.
-FIRST WRITTEN: 2/6/2025
-LAST MODIFIED: 9/7/2025 
--->
-
 <?php
+// NAME: Mr. CHOW YAN PING
+// Project name: Nutrifit
+// DESCRIPTION OF PROGRAM: Fetches and returns admin account records for the admin user management interface. 
+//                         Includes pagination and dynamic loading of admin info.
+// FIRST WRITTEN: 2/6/2025
+// LAST MODIFIED: 9/7/2025
 include('connection.php');
 
 $limit = 5;
