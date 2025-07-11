@@ -1,4 +1,17 @@
 <?php
+
+/*
+
+NAME : Mr. Chan Rui Jie 
+PROJECT NAME : inserted_selected_meal.php
+DESCRIPTION OF PROGRAM :  
+    Insert both manually inputed meals and user selected pre-set meal into 
+    their respective table and user_meal_intake_t(main table to calculate user kcal intake)
+FIRST WRITTEN : June 9th, 2025  
+LAST MODIFIED : July 10th, 2025  
+
+*/
+
 include('connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -100,15 +113,3 @@ http_response_code(405);
 echo json_encode(['success' => false, 'message' => 'Method not allowed']);
 exit;
 ?>
-
-/*
-
-NAME : Mr. Chan Rui Jie 
-PROJECT NAME : inserted_selected_meal.php
-DESCRIPTION OF PROGRAM :  
-    Insert both manually inputed meals and user selected pre-set meal into 
-    their respective table and user_meal_intake_t(main table to calculate user kcal intake)
-FIRST WRITTEN : June 9th, 2025  
-LAST MODIFIED : July 10th, 2025  
-
-*/

@@ -1,4 +1,16 @@
 <?php
+
+/*
+
+NAME : Mr. Chan Rui Jie 
+PROJECT NAME : get_meals.php 
+DESCRIPTION OF PROGRAM :  
+    Search Bar functionality PHP code
+FIRST WRITTEN : June 12th, 2025  
+LAST MODIFIED : July 10th, 2025  
+
+*/
+
 // if (session_status() === PHP_SESSION_NONE) {
 //     session_start();
 // }
@@ -69,14 +81,3 @@ try {
     echo json_encode(["error" => "Failed to load meals", "message" => $e->getMessage()]);
 }
 ?>
-
-/*
-
-NAME : Mr. Chan Rui Jie 
-PROJECT NAME : get_meals.php 
-DESCRIPTION OF PROGRAM :  
-    Search Bar functionality PHP code
-FIRST WRITTEN : June 12th, 2025  
-LAST MODIFIED : July 10th, 2025  
-
-*/

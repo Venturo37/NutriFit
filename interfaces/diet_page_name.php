@@ -1,5 +1,16 @@
 <?php
 
+/*
+
+NAME : Mr. Chan Rui Jie 
+PROJECT NAME : diet_page.php 
+DESCRIPTION OF PROGRAM :  
+    Main Diet page for user interface.
+FIRST WRITTEN : June 7th, 2025  
+LAST MODIFIED : July 10th, 2025  
+
+*/
+
 // if (session_start() === PHP_SESSION_NONE) {
 //     session_start();
 // }
@@ -188,17 +199,6 @@ if (!empty($user['pic_id'])) {
 }
 
 ?>
-
-/*
-
-NAME : Mr. Chan Rui Jie 
-PROJECT NAME : diet_page.php 
-DESCRIPTION OF PROGRAM :  
-    Main Diet page for user interface.
-FIRST WRITTEN : June 7th, 2025  
-LAST MODIFIED : July 10th, 2025  
-
-*/
 
 <!DOCTYPE html>
 <html lang="en">
