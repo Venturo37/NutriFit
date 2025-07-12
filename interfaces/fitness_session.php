@@ -58,7 +58,6 @@ $query = "SELECT w.work_name, w.work_description, w.work_MET, w.work_image,
           WHERE w.work_id = ?";
 
 $stmt = $connection->prepare($query);
-// $stmt->bind_param("ii", $work_id, $usr_id);
 $stmt->bind_param("ii", $usr_id, $work_id);
 $stmt->execute();
 $stmt->bind_result($name, $description, $met, $image, $beginner, $intermediate, $intense, $category, $weight, $gender, $birthdate);
@@ -84,22 +83,6 @@ $ageFactor = ($age < 40) ? 1.0 : (($age < 50) ? 0.97 : (($age < 60) ? 0.94 : 0.9
 </head>
 <body>
 <?php include ('../features/header.php'); ?>
-<!-- Mobile Header -->
-<!-- <div class="mobile-header">
-  <div class="logo">NutriFit</div>
-  <button class="hamburger" id="menuToggle">&#9776;</button>
-</div> -->
-
-<!-- Slide-out Mobile Menu -->
-<!-- <div class="side-menu" id="sideMenu">
-  <button class="close-btn" id="closeMenu">&times;</button>
-  <a href="fitness_page.php">Fitness</a>
-  <a href="#">Diet</a>
-  <a href="#">About Us</a>
-  <a href="#">Profile</a>
-  <a href="#">Log Out</a>
-</div> -->
-
 <div class="fitness-session-container">
 
   <!-- Red Shape Background (SVG behind everything) -->

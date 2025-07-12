@@ -7,10 +7,6 @@ DESCRIPTION OF PROGRAM :
 FIRST WRITTEN : June 7th, 2025  
 LAST MODIFIED : July 10th, 2025  
 */
-// if (session_start() === PHP_SESSION_NONE) {
-//     session_start();
-// }
-
 include('../features/connection.php');
 include('../features/restriction.php');
 

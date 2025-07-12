@@ -63,16 +63,6 @@ main h2 {
     margin: 2vw;
     justify-items: center;
 }
-/* .card {
-    background: #E6E6E4;
-    border-radius: 24px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    padding: 1.5rem;
-    width: 100%;
-    position: relative;
-    transition: transform 0.2s ease;
-    text-align: center;
-} */
 .card {
   width: 320px;
   min-height: 420px;
@@ -153,19 +143,6 @@ main h2 {
 /* Responsive Design - Tablets (max-width: 1024px) */
 /* =================================================== */
 @media screen and (max-width: 1024px) {
-    /* header {
-        padding: 0.8rem 1.5rem;
-    }
-    .logo h1 {
-        font-size: 1.3rem;
-    }
-    .logo p {
-        font-size: 0.8rem;
-    }
-    nav a {
-        margin-left: 1rem;
-        font-size: 0.95rem;
-    } */
 
     main {
         padding: 0 1.5rem;
@@ -240,29 +217,6 @@ main h2 {
 /* Responsive Design - Mobile (max-width: 768px) */
 /* ================================================= */
 @media screen and (max-width: 768px) {
-    /* header {
-        flex-direction: column;
-        align-items: center; Center items in column layout
-        gap: 8px;
-        padding: 0.8rem 1rem;
-    }
-    .logo h1 {
-        font-size: 1.2rem;
-    }
-    .logo p {
-        font-size: 0.75rem;
-    }
-    nav {
-        width: 100%;
-        display: flex;
-        justify-content: center; Center nav links
-        gap: 0.8rem;
-        flex-wrap: wrap;
-    }
-    nav a {
-        margin-left: 0; Remove individual margins, use gap on parent
-        font-size: 0.9rem;
-    } */
 
     main {
         padding: 0 1rem;

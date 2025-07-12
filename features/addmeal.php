@@ -11,12 +11,6 @@ include('connection.php');
 
 $acting_adm_id = $_SESSION['adm_id'];
 
-// Establish database connection
-// $connection = new mysqli("localhost", "root", "", "nutrifit");
-// if ($connection->connect_error) {
-//     die("Connection failed: " . $connection->connect_error);
-// }
-
 // Define a maximum file size (e.g., 5MB)
 $max_file_size = 5 * 1024 * 1024; // 5 MB in bytes
 

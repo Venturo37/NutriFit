@@ -10,10 +10,6 @@
 include('connection.php');
 $acting_adm_id = $_SESSION['adm_id']; // Assuming you have the admin ID in session
 
-// if ($connection->connect_error) {
-//     die("Connection failed: " . $connection->connect_error);
-// }
-
 $message = '';
 $message_type = '';
 

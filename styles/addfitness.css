@@ -181,21 +181,6 @@ footer {
 /* Responsive Media Queries */
 /* ========================= */
 @media screen and (max-width: 768px) {
-  /* header {
-    flex-direction: column;
-    text-align: center;
-    padding: 16px 20px 10px;
-  }
-
-  .logo h1 {
-    font-size: 1.8em;
-  }
-
-  nav a {
-    margin: 10px;
-    font-size: 1em;
-  } */
-
   .new-fitness-banner {
     font-size: 1.1em;
     padding: 0.8rem 1rem;
@@ -221,9 +206,4 @@ footer {
     float: none;
     margin-top: 2rem;
   }
-
-  /* footer {
-    text-align: center;
-    padding: 16px 20px;
-  } */
 }

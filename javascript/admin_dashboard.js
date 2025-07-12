@@ -26,14 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 plugins: {
                     legend: {
                         display: false
-                        // position: 'right', 
-                        // labels: {
-                        //     boxwidth: 15, 
-                        //     padding: 15,
-                        //     font: {
-                        //         size: 12
-                        //     }
-                        // }
                     }, 
                     tooltip: {
                         callbacks: {

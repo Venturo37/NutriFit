@@ -4,8 +4,6 @@
 // DESCRIPTION OF PROGRAM: Displays a logged-in user's nutrition intake history, including meals from the system and manual inputs.
 // FIRST WRITTEN: 2/6/2025
 // LAST MODIFIED: 9/7/2025 
-
-// session_start();
 include('../features/connection.php');
 
 include('../features/restriction.php');

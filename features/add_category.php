@@ -10,6 +10,7 @@
 // LAST MODIFIED: 2/7/2025
 // add_category.php
 include('connection.php'); // Ensure this path is correct
+
 $acting_adm_id = $_SESSION['adm_id'];
 
 header('Content-Type: application/json'); // Indicate JSON response

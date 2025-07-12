@@ -7,6 +7,7 @@
 // LAST MODIFIED: 2/7/2025
 // Connect to database
 include('connection.php');
+
 if (!isset($_GET['work_id'])) {
     http_response_code(400);
     echo "Missing work_id";

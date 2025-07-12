@@ -8,17 +8,12 @@
 // FIRST WRITTEN: 1/6/2025
 // LAST MODIFIED: 2/7/2025
 include('connection.php');
+
 $acting_adm_id = $_SESSION['adm_id'];
 
 // Enable error reporting for debugging. IMPORTANT: Disable in production.
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-// Establish database connection
-// $connection = new mysqli("localhost", "root", "", "nutrifit");
-// if ($connection->connect_error) {
-//     die("Connection failed: " . $connection->connect_error);
-// }
 
 
 // Define a maximum file size for image uploads (5MB)

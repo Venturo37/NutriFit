@@ -10,12 +10,6 @@
 include('connection.php');
 $acting_adm_id = $_SESSION['adm_id']; // Assuming you have the admin ID in session
 
-// Establish database connection
-// $connection = new mysqli("localhost", "root", "", "nutrifit");
-// if ($connection->connect_error) {
-//     die("Connection failed: " . $connection->connect_error);
-// }
-
 // Initialize a variable for messages
 $message = '';
 $message_type = ''; // 'success' or 'error'

@@ -20,17 +20,6 @@ LAST MODIFIED: 06-07-2025*/
   --font-scale: clamp(16px, 1.5vw, 22px);
   --large-font-scale: clamp(22px, 2.2vw, 32px);
 }
-/* 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fdfefa;
-  overflow-x: hidden;
-} */
-
-/* .mobile-header,
-.side-menu {
-  display: none;
-} */
 
 .red-mobile {
   display: none !important;

@@ -8,6 +8,7 @@ FIRST WRITTEN : June 9th, 2025
 LAST MODIFIED : July 11th, 2025  
 */
 include('connection.php');
+
 error_reporting(0); // Suppress warnings that could corrupt JSON
 header('Content-Type: application/json'); // Ensure correct response type
 date_default_timezone_set('Asia/Kuala_Lumpur');

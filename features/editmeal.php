@@ -11,6 +11,7 @@
 // $connection = new mysqli("localhost", "root", "", "nutrifit");
 // if ($connection->connect_error) { die("Connection failed: " . $connection->connect_error); }
 include('connection.php');
+
 $acting_adm_id = $_SESSION['adm_id'];
 
 // Define a maximum file size (e.g., 5MB)
@@ -133,7 +134,6 @@ include('embed.php')
   <meta charset="UTF-8">
   <title>Editing: <?= htmlspecialchars($row['meal_name']) ?></title>
   <link rel="stylesheet" href="../styles/editmeal.css">
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
 </head>
 <?php
 include ("header.php")

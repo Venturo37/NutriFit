@@ -43,21 +43,6 @@ $stmt->close();
 </head>
 <body>
   <?php include ('../features/header.php'); ?>
-  <!-- Mobile Header -->
-  <!-- <div class="mobile-header">
-    <div class="logo">NutriFit</div>
-    <button class="hamburger" id="menuToggle">&#9776;</button>
-  </div> -->
-
-  <!-- Slide-out Mobile Menu -->
-  <!-- <div class="side-menu" id="sideMenu">
-    <button class="close-btn" id="closeMenu">&times;</button>
-    <a href="fitness_page.php">Fitness</a>
-    <a href="#">Diet</a>
-    <a href="#">About Us</a>
-    <a href="#">Profile</a>
-    <a href="#">Log Out</a>
-  </div> -->
 
   <div class="result-container">
 

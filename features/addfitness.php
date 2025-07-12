@@ -11,10 +11,8 @@
 // LAST MODIFIED: 2/7/2025
 include('connection.php'); // Assuming this file establishes your database connection ($connect).
 
+
 $acting_adm_id = $_SESSION['adm_id'];
-// if (!$acting_adm_id) {
-//     die("Admin ID not found in session. Cannot log who added the workout.");
-// }
 
 // Enable error reporting for debugging. IMPORTANT: Disable in production for security.
 error_reporting(E_ALL);

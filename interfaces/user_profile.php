@@ -45,7 +45,6 @@ function getProfilePic ($connection, $pic_id) {
         FROM profile_picture_t 
         WHERE pic_id = ?"
     );
-    // $profile_statement->bind_param("i", $user['pic_id']);
     $profile_statement->bind_param("i", $pic_id);
     $profile_statement->execute();
     $profile_blob = null;
@@ -86,7 +85,6 @@ function getUserWeightLogs ($connection, $usr_id) {
 
     $raw_weight_logs = [];
     while ($row = $weight_result->fetch_assoc()) {
-        // $date_label = date('Y-m-d', strtotime($row['weight_log_date']));    // Format the date to 'Y-m-d' (from date string in row['weight_log_date'] to numberic Unix timestamp)
         $raw_weight_logs[$row['weight_log_date']] = floatval($row['weight_log_weight']);
     }
     $weight_query->close();

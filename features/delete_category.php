@@ -8,13 +8,9 @@
 // LAST MODIFIED: 2/7/2025
 // delete_category.php
 include('connection.php'); // Ensure this path is correct
+
 $acting_adm_id = $_SESSION['adm_id'];
 
-
-// Assuming your connection variable is $connection
-// if ($connection->connect_error) {
-//     die("Connection failed: " . $connection->connect_error);
-// }
 
 $message = '';
 $message_type = '';

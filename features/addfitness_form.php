@@ -11,14 +11,6 @@
 // LAST MODIFIED: 2/7/2025
 include('connection.php'); // Assuming this file establishes your database connection ($connect).
 
-// session_start(); // Start the session at the very top of your HTML form file
-
-// Establish database connection if categories are fetched directly here
-// If connection.php is already included and provides $connect globally, you might not need this.
-// $connection = new mysqli("localhost", "root", "", "nutrifit");
-// if ($connection->connect_error) {
-//     die("Connection failed: " . $connection->connect_error);
-// }
 
 // Fetch categories for the dropdown menu
 $cat_result = $connection->query("SELECT cate_id, cate_name FROM category_t ORDER BY cate_name");
@@ -55,7 +47,6 @@ include('embed.php')
   <meta charset="UTF-8" />
   <title>Add New Fitness</title>
   <link rel="stylesheet" href="../styles/editfitness.css" /> 
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
 </head>
 <body>
 <?php include("header.php") ?>

@@ -7,6 +7,7 @@
 // LAST MODIFIED: 9/7/2025
 include 'connection.php';
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
     $type = $_POST['type'];

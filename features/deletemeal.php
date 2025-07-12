@@ -7,17 +7,12 @@
 // FIRST WRITTEN: 1/6/2025
 // LAST MODIFIED: 2/7/2025
 include('connection.php');
+
 $acting_adm_id = $_SESSION['adm_id'];
 
 // Check if the request is a POST request and if meal_id is set
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['meal_id'])) {
     
-    // Connect to the database
-    // $connection = new mysqli("localhost", "root", "", "nutrifit");
-    // if ($connection->connect_error) {
-    //     die("Connection failed: " . $connection->connect_error);
-    // }
-
     $meal_id = intval($_POST['meal_id']);
 
     // Use a prepared statement to prevent SQL injection

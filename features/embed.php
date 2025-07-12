@@ -8,16 +8,15 @@ First Written: 1/6/2025
 Last Modified: 8/7/2025 
 -->
 
-<!-- WRITES THE FONT STYLES AND LINK TO CSS & JS -->
-
+<!-- WRITES THE FONT STYLES -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-<!-- LINK TO style.css -->
+<!-- FONT AWESOME ICONS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-
+<!-- LINK TO style.css -->
 <link rel="stylesheet" href="../styles/header.css">
 <link rel="stylesheet" href="../styles/footer.css">
 <link rel="stylesheet" href="../styles/body.css">
@@ -36,11 +35,8 @@ Last Modified: 8/7/2025
 <link rel="stylesheet" href="../styles/activity_history.css">
 <link rel="stylesheet" href="../styles/admin_user_management.css">
 
-
-
 <!-- LINK TO Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 
 <!-- LINK TO javascript.js (defer = runs after html is fully loaded) -->
 <script src="../javascript/user_profile.js" defer></script>

@@ -72,7 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_SERVER['HTTP_X_REQUESTED_WI
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../styles/nutrition.css">
-<!-- <script src="../javascript/nutrition.js" defer></script> -->
 
     <?php 
         include('../features/embed.php'); 

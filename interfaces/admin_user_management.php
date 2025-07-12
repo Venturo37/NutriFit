@@ -16,7 +16,6 @@ include('../features/restriction.php');
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>User Management</title>
   <?php include('../features/embed.php'); ?>
-<!-- <link rel="stylesheet" href="../styles/admin_user_management.css"> -->
 </head>
 
 

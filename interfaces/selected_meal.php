@@ -50,7 +50,6 @@ LAST MODIFIED : July 11th, 2025
     ?>
     <title>NutriFit - Meal</title>
 <link rel="stylesheet" href="../styles/nutrition.css">
-<!-- <script src="../javascript/nutrition.js" defer></script> -->
 </head>
 <body>
     <?php include ('../features/header.php'); ?>
@@ -130,7 +129,5 @@ LAST MODIFIED : July 11th, 2025
             });
         });
         </script>
-
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
 </body>
 </html>

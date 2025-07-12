@@ -260,7 +260,6 @@ async function fetchWeightData(year, month) {
         renderWeightChart(data.labels, data.weights, y_axis_max);
     } catch (error) {
         console.error('Error fetching weight data:', error);
-        // document.getElementById('chartErrorMessage').textContent = 'Failed to load chart data.'; OPTIONAL
     }
 }
 
@@ -291,7 +290,6 @@ async function fetchKcalData (year, month) {
         
     } catch (error) {
         console.error('Error fetching kcal data:', error);
-        // document.getElementById('chartErrorMessage').textContent = 'Failed to load chart data.'; OPTIONAL
     }
 }
 

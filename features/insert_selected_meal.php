@@ -11,10 +11,6 @@ LAST MODIFIED : July 10th, 2025
 include('connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // if (session_start() === PHP_SESSION_NONE) {
-    //     session_start();
-    // }
-
     ob_clean();
     header('Content-Type: application/json');
     http_response_code(200); // ensure 200 on success
