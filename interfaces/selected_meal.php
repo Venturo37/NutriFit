@@ -1,16 +1,12 @@
 <?php
-
 /*
-
 NAME : Mr. Chan Rui Jie 
 PROJECT NAME : selected_meal.php 
 DESCRIPTION OF PROGRAM :  
     This is the page that shows all information of a meal that user has selected.
 FIRST WRITTEN : June 14th, 2025  
 LAST MODIFIED : July 11th, 2025  
-
 */
-
     include('../features/connection.php');
 
     $meal_id = isset($_POST['meal_id']) ? (int)$_POST['meal_id'] : 0;

@@ -1,7 +1,5 @@
 <?php
-
 /*
-
 NAME : Mr. Chan Rui Jie 
 PROJECT NAME : inserted_selected_meal.php
 DESCRIPTION OF PROGRAM :  
@@ -9,9 +7,7 @@ DESCRIPTION OF PROGRAM :
     their respective table and user_meal_intake_t(main table to calculate user kcal intake)
 FIRST WRITTEN : June 9th, 2025  
 LAST MODIFIED : July 10th, 2025  
-
 */
-
 include('connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

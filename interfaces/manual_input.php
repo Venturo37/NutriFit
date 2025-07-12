@@ -1,16 +1,12 @@
 <?php
-
 /*
-
 NAME : Mr. Chan Rui Jie 
 PROJECT NAME : manual_input.php  
 DESCRIPTION OF PROGRAM :  
     The form where user manually input their meal intake
 FIRST WRITTEN : June 9th, 2025  
 LAST MODIFIED : July 10th, 2025  
-
 */
-
 include('../features/connection.php');
 
 $connection->query("SET time_zone = '+08:00'");

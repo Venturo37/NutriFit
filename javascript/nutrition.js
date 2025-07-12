@@ -1,12 +1,10 @@
 /*
-
 NAME : Mr. Chan Rui Jie 
 PROJECT NAME : nutrition.css  
 DESCRIPTION OF PROGRAM :  
     contains JS for diet_page.php, manual_input.php and selected_meal.php
 FIRST WRITTEN : June 8th, 2025  
 LAST MODIFIED : July 10th, 2025  
-
 */
 
 function fetchMeals(mealTimeId, searchQuery = '') {

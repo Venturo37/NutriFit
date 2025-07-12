@@ -1,16 +1,12 @@
 <?php
-
 /*
-
 NAME : Mr. Chan Rui Jie 
 PROJECT NAME : diet_page.php 
 DESCRIPTION OF PROGRAM :  
     Main Diet page for user interface.
 FIRST WRITTEN : June 7th, 2025  
 LAST MODIFIED : July 10th, 2025  
-
 */
-
 // if (session_start() === PHP_SESSION_NONE) {
 //     session_start();
 // }
@@ -71,16 +67,7 @@ if ($weight_kg > 0 && $height_cm > 0 && $age > 0) {
 
 // --- 2. CALCULATE TODAY'S ACTUAL INTAKE AND EXPENDITURE ---
 
-/*
-
-NAME : Mr. Chan Rui Jie 
-PROJECT NAME : diet_page.php(User Daily Energy Expenditure)  
-DESCRIPTION OF PROGRAM :  
-    Calculate User's TDEE
-FIRST WRITTEN : June 9th, 2025  
-LAST MODIFIED : July 10th, 2025  
-
-*/
+// Calculate total calories consumed TODAY.
 $consumed = 0;
 
 $consume_query = "SELECT SUM(calories) AS total_consumed FROM (

@@ -1,5 +1,4 @@
 <?php
-
 /*
 
 NAME : Mr. Chan Rui Jie 
@@ -10,7 +9,6 @@ FIRST WRITTEN : June 12th, 2025
 LAST MODIFIED : July 10th, 2025  
 
 */
-
 // if (session_status() === PHP_SESSION_NONE) {
 //     session_start();
 // }

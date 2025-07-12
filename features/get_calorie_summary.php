@@ -1,16 +1,12 @@
 <?php
-
 /*
-
 NAME : Mr. Chan Rui Jie 
 PROJECT NAME : get_calorie_summary.php
 DESCRIPTION OF PROGRAM :  
     PHP that contains all calculation such as BMI, TDEE, KCAL burned/consumed and encode them in JSON. 
 FIRST WRITTEN : June 9th, 2025  
 LAST MODIFIED : July 11th, 2025  
-
 */
-
 include('connection.php');
 error_reporting(0); // Suppress warnings that could corrupt JSON
 header('Content-Type: application/json'); // Ensure correct response type
