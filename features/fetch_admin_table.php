@@ -1,5 +1,5 @@
 <?php
-// NAME: Mr. CHOW YAN PING
+// NAME: Ms. CHOW YAN PING
 // Project name: Nutrifit
 // DESCRIPTION OF PROGRAM: Fetches and returns admin account records for the admin user management interface. 
 //                         Includes pagination and dynamic loading of admin info.

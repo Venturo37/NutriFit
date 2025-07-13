@@ -1,5 +1,5 @@
 <?php
-// NAME: CHOW YAN PING
+// NAME: Ms. CHOW YAN PING
 // Project name: Nutrifit
 // DESCRIPTION OF PROGRAM: Main interface for managing admin and user accounts. Includes AJAX-loaded admin/user tables, 
 //                         profile picture updates, add/delete functions, and responsive popups for user information and actions.

@@ -1,5 +1,5 @@
 <?php
-// NAME: Ms. CHEAH XUE XIAN
+// NAME: Mr. CHEAH XUE XIAN
 // Project name: adminmealtable.php
 // DESCRIPTION OF PROGRAM: lists all meals from the meal_t table. For each meal, it calculates total calories based on carbohydrates, protein, and fats, 
 //   displays the meal’s image and name, shows its calories with a fire icon, and includes an edit icon linking to the meal edit form. It also provides buttons 

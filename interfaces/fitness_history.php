@@ -1,5 +1,5 @@
 <?php
-// NAME: CHOW YAN PING
+// NAME: Ms. CHOW YAN PING
 // Project name: Nutrifit
 // DESCRIPTION OF PROGRAM: Displays a logged-in user's fitness activity history, including completed workout sessions
 //                         with details such as date, duration, intensity, and estimated calories burned.

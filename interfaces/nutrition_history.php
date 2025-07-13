@@ -1,5 +1,5 @@
 <?php
-// NAME: CHOW YAN PING
+// NAME: Ms. CHOW YAN PING
 // Project name: Nutrifit
 // DESCRIPTION OF PROGRAM: Displays a logged-in user's nutrition intake history, including meals from the system and manual inputs.
 // FIRST WRITTEN: 2/6/2025

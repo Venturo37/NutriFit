@@ -1,5 +1,5 @@
 <?php
-// NAME: Joan Chua Yong Xin
+// NAME: Ms. Joan Chua Yong Xin
 // Project name: Fitness Session Page
 
 // DESCRIPTION OF PROGRAM:
