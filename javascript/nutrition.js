@@ -92,7 +92,7 @@ function updateCalories(consumed, burned) {
 }
 
 function refreshCalorieStats() {
-    fetch('get_calorie_summary.php?ts=' + Date.now())
+    fetch('../features/get_calorie_summary.php?ts=' + Date.now())
         .then(res => res.json())
         .then(data => {
             console.log("Refreshed data:", data);
@@ -152,9 +152,9 @@ function updateBMI(bmi) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    //Get all dropdown from document
+// Get all dropdown from document
 const dropdowns = document.querySelectorAll('.dropdown');
-//Loop through all dropdown elements
+// Loop through all dropdown elements
 dropdowns.forEach(dropdown => {
     const select = dropdown.querySelector('.select');
     const caret = dropdown.querySelector('.caret');
@@ -271,7 +271,6 @@ if (searchInput) {
             // You can now get all the data and send it to your server using fetch()
             // This is where you would put your PHP script logic
             console.log("Form submitted!");
-            alert("Data submitted! (Check the console for the form data). You would replace this with a fetch call to your PHP script.");
 
             const formData = new FormData(calorieForm);
 
@@ -295,7 +294,7 @@ if (searchInput) {
                 submitBtn.textContent = "Submitting...";
             }
 
-            fetch('manual_input.php', {  
+            fetch('../interfaces/manual_input.php', {  
                 method: 'POST',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest' 

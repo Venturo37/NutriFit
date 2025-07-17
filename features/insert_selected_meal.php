@@ -46,11 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // 1. Get calories from meals
     $consume_query = "
-        SELECT SUM(m.meal_carbohydrates * 4 + m.meal_protein * 4 + m.meal_fats * 9) AS total_consumed
+        SELECT SUM(m.meal_carbohydrates * 3 + m.meal_protein * 4 + m.meal_fats * 9) AS total_consumed
         FROM user_meal_intake_t umi
         JOIN meal_t m ON umi.meal_id = m.meal_id
         WHERE umi.usr_id = ?
+        AND DATE(umi.mlog_timestamp) = CURDATE() 
     ";
+    // ADDED AND DATE(umi.mlog_timestamp) = CURDATE() !!!
     $consume_stmt = $connection->prepare($consume_query);
     $consume_stmt->bind_param("i", $usr_id);
     $consume_stmt->execute();
@@ -62,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // 2. Get manual inputs
     $manual_query = "
-        SELECT SUM(meal_carbohydrates * 4 + meal_protein * 4 + meal_fats * 9) AS manual_total
+        SELECT SUM(meal_carbohydrates * 3 + meal_protein * 4 + meal_fats * 9) AS manual_total
         FROM manual_input_t
         WHERE usr_id = ?
     ";

@@ -7,6 +7,7 @@ DESCRIPTION OF PROGRAM :
 FIRST WRITTEN : June 9th, 2025  
 LAST MODIFIED : July 10th, 2025  
 */
+ob_start();
 include('../features/connection.php');
 
 $connection->query("SET time_zone = '+08:00'");
@@ -39,19 +40,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_SERVER['HTTP_X_REQUESTED_WI
         if (!$manual_id) {
                 echo json_encode([
                     "success" => false,
-                    "message" => "Failed to get manual_id after insert: " . $connection->error
+                    "message" => "Failed to get manual_id after insert: " . $stmt2->error
                 ]);
                 exit();
             }
 
         // Insert into user_meal_intake_t with only manual_id and timestamp
-        $insert_intake = "INSERT INTO user_meal_intake_t (manual_id, mlog_timestamp)
-            VALUES (?, NOW())";
+        $insert_intake = "INSERT INTO user_meal_intake_t (manual_id, mlog_timestamp) VALUES (?, NOW())";
         $stmt2 = $connection->prepare($insert_intake);
         $stmt2->bind_param("i", $manual_id);
 
         if ($stmt2->execute()) {
-            echo json_encode(["success" => true, "message" => "Meal recorded successfully."]);
+            echo json_encode(["success" => true, "message" => "Meal recorded successfully. $manual_id"]);
         } else {
             echo json_encode(["success" => false, "message" => "Failed to insert into user_meal_intake_t."]);
         }

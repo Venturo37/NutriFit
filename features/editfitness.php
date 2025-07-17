@@ -181,7 +181,6 @@ $cat_result = $connection->query("SELECT cate_id, cate_name FROM category_t ORDE
   <meta charset="UTF-8" />
   <title>Editing: <?= htmlspecialchars($row['work_name']) ?></title>
   <link rel="stylesheet" href="../styles/editfitness.css" />
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
 </head>
 <body>
 <?php include("header.php") ?>

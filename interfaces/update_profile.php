@@ -15,7 +15,6 @@
 
     include('../features/restriction.php');
 
-    // $message_status_code = null;
     $response = ['success' => false, 'message' => ''];
 
     // Start output buffering to catch accidental output
@@ -31,7 +30,6 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profile'])) {
         header('Content-Type: application/json');
         
-        // $selected_pic_id = $_POST['selected_pic_id'] ?? null;
         $selected_pic_id = isset($_POST['selected_pic_id']) ? intval($_POST['selected_pic_id']) : null;
 
         $new_username = trim($_POST['new_username'] ?? '');

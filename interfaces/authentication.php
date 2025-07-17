@@ -14,12 +14,6 @@ LAST MODIFIED : July 9th, 2025
 <?php
 // UPDATE THIS TO UR DIRECTORY
 $base_url = "http://localhost/Nutrifit/interfaces/authentication.php";
-// $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
-// $host = $_SERVER['HTTP_HOST'];
-// $script_name = dirname($_SERVER['SCRIPT_NAME']);
-// $base_url = $protocol . $host . $script_name;
-
-// echo $base_url . "/interfaces/authentication.php";
 
 
 include('../features/connection.php');
@@ -113,7 +107,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
         }
     }
 
-    // CHANGES, YOU CAN CHANGE THE LOCATION TO WHATEVER
     if ($action == 'login') {
         $email = $_POST['login_email_input'];
         $password = $_POST['login_password_input'];
@@ -159,9 +152,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
         $token = bin2hex(random_bytes(16));
         $token_hash = hash("sha256", $token);
         $expiry = date("Y-m-d H:i:s", time() + 60 * 30);
-        // $expiry = date("Y-m-d H:i:s", time() + 30);
 
-        // CHANGES
         $mysqli = require __DIR__ . '/../features/connection.php';
 
         $get_user_sql = "SELECT usr_id FROM user_t WHERE usr_email = ?";
@@ -499,17 +490,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
     mediaQueryWidth.addEventListener("change", handleResponsiveImage);
     mediaQueryHeight.addEventListener("change", handleResponsiveImage);
 
-    <?php 
-    // if ($showResetForm): 
-    ?>
-        // showForm('reset');
-    <?php 
-// else: 
-?>
-        // showForm('login');
-    <?php 
-    // endif; 
-    ?>
+
 </script>
 
 <script>
@@ -531,7 +512,6 @@ document.getElementById("signup_form").addEventListener("submit", function(event
     } else if (password.length < 6) {
         errorMessage = "Password should be at least 6 characters.";
     } else {
-        // CHANGE HERE
         // Check if the date is in the future
         const selectedDate = new Date(date);
         const today = new Date();
@@ -557,16 +537,7 @@ document.getElementById("reset_form").addEventListener("submit", function(event)
     }
 });
 
-// window.addEventListener('DOMContentLoaded', () => {
-//   const hash = window.location.hash.substring(1); // remove #
-//   const validForms = ['login', 'verify', 'reset', 'signup'];
 
-//   if (validForms.includes(hash)) {
-//     showForm(hash);
-//   } else {
-//     showForm('login'); // fallback
-//   }
-// });
 
 window.addEventListener('DOMContentLoaded', () => {
     <?php if ($showResetForm): ?>
@@ -577,7 +548,7 @@ window.addEventListener('DOMContentLoaded', () => {
         if (validForms.includes(hash)) {
             showForm(hash);
         } else {
-            showForm('login'); // fallback
+            showForm('login'); 
         }
     <?php endif; ?>
 });

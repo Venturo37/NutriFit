@@ -278,17 +278,7 @@ $ageFactor = ($age < 40) ? 1.0 : (($age >= 40 && $age < 50) ? 0.97 : (($age >= 5
     searchInput.addEventListener('input', filterCards);
     categoryFilter.addEventListener('change', filterCards);
 
-    // const toggleBtn = document.getElementById("menuToggle");
-    // const sideMenu = document.getElementById("sideMenu");
-    // const closeBtn = document.getElementById("closeMenu");
 
-    // toggleBtn.addEventListener("click", () => {
-    //   sideMenu.classList.toggle("active");
-    // });
-
-    // closeBtn.addEventListener("click", () => {
-    //   sideMenu.classList.remove("active");
-    // });
 
 
   document.querySelectorAll('.fitness-cards .card').forEach(card => {

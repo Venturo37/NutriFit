@@ -105,10 +105,7 @@ $burn_result = $burn_stmt->get_result();
 
 $used_actual_burn = false;
 
-// if ($burn_result && $row = $burn_result->fetch_assoc() && !empty($row['session_calorie_burned'])) {
-//     $burned = (int)$row['session_calorie_burned'];
-//     $used_actual_burn = true;
-// }
+
 
 $row = ($burn_result) ? $burn_result->fetch_assoc() : false;
 if ($row && !empty($row['session_calorie_burned'])) {
@@ -195,7 +192,7 @@ if (!empty($user['pic_id'])) {
     
 
 
-    <title>Nutrifit - Diet</title>
+    <title>Diet Page</title>
 </head>
 <body>
     <?php include ('../features/header.php'); ?>
@@ -352,6 +349,5 @@ if (!empty($user['pic_id'])) {
         refreshCalorieStats();
     });
 </script>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
 </body>
 </html>

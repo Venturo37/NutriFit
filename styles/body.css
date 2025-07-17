@@ -17,7 +17,6 @@ Last Modified: 20/6/2025
   margin: 0;
   box-sizing: border-box;
 }
-/* DECLARES BACKGROUND COLOR */
 body {
     background-color: #FAFBF5;
     display: flex;
@@ -28,7 +27,6 @@ body {
   overflow: hidden;
 }
 
-/* CONTENT */
 #content {
   flex-grow: 1;
 }

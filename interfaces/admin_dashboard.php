@@ -43,7 +43,6 @@ function getProfilePic ($connection, $pic_id) {
         FROM profile_picture_t 
         WHERE pic_id = ?"
     );
-    // $profile_statement->bind_param("i", $user['pic_id']);
     $profile_statement->bind_param("i", $pic_id);
     $profile_statement->execute();
     $profile_blob = null;
@@ -240,16 +239,10 @@ $profile_src = getProfilePic ($connection, $user['pic_id']);
                                 $fitnessColors = ['#4A3AFF', '#C6D2FD', '#E0C6FD', '#962DFF'];
                                 $total_fitness = array_sum(array_column($fitness_data, 'count'));
                                 foreach ($fitness_data as $index => $item) {
-                                    // $percentage = $total_fitness ? round(($item['count'] / $total_fitness) * 100) : 0;
                                     $color = $fitnessColors[$index % count($fitnessColors)];
                             ?>
                                 <div class="statistic_item">
                                     <div class="statistic_sub_item">
-                                        <!-- <div class="statistic_percentage">
-                                            <?php 
-                                                // echo $percentage 
-                                            ?>%
-                                        </div> -->
                                         <div class="statistic_dot" style="background-color: <?php echo $color ?>;"></div>
                                         <div class="statistic_name">
                                             <?php echo htmlspecialchars($item['work_name']) ?>
@@ -285,16 +278,10 @@ $profile_src = getProfilePic ($connection, $user['pic_id']);
                                 $mealColors = ['#4A3AFF', '#C6D2FD', '#E0C6FD', '#962DFF'];
                                 $total_meal = array_sum(array_column($meal_data, 'count'));
                                 foreach ($meal_data as $index => $item) {
-                                    // $percentage = $total_meal ? round(($item['count'] / $total_meal) * 100) : 0;
                                     $color = $mealColors[$index % count($mealColors)];
                             ?>
                                 <div class="statistic_item">
                                     <div class="statistic_sub_item">
-                                        <!-- <div class="statistic_percentage">
-                                            <?php 
-                                            echo $percentage 
-                                            ?>%
-                                        </div> -->
                                         <div class="statistic_dot" style="background-color: <?php echo $color ?>;"></div>
                                         <div class="statistic_name">
                                             <?php echo htmlspecialchars($item['meal_name']) ?>

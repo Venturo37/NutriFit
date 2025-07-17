@@ -12,12 +12,10 @@
 
     $header_class = 'header_transparent';
 
-    // if ($current_page === 'fitness_page' || $current_page === "fitness_session" || $current_page === "fitness_result") {
     if (in_array($current_page, ['fitness_page', 'fitness_session', 'fitness_result', 'about_us'])) {
         $header_class = 'header_red';
     } elseif (in_array($current_page, ['diet_page_name', 'selected_meal'])) {
         $header_class = 'header_green';
-    // } elseif ($current_page === 'user_acc_page_name' || (isset($_SESSION['account_type']) && $_SESSION['account_type'] === 'admin')) {
     } else {
         $header_class = 'header_transparent';
     } 

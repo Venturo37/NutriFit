@@ -825,6 +825,10 @@ LAST MODIFIED: 06-07-2025*/
   box-shadow: none;
 }
 
+.section.workout-info .description {
+  height: 280px;
+}
+
 .workout-info h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
@@ -871,7 +875,6 @@ LAST MODIFIED: 06-07-2025*/
 }
 
 .description {
-  /* background-color: white; */
 
   overflow-y: auto;
   overflow-x: hidden;

@@ -6,7 +6,6 @@
 // FIRST WRITTEN: 2/6/2025
 // LAST MODIFIED: 9/7/2025 
 
-// session_start();
 include('../features/connection.php');
 
 include('../features/restriction.php');
@@ -42,6 +41,17 @@ $query = "
 ";
 $result = mysqli_query($connection, $query);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness History</title>
+</head>
+<body>
+    
+
 
 <div class="record_header">
     <h3><i class="fas fa-circle-arrow-left" onclick="window.location.href='user_profile.php'"></i> Fitness Activity History</h3>
@@ -98,3 +108,5 @@ $result = mysqli_query($connection, $query);
 </script>
 
 <?php include('../features/footer.php'); ?>
+</body>
+</html>

@@ -18,7 +18,7 @@ $acting_adm_id = $_SESSION['adm_id'];
 $max_file_size = 5 * 1024 * 1024; // 5 MB in bytes
 
 // Define allowed MIME types for JPEG and PNG
-$allowed_image_types = ['image/jpeg', 'image/jpg', 'image/png']; // Added 'image/png'
+$allowed_image_types = ['image/jpeg', 'image/jpg', 'image/png']; 
 
 // Variable to hold error messages for display
 $errorMessage = '';

@@ -37,7 +37,6 @@ LAST MODIFIED: 9/7/2025
 /* We don't need extra styles on the icon itself anymore */
 .back-arrow {
   font-size: 1em; /* Adjusted to fit nicely inside the circle */
-  /* margin-right is no longer needed because of the 'gap' on .header-bar */
 }
 
 .header-title {
@@ -93,7 +92,7 @@ main {
 }
 
 /*ACTION BUTTONS (BELOW GREEN CONTAINER)*/
-.category-actions { /* This class is used in the image you provided, not category-actions-centered, so aligning to that */
+.category-actions { 
   display: flex;
   gap: 20px;
   justify-content: center;
@@ -149,8 +148,7 @@ main {
 
 /* --- MODAL OVERLAY (COMMON) --- */
 .modal-overlay {
-  /* This display: flex is here, but should probably be 'none' by default and managed by JS */
-  display: none; /* Changed from 'flex' to 'none' */
+  display: none; 
   position: fixed;
   top: 0;
   left: 0;
@@ -377,8 +375,6 @@ main {
     }
 
     .save-btn {
-        /* No specific width or margin needed here if its parent centers it */
-        /* If you want to limit its max width even when centered, you can add: */
         max-width: 240px; /* Example: limit button width on small screens */
         width: 100%; /* Allow it to fill the max-width */
     }

@@ -41,8 +41,6 @@ LAST MODIFIED : July 10th, 2025
 .dp_section_3{
   display: flex;
   flex-wrap: wrap;
-  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-columns: repeat(3, 1fr); */
   justify-content: center;
   min-height: 35vh; /* Adjust as needed (60% of viewport height) */
   height: auto;
@@ -674,7 +672,7 @@ Open Styles(In JS)
     }
 
     .fitness_button {
-        display: none; /* Keeping this as 'display: none' as per your previous code */
+        display: none; 
     }
 
     /* --- DP_SECTION_2 (Middle Section - Profile, Status, Chunks, Calories) --- */

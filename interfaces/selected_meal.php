@@ -50,6 +50,7 @@ LAST MODIFIED : July 11th, 2025
     ?>
     <title>NutriFit - Meal</title>
 <link rel="stylesheet" href="../styles/nutrition.css">
+
 </head>
 <body>
     <?php include ('../features/header.php'); ?>

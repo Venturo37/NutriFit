@@ -126,7 +126,6 @@ if (isset($_GET['message']) && isset($_GET['type'])) {
     <meta charset="UTF-8">
     <title>Managing: Meal Time</title>
     <link rel="stylesheet" href="../styles/mealcategory2.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
     <script>
         let selectedMeal = { id: null, name: null };
 

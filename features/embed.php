@@ -43,4 +43,4 @@ Last Modified: 8/7/2025
 <script src="../javascript/admin_dashboard.js" defer></script>
 <script src="../javascript/authentication.js" ></script>
 <script src="../javascript/feedback.js" ></script>
-<script src="../javascript/nutrition.js" defer></script>
+<script src="../javascript/nutrition.js"></script>

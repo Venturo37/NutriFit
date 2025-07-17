@@ -34,8 +34,8 @@ include('../features/restriction.php');
     <div class="record_table_wrapper admin_user_management" id="admin_table_container"></div>
     <div class="record_table_wrapper admin_user_management" id="user_table_container"></div>
 <script>
-/* const logged_in_adm_id = <?php echo json_encode($logged_in_adm_id); ?>; */
-const logged_in_adm_id = 1; //TESTING
+
+
 </script>
 </div>
 <?php include('../features/footer.php'); ?>

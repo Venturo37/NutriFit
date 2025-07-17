@@ -58,7 +58,6 @@ function showForm(formType) {
 function handleResponsiveImage() {
     const formType = window.currentFormType;
     const imageToShow = document.querySelector(`.image-${formType}`);
-    // CHANGES
     const isShortScreen = window.matchMedia("(max-height: 800px)").matches;
     const isNarrowScreen = window.matchMedia("(max-width: 1200px)").matches;
 

@@ -18,8 +18,8 @@
 // =================== EDITABLE CONFIG ===================
 $newSMTP = "smtp.gmail.com";
 $newPort = "587";
-$newEmail = "ivanshak2005@gmail.com"; // I RECOMMEND USE YOUR OWN EMAIL FOR NOW
-$newPassword = "zyauvujkdvvyejlf"; // INSERT YOUR OWN APP PASSWORD LIKE IN JOGET
+$newEmail = "ivanshak2005@gmail.com";
+$newPassword = "zyauvujkdvvyejlf";
 $newSSL = "tls";
 
 // =================== PATHS ===================

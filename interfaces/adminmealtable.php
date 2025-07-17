@@ -21,7 +21,7 @@ include('../features/embed.php')
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NutriFit - Diet Content Management</title>
+  <title>Diet Content Management</title>
   <link rel="stylesheet" href="../styles/style3.css" />
 </head>
 <body>
@@ -32,7 +32,6 @@ include ("../features/header.php")
   <main>
     <h2>Diet Content Management</h2>
     <div class="actions">
-      <!-- <input type="text" placeholder="Search" class="search-box"/> -->
       <div class="actions-right">
         <a href="../features/mealcategory.php" class="btn manage">MANAGE Meal Time</a>
         <a href="../features/addmeal_form.php" class="btn add">ADD New Meals</a>

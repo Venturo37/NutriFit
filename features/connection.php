@@ -8,7 +8,7 @@
 
 // First Written: 1/6/2025
 // Last Modified: 8/7/2025
-    ob_start();
+    // ob_start();
 
     $server = '127.0.0.1'; 
     $user = 'root';
@@ -19,8 +19,6 @@
     if (!$connection) {
         die("Connection failed: " . mysqli_connect_error());
     } 
-
-    // $connection->report_mode = MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT;
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();

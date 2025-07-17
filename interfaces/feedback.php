@@ -13,7 +13,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// CHANGES
 
 include(__DIR__ . '/../features/connection.php');
 
@@ -38,7 +37,7 @@ if (!$result) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Feedback</title>
 </head>
 <body>
     <div class="overlay"></div>

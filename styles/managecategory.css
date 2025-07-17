@@ -40,7 +40,6 @@ LAST MODIFIED: 9/7/2025
 /* We don't need extra styles on the icon itself anymore */
 .back-arrow {
     font-size: 1em; /* Adjusted to fit nicely inside the circle */
-    /* margin-right is no longer needed because of the 'gap' on .header-bar */
 }
 
 .header-title {
@@ -202,7 +201,6 @@ main {
     align-items: center;
     /* Default box-shadow; specific modals can override */
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    /* Removed general size and border-top from here; they are now specific to #renameModal .modal-content */
 }
 
 /* Common modal close button style */
@@ -266,7 +264,6 @@ main {
     width: 550px; /* Matched mealcategory2.css width */
     max-width: 90vw;
     border-top: 8px solid #3a5108; /* Specific green top border, from mealcategory2.css */
-    /* min-height removed to allow content to dictate height, consistent with mealcategory2.css */
 }
 
 #renameModal form {

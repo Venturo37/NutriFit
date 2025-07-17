@@ -48,6 +48,15 @@ $totalRows = mysqli_fetch_assoc($countResult)['total'];
 $totalPages = ceil($totalRows / $limit);
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Intake History</title>
+</head>
+<body>
+
 <div class="record_header">
     <h3><i class="fas fa-circle-arrow-left" onclick="window.location.href='user_profile.php'"></i> Nutrition Intake History</h3>
 </div>
@@ -105,3 +114,6 @@ $totalPages = ceil($totalRows / $limit);
 </script>
 
 <?php include('../features/footer.php'); ?>
+    
+</body>
+</html>

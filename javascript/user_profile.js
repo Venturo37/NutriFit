@@ -68,7 +68,7 @@ function renderWeightChart(labels, weights, yAxisMax) {
     });
 }
 
-function renderKcalChart (labels, kcal_burned, yAxisMax) {
+function renderKcalChart (labels, kcal_burned, yAxisMax, step_size) {
     const ctx = document.getElementById('kcalChart').getContext('2d');
 
     if (kcalChart) {
@@ -96,7 +96,7 @@ function renderKcalChart (labels, kcal_burned, yAxisMax) {
                     beginAtZero: true,
                     max: yAxisMax, // Set max y-axis value
                     ticks: {
-                        stepSize: 100 // Set step size for y-axis ticks
+                        stepSize: step_size // Set step size for y-axis ticks
                     }
                 }, // Apply the Y-axis options, including the dynamic max
                 x: {
@@ -286,7 +286,16 @@ async function fetchKcalData (year, month) {
 
         let y_axis_max = Math.ceil((max_kcal + 100) / 100) * 100;
 
-        renderKcalChart(data.labels, data.kcal_burned, y_axis_max);
+        let step_size = 100;
+        if (max_kcal <= 50) {
+        step_size = 10;
+        } else if (max_kcal <= 200) {
+        step_size = 20;
+        } else if (max_kcal <= 500) {
+        step_size = 50;
+        }
+
+        renderKcalChart(data.labels, data.kcal_burned, y_axis_max, step_size);
         
     } catch (error) {
         console.error('Error fetching kcal data:', error);
